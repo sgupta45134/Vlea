@@ -1,0 +1,24 @@
+
+.pbanimnum-item {
+	text-align: center;
+	padding: 1rem;
+	background-color: rgba($accent2, .3);
+}
+
+.pbanimnum-icon,
+.pbanimnum-number {
+	line-height: 1;
+}
+
+.pbanimnum-icon {
+	margin-bottom: .7rem;
+}
+
+.pbanimnum-title {
+	margin: .7rem 0 0 0;
+}
+
+.pbanimnum-subtitle {
+	display: inline-block;
+	margin-top: .7rem;
+}

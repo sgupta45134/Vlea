@@ -1,0 +1,203 @@
+
+
+body {
+	background-repeat: $pbgrepeat;
+	background-position: $pbgpos;
+	background-size: $pbgsize;
+	background-attachment: $pbgattach;
+}
+
+
+#page-outer {
+	background-color: $pbgcolor;
+	background-attachment: $pbgattach;
+	min-height: 100%;
+}
+
+
+/* Images */
+
+img {
+	max-width: 100%;
+	min-width: 12px;
+	height: auto;
+
+	&.iconlarge,
+	&.activityicon {
+		max-width: none;
+		min-width: 0;
+	}
+
+	&.activityicon {
+		width: 1.18rem;
+		height: 1.18rem;
+	}
+
+	&.rounded-circle {
+	    max-width: none;
+	}
+}
+
+
+
+
+
+/* Main content */
+#main-content {
+	padding: 40px 0;
+
+	.pagelayout-frontpage & {
+		padding-bottom: 0;
+	}
+
+
+	.pagelayout-frontpage.fpempty & {
+		padding: 0;
+
+		.content-col,
+		.sidebar-col {
+			min-height: 0;
+		}
+
+		#maincontent {
+			height: auto;
+		}
+
+		.generalbox {
+            padding: 0 !important;
+
+            p {
+                margin: 0;
+            }
+        }
+
+		#page-content  {
+			br {
+				display: none;
+			}
+
+			.alert {
+				margin-top: 40px;
+			}
+
+		}
+	}
+}
+
+
+.content-bottom {
+	padding-top: 30px;
+}
+
+
+/* Page builder sections and rows */
+
+.mb2-pb-fpsection,
+.mb2-pb-fprow {
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+}
+
+.mb2-pb-fprow-header {
+	text-align: center;
+	padding: 2rem 0;
+
+	h2 {
+		margin: 0;
+	}
+}
+
+
+/* Page predefined background */
+
+.pre-bgstrip1 {
+
+	#page-outer,
+	> .section-inner {
+		background-image: url([[pix:theme|svg/strip1_white8]]);
+	}
+}
+
+
+.pre-bgstrip2 {
+
+	#page-outer,
+	> .section-inner {
+		background-image: url([[pix:theme|svg/strip1_black8]]);
+	}
+}
+
+
+
+
+/* After content block style */
+#after-slider {
+	@include mb2_bgimage($asbgrepeat, $asbgpos, $asbgsize, $asbgattach );
+}
+
+#after-slider > div {
+	@include mb2_bgcolor($asbgcolor);
+}
+
+
+
+
+/* Before content block style */
+#before-content {
+	@include mb2_bgimage($bcbgrepeat, $bcbgpos, $bcbgsize, $bcbgattach );
+}
+
+#before-content > div {
+	@include mb2_bgcolor($bcbgcolor);
+}
+
+
+
+/* After content block style */
+#after-content {
+	@include mb2_bgimage($acbgrepeat, $acbgpos, $acbgsize, $acbgattach );
+}
+
+#after-content > div {
+	@include mb2_bgcolor($acbgcolor);
+}
+
+
+
+
+
+/* Hidden class */
+
+
+@media (max-width: 767px) {
+	.hidden-sm-down {
+		display: none!important;
+
+	}
+}
+
+@media (min-width: 544px) {
+	.hidden-sm-up {
+		display: none!important;
+	}
+}
+
+@media (max-width: 543px) {
+	.hidden-xs-down {
+		display: none!important;
+	}
+}
+
+
+@media (min-width: $tablet_width) {
+	.hidden-md-up {
+		display: none!important;
+	}
+}
+
+
+
+.text-xs-center {
+	text-align: center;
+}

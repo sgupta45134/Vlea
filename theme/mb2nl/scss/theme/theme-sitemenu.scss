@@ -1,0 +1,75 @@
+
+
+#site-menu {
+	background-color: $color_gray3;
+}
+
+
+.site-menu-list {
+
+	@include clearfix();
+	margin: 0 -3px;
+	padding: 0;
+	white-space: nowrap;
+	overflow-x: auto;
+
+	li {
+		display: inline-block;
+		font-size: $fssmall;
+		line-height: $fssmall_lh;
+		background-color: $accent1;
+		@include mb2_border_radius(.15rem);
+		margin: 6px 3px;
+		text-align: center;
+
+		a {
+			display: block;
+			color: #fff;
+
+			i {
+				font-size: .95rem;
+				padding-top: .25rem;
+			}
+
+			.text {
+				display: block;
+				line-height: 1;
+				margin-top: -.2rem;
+				padding: .3rem .5rem;
+				background-color: rgba(0,0,0,.1);
+				@include mb2_border_radius(0 0 .15rem .15rem);
+			}
+		}
+
+		&.item-courses,
+		&.item-editcourse,
+		&.item-editcategory	 {
+			background-color: $color_info;
+		}
+
+		&.item-calendar,
+		&.item-addcourse,
+		&.item-addcategory,
+		&.item-turneditingcourse,
+		&.item-editfrontpage {
+			background-color: $color_success;
+		}
+
+		&.item-badges,
+		&.item-buildfrontpage {
+			background-color: $color_warning;
+		}
+
+	}
+
+
+	.editing & {
+		li {
+			&.item-editfrontpage,
+			&.item-turneditingcourse {
+				background-color: $color_danger;
+			}
+		}
+	}
+
+}

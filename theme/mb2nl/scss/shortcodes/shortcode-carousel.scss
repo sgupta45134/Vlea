@@ -1,0 +1,174 @@
+
+
+.theme-slide-title {
+	margin: 0 0 7px 0;
+}
+
+.theme-slider-readmore {
+	margin-top: 10px;
+}
+
+
+
+/* Slider mode */
+
+.slider-mode {
+
+	.theme-slide-content1 {
+		position: absolute;
+		top:0;
+		right:0;
+		bottom: -1px;
+		left: 0;
+	}
+
+	.theme-slide-content2 {
+		display: table;
+		height: 100%;
+		width: 100%;
+	}
+
+	.theme-slide-content3 {
+		display: table-cell;
+		vertical-align: bottom;
+	}
+
+	.theme-slide-content4 {
+		padding: 15px 15px 8px 15px;
+		background-color: rgba($accent2, .7);
+		background-image: url([[pix:theme|svg/strip1_white8]]);
+	}
+
+	.theme-slider-desc {
+		color: #fff;
+		margin-bottom: 7px;
+	}
+
+	.theme-slide-title {
+		color: #fff;
+
+		a {
+			color: #fff;
+			&:hover,
+			&:focus {
+				color: #fff;
+			}
+		}
+	}
+}
+
+
+
+
+.carousel-mode {
+	.theme-slider-img {
+		margin-bottom: 10px;
+	}
+
+
+
+
+	/* Nlearning pre style */
+
+	&.nlearning {
+
+		.theme-slider-item-inner {
+			position: relative;
+			overflow: hidden;
+			text-align: center;
+		}
+
+
+		.theme-slide-title {
+
+			color: #fff;
+			margin-bottom: 25px;
+			position: relative;
+
+	      	a {
+				color: #fff;
+				&:hover,
+				&:focus {
+					color: #fff;
+				}
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: -10px;
+				left: 50%;
+				margin-left: -30px;
+				width: 60px;
+				height: 1px;
+				border-bottom: solid 1px #fff;
+				@include mb2_transition1(all, .25s);
+			}
+		}
+
+
+		.theme-slider-img {
+			margin: 0;
+
+			img {
+				@include mb2_transition1(all, .25s);
+			}
+		}
+
+		.theme-slider-item:hover {
+			.theme-slider-img {
+				img {
+					@include mb2_trabsform_scale(1.15);
+				}
+			}
+
+			.theme-slide-title {
+				&:after {
+					width: 100%;
+					left: 0;
+					margin-left: 0;
+				}
+			}
+		}
+
+
+		.theme-slider-item-details {
+			color: #fff;
+
+		}
+
+
+		.theme-slider-readmore {
+			display: none;
+		}
+
+
+		.theme-slide-content1 {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: rgba($accent1,.6);
+		}
+
+		.theme-slide-content2 {
+			display: table;
+			width: 100%;
+			height: 100%;
+		}
+
+
+		.theme-slide-content3 {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		.theme-slide-content4 {
+			position: relative;
+			z-index: 1;
+			padding: 0 10px;
+		}
+	}
+}

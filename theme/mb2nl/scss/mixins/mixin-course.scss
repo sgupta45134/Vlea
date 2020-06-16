@@ -1,0 +1,35 @@
+
+@mixin mb2_course_section()
+{
+
+    margin: 1rem 0;
+    padding: .4rem 1rem;
+    background-color: lighten($color_gray3, 3%);
+    font-size: $fsheading4;
+    border-left: solid 2px $accent1;
+    @include mb2_transition1(background-color, .15s);
+    @include mb2_border_radius(.15rem);
+
+    a,
+    > h3 a {
+        color: $headingscolor !important;
+    }
+
+    &:hover {
+        background-color: $color_gray3;
+    }
+
+}
+
+
+
+
+@mixin mb2_course_section_main()
+{
+
+    background-image: url([[pix:theme|svg/strip2_black8]]);
+    border: solid 1px $color_box_border;
+    border-bottom-width: 2px;
+    border-bottom-color: $accent1;
+
+}

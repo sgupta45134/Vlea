@@ -1,0 +1,427 @@
+
+#block-region-content,
+.style-default {
+
+	.block,
+	.block.card {
+		@include mb2_border_radius(.15rem);
+		border: solid 1px $color_box_border;
+		background-color: $color_box_bg;
+		margin: 0 0 1.3rem 0 !important;
+
+		> .header,
+		.card-title {
+			min-height: 40px;
+			margin-bottom: 0;
+		}
+	}
+
+
+
+}
+
+
+
+.block,
+.block.card {
+
+	&.invisible {
+		visibility: visible;
+	}
+
+	#block-region-slider & {
+		margin-bottom: 0!important;
+	}
+}
+
+
+.block {
+
+	> .header,
+	.card-title {
+		position: relative;
+		margin-bottom: 1.2rem;
+		display: block !important;
+	}
+
+	.banner-top &,
+	.banner-bottom & {
+		margin-bottom: 0 !important;
+	}
+
+}
+
+#block-region-content,
+.style-default {
+
+
+	.block {
+
+		> .header,
+		.card-title {
+			background-color: $color_block_heading_bg;
+			@include mb2_border_radius(3px 3px 0 0);
+			padding: 10px;
+			padding-left: 45px;
+			display: block !important;
+			border-bottom: solid 1px $color_box_border;
+			background-image: url([[pix:theme|svg/strip2_black8]]);
+			margin-bottom: 0;
+
+
+			&:before {
+				@include mb2_font_fa();
+				content: '\f08d';
+				display: block;
+				width: 30px;
+				height: 30px;
+				position: absolute;
+				left: 6px;
+				top: 50%;
+				margin-top: -15px;
+				line-height: 32px;
+				text-align: center;
+				background-color: $accent1;
+				color: #fff;
+				font-size: 14px;
+				@include mb2_border_radius(.15rem);
+			}
+
+		}
+
+
+		&.invisibleblock {
+
+			opacity: .45;
+
+			.card-title {
+				color: $headingscolor;
+			}
+		}
+
+
+	}
+
+
+}
+
+
+@mixin mb2_block_color_variant($color, $icon)
+{
+	.card-title,
+	> .header {
+		&:before {
+			background-color: $color;
+			content: $icon;
+		}
+	}
+}
+
+
+
+#block-region-content,
+.style-default {
+
+	[class^="block_settings"],
+	[class*=" block_settings"] {
+
+		@include mb2_block_color_variant($color_warning, '\f085');
+
+	}
+
+	[class^="block_rss"],
+	[class*=" block_rss"] {
+
+		@include mb2_block_color_variant($color_warning, '\f09e');
+
+	}
+
+
+
+
+	[class^="block_news"],
+	[class*=" block_news"] {
+
+		@include mb2_block_color_variant($color_info, '\f0a1');
+
+	}
+
+
+	[class^="block_comments"],
+	[class*=" block_comments"] {
+
+		@include mb2_block_color_variant($color_info, '\f086');
+
+	}
+
+
+
+	.block_messages {
+
+		@include mb2_block_color_variant($color_success, '\f0e0');
+
+	}
+
+
+	.block_recentlyaccessedcourses {
+		@include mb2_block_color_variant($color_info, '\f02d');
+	}
+
+	.block_myoverview {
+		@include mb2_block_color_variant($color_warning, '\f02d');
+	}
+
+
+
+
+	[class^="block_calendar"],
+	[class*=" block_calendar"] {
+
+		@include mb2_block_color_variant($color_success, '\f073');
+
+	}
+
+
+
+	[class^="block_course"],
+	[class*=" block_course"] {
+
+		@include mb2_block_color_variant($color_info, '\f19d');
+
+	}
+
+	[class^="block_navigation"],
+	[class*=" block_navigation"] {
+
+		@include mb2_block_color_variant($color_info, '\F0E8');
+
+	}
+
+
+
+	.block_tags {
+
+		@include mb2_block_color_variant($accent1, '\f02c');
+
+	}
+
+
+
+	.block_book_toc {
+		@include mb2_block_color_variant($accent1, '\F0C9');
+	}
+
+
+
+
+	.block_online_users {
+
+		@include mb2_block_color_variant($color_info, '\f2c0');
+
+	}
+
+
+	.block_private_files {
+
+		@include mb2_block_color_variant($accent1, '\f0c5');
+
+	}
+
+
+
+	.block_globalsearch {
+
+		@include mb2_block_color_variant($accent1, '\f002');
+	}
+
+
+	.block_badges {
+
+		@include mb2_block_color_variant($accent1, '\f091');
+
+	}
+
+
+	.block_html {
+
+		@include mb2_block_color_variant($accent1, '\f121');
+
+	}
+
+
+	.block_adminblock {
+
+		@include mb2_block_color_variant($color_success, '\f055');
+
+	}
+
+
+
+}
+
+
+.block.hidden {
+
+	> .header {
+		@include mb2_border_radius(.15rem);
+		border-bottom: 0;
+	}
+
+	.content {
+		display: none;
+	}
+
+}
+
+
+
+.block {
+
+	&.invisible {
+		.header {
+			h2 {
+				color: $textcolor_lighten;
+			}
+		}
+	}
+
+	.header {
+
+		h2 {
+			font-size: $fsbig;
+			margin: 0;
+		}
+
+	}
+
+
+	.block_action {
+		float: right;
+		margin-top: -4px;
+
+		.block-hider-show {
+			display: none;
+		}
+
+		img,
+		input {
+			width: 12px;
+			height: 12px;
+		}
+	}
+
+
+	&.hidden {
+		.block_action {
+
+			.block-hider-show {
+				display: inline-block;
+			}
+
+			.block-hider-hide {
+				display: none;
+			}
+		}
+	}
+
+}
+
+
+
+
+.block {
+
+	.content {
+		margin: 0 !important;
+	}
+
+	.block-controls {
+		float: none !important;
+	}
+
+}
+
+
+.style-default,
+#block-region-content {
+
+	.block {
+
+		.content,
+		> .card-body > .card-text {
+			padding: 20px 15px;
+			margin-top: 0 !important;
+
+			.content {
+				padding: 0;
+			}
+		}
+
+	}
+
+}
+
+
+
+
+
+/* Block 'style-none' */
+
+.style-none {
+
+	.block_action {
+		display: none;
+	}
+}
+
+
+
+.dark1 {
+
+	.region-name {
+		background-color: rgba(255,255,255,.2);
+	}
+
+}
+
+
+
+/* no-title block style */
+
+.notitle .block {
+
+	.card-title,
+	> .header {
+		display: none !important;
+	}
+
+	.editing & {
+		.card-title,
+		> .header {
+			display: block !important;
+		}
+	}
+}
+
+
+
+
+/* Block bottom style */
+
+.style-bottom.block-region {
+	.block {
+		> .header {
+			h2 {
+				font-size: $fsheading4;
+			}
+		}
+	}
+}
+
+/* Search in block settings */
+
+
+#adminsearchquery {
+	width: 100%;
+	min-width: 0;
+}

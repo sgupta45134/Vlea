@@ -1,0 +1,16 @@
+O:8:"stdClass":9:{s:7:"modinfo";a:1:{i:512;O:8:"stdClass":11:{s:2:"id";s:2:"85";s:2:"cm";s:3:"512";s:3:"mod";s:5:"forum";s:7:"section";s:1:"0";s:9:"sectionid";s:3:"789";s:6:"module";s:1:"9";s:5:"added";s:10:"1592127426";s:7:"visible";s:1:"1";s:19:"visibleoncoursepage";i:1;s:10:"visibleold";s:1:"1";s:4:"name";s:13:"Announcements";}}s:12:"sectioncache";a:4:{i:0;O:8:"stdClass":3:{s:2:"id";s:3:"789";s:4:"name";N;s:12:"availability";N;}i:1;O:8:"stdClass":4:{s:2:"id";s:3:"790";s:4:"name";s:5:"Topic";s:7:"summary";s:27:"<p>GRAMMAR - TENSES<br></p>";s:12:"availability";s:28:"{"op":"&","c":[],"showc":[]}";}i:2;O:8:"stdClass":4:{s:2:"id";s:3:"791";s:4:"name";s:9:"DATE/TIME";s:7:"summary";s:40:"<p>16-06-2020 (TUESDAY) / 4:00PM<br></p>";s:12:"availability";s:28:"{"op":"&","c":[],"showc":[]}";}i:3;O:8:"stdClass":4:{s:2:"id";s:3:"792";s:4:"name";s:39:"Join Zoom Meeting for Primary 4 English";s:7:"summary";s:390:"<p><p><a href="https://us02web.zoom.us/j/85739685866?pwd=R0ZDcVlEQzFwd1E1eWxSRGxVcWxDZz09">https://us02web.zoom.us/j/85739685866?pwd=R0ZDcVlEQzFwd1E1eWxSRGxVcWxDZz09</a></p>
+
+<p>Meeting
+ID: 857 3968 5866</p>
+
+<p>Password:
+22222</p>
+
+<p>One
+tap mobile</p>
+
+<p>+16465588656,,85739685866#,,1#,22222#
+US (New York)</p>
+
++16699009128,,85739685866#,,1#,22222# US (San
+Jose)<br></p>";s:12:"availability";s:28:"{"op":"&","c":[],"showc":[]}";}}s:9:"shortname";s:25:"Group Tutorial P4 English";s:8:"fullname";s:25:"Group Tutorial P4 English";s:6:"format";s:6:"topics";s:16:"enablecompletion";s:1:"1";s:9:"groupmode";s:1:"0";s:14:"groupmodeforce";s:1:"0";s:8:"cacherev";s:10:"1592148380";}

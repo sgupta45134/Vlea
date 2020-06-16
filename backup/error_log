@@ -1,0 +1,49 @@
+[18-May-2020 12:38:27 Europe/London] instantiating restore controller e3ddbf75bcecc63fe2ed94eca420c155
+[18-May-2020 12:38:27 Europe/London] setting controller status to 100
+[18-May-2020 12:38:27 Europe/London] loading backup info
+[18-May-2020 12:38:27 Europe/London] loading controller plan
+[18-May-2020 12:38:27 Europe/London] setting controller status to 300
+[18-May-2020 12:38:27 Europe/London] applying restore defaults
+[18-May-2020 12:38:27 Europe/London] Unknown setting: questionbank
+[18-May-2020 12:38:27 Europe/London] Unknown setting: overwrite_conf
+[18-May-2020 12:38:27 Europe/London] Unknown setting: course_fullname
+[18-May-2020 12:38:27 Europe/London] Unknown setting: course_shortname
+[18-May-2020 12:38:27 Europe/London] Unknown setting: course_startdate
+[18-May-2020 12:38:27 Europe/London] setting controller status to 400
+[18-May-2020 12:38:27 Europe/London] checking plan security
+[18-May-2020 12:38:27 Europe/London] setting controller status to 500
+[18-May-2020 12:38:27 Europe/London] checking plan security
+[18-May-2020 12:38:27 Europe/London] checking plan security
+[18-May-2020 12:38:27 Europe/London] checking plan security
+[18-May-2020 12:38:27 Europe/London] saving controller to db
+[18-May-2020 12:38:27 Europe/London] calculating controller checksum e2f367db706743bc2e3b670023c319b3
+[18-May-2020 12:38:53 Europe/London] loading controller from db
+[18-May-2020 12:38:53 Europe/London] checking plan security
+[18-May-2020 12:38:53 Europe/London] checking plan security
+[18-May-2020 12:38:53 Europe/London] checking plan security
+[18-May-2020 12:38:53 Europe/London] saving controller to db
+[18-May-2020 12:38:53 Europe/London] calculating controller checksum 1b52933f5ff75637fc6cac6d5602dd55
+[18-May-2020 12:39:00 Europe/London] loading controller from db
+[18-May-2020 12:39:00 Europe/London] checking plan security
+[18-May-2020 12:39:00 Europe/London] checking plan security
+[18-May-2020 12:39:00 Europe/London] checking plan security
+[18-May-2020 12:39:00 Europe/London] saving controller to db
+[18-May-2020 12:39:00 Europe/London] calculating controller checksum 1b52933f5ff75637fc6cac6d5602dd55
+[18-May-2020 12:39:04 Europe/London] loading controller from db
+[18-May-2020 12:39:04 Europe/London] checking plan security
+[18-May-2020 12:39:04 Europe/London] checking plan security
+[18-May-2020 12:39:04 Europe/London] setting controller status to 600
+[18-May-2020 12:39:04 Europe/London] saving controller to db
+[18-May-2020 12:39:04 Europe/London] calculating controller checksum 96390fc820f5490981f7b86491872d92
+[18-May-2020 12:39:04 Europe/London] loading controller from db
+[18-May-2020 12:39:04 Europe/London] setting controller status to 700
+[18-May-2020 12:39:04 Europe/London] saving controller to db
+[18-May-2020 12:39:04 Europe/London] calculating controller checksum e464438a8157679502469284f77841cb
+[18-May-2020 12:39:04 Europe/London] loading controller from db
+[18-May-2020 12:39:04 Europe/London] setting controller status to 800
+[18-May-2020 12:39:04 Europe/London] saving controller to db
+[18-May-2020 12:39:04 Europe/London] calculating controller checksum f7ed92f74b30c6c9f2110069822704ac
+[18-May-2020 12:39:04 Europe/London] loading controller from db
+[18-May-2020 12:39:05 Europe/London] processing file aliases queue
+[18-May-2020 12:39:05 Europe/London] setting controller status to 1000
+[18-May-2020 12:39:05 Europe/London] saving controller to db

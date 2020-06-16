@@ -1,0 +1,8 @@
+[21-Apr-2020 18:00:10 Europe/London] Potential coding error - active database transaction detected during request shutdown:
+* line 112 of /course/modlib.php: call to moodle_database->start_delegated_transaction()
+* line 267 of /lib/testing/generator/module_generator.php: call to add_moduleinfo()
+* line 60 of /mod/assign/tests/generator/lib.php: call to testing_module_generator->create_instance()
+* line 385 of /admin/tool/generator/classes/course_backend.php: call to mod_assign_generator->create_instance()
+* line 225 of /admin/tool/generator/classes/course_backend.php: call to tool_generator_course_backend->create_assignments()
+* line 67 of /admin/tool/generator/maketestcourse.php: call to tool_generator_course_backend->make()
+

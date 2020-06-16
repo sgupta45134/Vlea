@@ -1,0 +1,145 @@
+[31-May-2020 20:33:23 Europe/London] instantiating backup controller c5c08bb963b56797870c2ef778342998
+[31-May-2020 20:33:23 Europe/London] setting controller status to 100
+[31-May-2020 20:33:23 Europe/London] loading controller plan
+[31-May-2020 20:33:23 Europe/London] setting controller status to 300
+[31-May-2020 20:33:23 Europe/London] applying plan defaults
+[31-May-2020 20:33:23 Europe/London] setting controller status to 400
+[31-May-2020 20:33:23 Europe/London] setting file inclusion to 
+[31-May-2020 20:33:23 Europe/London] checking plan security
+[31-May-2020 20:33:23 Europe/London] setting controller status to 700
+[31-May-2020 20:33:23 Europe/London] saving controller to db
+[31-May-2020 20:33:23 Europe/London] calculating controller checksum aea89d5242b5d93e5a4e1aa7923f701f
+[31-May-2020 20:33:23 Europe/London] loading controller from db
+[31-May-2020 20:33:23 Europe/London] setting file inclusion to 1
+[31-May-2020 20:33:23 Europe/London] setting controller status to 800
+[31-May-2020 20:33:23 Europe/London] saving controller to db
+[31-May-2020 20:33:23 Europe/London] calculating controller checksum d9cbd31de019ef3d90f11c2965e4ce99
+[31-May-2020 20:33:23 Europe/London] loading controller from db
+[31-May-2020 20:33:27 Europe/London] setting controller status to 1000
+[31-May-2020 20:33:27 Europe/London] saving controller to db
+[02-Jun-2020 20:01:30 Europe/London] Default exception handler: Error reading from database Debug: MySQL server has gone away
+SELECT * FROM mo_task_scheduled WHERE classname = ?
+[array (
+  0 => '\\core\\task\\check_for_updates_task',
+)]
+Error code: dmlreadexception
+* line 486 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1247 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1587 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 1559 of /lib/dml/moodle_database.php: call to moodle_database->get_record_sql()
+* line 1538 of /lib/dml/moodle_database.php: call to moodle_database->get_record_select()
+* line 682 of /lib/classes/task/manager.php: call to moodle_database->get_record()
+* line 229 of /lib/cronlib.php: call to core\task\manager::scheduled_task_failed()
+* line 119 of /lib/cronlib.php: call to cron_run_inner_scheduled_task()
+* line 73 of /lib/cronlib.php: call to cron_run_scheduled_tasks()
+* line 61 of /admin/cli/cron.php: call to cron_run()
+
+[02-Jun-2020 20:01:30 Europe/London] PHP Fatal error:  Uncaught coding_exception: Coding error detected, it must be fixed by a programmer: A lock was created but not released at:
+/home/hfgmgvmwda5f/public_html/lib/classes/task/manager.php on line 554
+
+ Code should look like:
+
+ $factory = \core\lock\lock_config::get_lock_factory('type');
+ $lock = $factory->get_lock(Resource id #754);
+ $lock->release();  // Locks must ALWAYS be released like this.
+
+ in /home/hfgmgvmwda5f/public_html/lib/classes/lock/lock.php:117
+Stack trace:
+#0 [internal function]: core\lock\lock->__destruct()
+#1 {main}
+  thrown in /home/hfgmgvmwda5f/public_html/lib/classes/lock/lock.php on line 117
+[05-Jun-2020 15:01:49 Europe/London] Default exception handler: Error reading from database Debug: MySQL server has gone away
+SELECT * FROM mo_task_scheduled WHERE classname = ?
+[array (
+  0 => '\\core\\task\\h5p_get_content_types_task',
+)]
+Error code: dmlreadexception
+* line 486 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1247 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1587 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 1559 of /lib/dml/moodle_database.php: call to moodle_database->get_record_sql()
+* line 1538 of /lib/dml/moodle_database.php: call to moodle_database->get_record_select()
+* line 682 of /lib/classes/task/manager.php: call to moodle_database->get_record()
+* line 229 of /lib/cronlib.php: call to core\task\manager::scheduled_task_failed()
+* line 119 of /lib/cronlib.php: call to cron_run_inner_scheduled_task()
+* line 73 of /lib/cronlib.php: call to cron_run_scheduled_tasks()
+* line 61 of /admin/cli/cron.php: call to cron_run()
+
+[05-Jun-2020 15:01:49 Europe/London] Exception ignored in shutdown function Closure::__invoke: Error writing to database (MySQL server has gone away
+INSERT INTO mo_task_log (type,component,classname,userid,timestart,timeend,dbreads,dbwrites,result,output) VALUES(?,?,?,?,?,?,?,?,?,?)
+[array (
+  0 => 0,
+  1 => 'moodle',
+  2 => 'core\\task\\h5p_get_content_types_task',
+  3 => 0,
+  4 => 1591365602.201515,
+  5 => 1591365709.786027,
+  6 => 174,
+  7 => 25,
+  8 => 1,
+  9 => 'Execute scheduled task: Download available H5P content types from h5p.org (core\\task\\h5p_get_content_types_task)
+... started 15:00:02. Current memory use 13.7MB.
+... used 197 dbqueries
+... used 107.54911184311 seconds
+Scheduled task failed: Download available H5P content types from h5p.org (core\\task\\h5p_get_content_types_task),Error reading from database (MySQL server has gone away
+SELECT \'x\' FROM mo_files WHERE contenthash = ? LIMIT 0, 1
+[array (
+  0 => \'a7a619340912c727d9ce6dd6e355073590e584d5\',
+)])
+Debug info:
+MySQL server has gone away
+SELECT \'x\' FROM mo_files WHERE contenthash = ? LIMIT 0, 1
+[array (
+  0 => \'a7a619340912c727d9ce6dd6e355073590e584d5\',
+)]
+Backtrace:
+* line 1186 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1918 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_recordset_sql()
+* line 1903 of /lib/dml/moodle_database.php: call to moodle_database->record_exists_sql()
+* line 1887 of /lib/dml/moodle_database.php: call to moodle_database->record_exists_select()
+* line 258 of /lib/filestorage/file_system.php: call to moodle_database->record_exists()
+* line 288 of /lib/filestorage/file_system_filedir.php: call to file_system::is_file_removable()
+* line 1331 of /lib/filestorage/file_storage.php: call to file_system_filedir->remove_file()
+* line 1210 of /lib/filestorage/file_storage.php: call to file_storage->create_file_from_pathname()
+* line 239 of /h5p/classes/core.php: call to file_storage->create_file_from_url()
+* line 198 of /h5p/classes/core.php: call to core_h5p\\core->fetch_content_type()
+* line 65 of /lib/classes/task/h5p_get_content_types_task.php: call to core_h5p\\core->fetch_latest_content_types()
+* line 201 of /lib/cronlib.php: call to core\\task\\h5p_get_content_types_task->execute()
+* line 119 of /lib/cronlib.php: call to cron_run_inner_scheduled_task()
+* line 73 of /lib/cronlib.php: call to cron_run_scheduled_tasks()
+* line 61 of /admin/cli/cron.php: call to cron_run()
+
+!!! Error reading from database !!!
+
+Debug info: MySQL server has gone away
+SELECT * FROM mo_task_scheduled WHERE classname = ?
+[array (
+  0 => \'\\\\core\\\\task\\\\h5p_get_content_types_task\',
+)]
+Error code: dmlreadexception
+Stack trace: * line 486 of /lib/dml/moodle_database.php: dml_read_exception thrown
+* line 1247 of /lib/dml/mysqli_native_moodle_database.php: call to moodle_database->query_end()
+* line 1587 of /lib/dml/moodle_database.php: call to mysqli_native_moodle_database->get_records_sql()
+* line 1559 of /lib/dml/moodle_database.php: call to moodle_database->get_record_sql()
+* line 1538 of /lib/dml/moodle_database.php: call to moodle_database->get_record_select()
+* line 682 of /lib/classes/task/manager.php: call to moodle_database->get_record()
+* line 229 of /lib/cronlib.php: call to core\\task\\manager::scheduled_task_failed()
+* line 119 of /lib/cronlib.php: call to cron_run_inner_scheduled_task()
+* line 73 of /lib/cronlib.php: call to cron_run_scheduled_tasks()
+* line 61 of /admin/cli/cron.php: call to cron_run()
+',
+)])
+[05-Jun-2020 15:01:49 Europe/London] PHP Fatal error:  Uncaught coding_exception: Coding error detected, it must be fixed by a programmer: A lock was created but not released at:
+/home/hfgmgvmwda5f/public_html/lib/classes/task/manager.php on line 554
+
+ Code should look like:
+
+ $factory = \core\lock\lock_config::get_lock_factory('type');
+ $lock = $factory->get_lock(Resource id #594);
+ $lock->release();  // Locks must ALWAYS be released like this.
+
+ in /home/hfgmgvmwda5f/public_html/lib/classes/lock/lock.php:117
+Stack trace:
+#0 [internal function]: core\lock\lock->__destruct()
+#1 {main}
+  thrown in /home/hfgmgvmwda5f/public_html/lib/classes/lock/lock.php on line 117

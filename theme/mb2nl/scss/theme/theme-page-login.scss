@@ -1,0 +1,108 @@
+
+#page-login-index {
+	#page-content {
+		> div {
+
+			h2.text-center {
+				display: none;
+			}
+					
+			.my-sm-5 {
+				margin: 0 !important;
+			}
+
+			> .row {
+				display: block;
+				margin: 0;
+				width: 40%;
+				float: left;
+
+				&.mt-3 {
+					width: 60%;
+				}
+
+				.col-sm-8 {
+					display: block;
+					flex: auto !important;
+					width: 100% !important;
+					max-width: 100% !important;
+					padding-right: 2rem;
+
+					.row {
+						margin-left: 0;
+						margin-right: 0;
+					}
+					.col-md-5 {
+						display: block;
+						flex: auto !important;
+						width: 100% !important;
+						max-width: 100% !important;
+						padding-left: 0 !important;
+						padding-right: 0 !important;
+
+						+ .col-md-5 {
+							font-size: $fssmall;
+						}
+					}
+
+					.card {
+						background-color: transparent;
+
+						.card-header,
+						.card-body {
+							padding: 0;
+							border: 0;
+							background-color: transparent;
+						}
+
+						form#login {
+
+							background-color: $color_gray3;
+							border-top: 0;
+							padding: 30px;
+							margin-bottom: 15px;
+							@include mb2_box_shadow(7px 7px 0 0, rgba(0,0,0,.2));
+
+							input[type="text"],
+							input[type="password"],
+							input[type="submit"] {
+								width: 100%;
+							}
+						}
+					}
+				}
+
+
+				&.mt-3 {
+					.col-sm-8 {
+						padding-right: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+@media only screen and (max-width:768px){
+
+	#page-login-index {
+		#page-content {
+			> div {
+				> .row {
+					width: 100% !important;
+					float: none;
+
+					.col-sm-8 {
+						padding-left: 15px !important;
+						padding-right: 15px !important;
+					}
+				}
+			}
+		}
+	}
+
+
+}

@@ -1,0 +1,50 @@
+
+.breadcrumb {
+
+	.isbutton & {
+		margin-top: .5rem;
+
+		.breadcrumb {
+			margin-top: 0;
+		}
+	}
+
+	font-size: $fssmall;
+	float: left;
+}
+
+
+@media only screen and (max-width: $tablet_width){
+	.breadcrumb {
+		float: none;
+		text-align: center;
+	}
+}
+
+
+.breadcrumb {
+
+	a {
+		color: $textcolor;
+	}
+
+	a:hover,
+	a:focus {
+		color: $linkcolor;
+	}
+	.arrow.sep {
+		color: $textcolor_lighten;
+		font-size: $fsxsmall * .75;
+		margin: 0 3px 0 6px;
+	}
+
+}
+
+
+.dir-rtl {
+
+	.breadcrumb {
+		float: right;
+	}
+
+}

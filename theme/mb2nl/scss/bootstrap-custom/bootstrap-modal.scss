@@ -1,0 +1,80 @@
+
+.modal-backdrop.show {
+	opacity: .6;
+}
+
+.modal-content {
+	.show & {
+		border: 0;
+	}
+
+	@include mb2_border_radius(.185rem);
+}
+
+
+.modal-footer {
+	@include mb2_border_radius(0 0 .15rem .15rem);
+	background-image: url([[pix:theme|svg/strip1_black8]]);
+	background-color: rgba(0,0,0,.05);
+	border-top-color: rgba(0,0,0,.05);
+	padding: .4rem 1rem !important;
+
+
+	.btn,
+	.button,
+	button,
+	input[type="submit"],
+	input[type="button"],
+	button[type="submit"],
+	input[type="button"] {
+		@include button-size(.19rem, .55rem, $fssmall, $fssmall_lh, .15rem);
+	}
+
+	.buttons {
+		margin-bottom: 0;
+	}
+}
+
+.modal-header {
+	@include mb2_dialog_header();
+}
+
+
+
+.modal-dialog {
+
+	&:focus {
+		outline: none;
+	}
+
+	&.modal-lg {
+		width: $pagewidth !important;
+		max-width: 95% !important;
+	}
+
+	&.modal-md {
+		width: 900px !important;
+		max-width: 95% !important;
+	}
+
+	margin-left: auto !important;
+	margin-right: auto !important;
+	width: 95%;
+
+	&.modal-in-page {
+		padding: 0 !important;
+		@include mb2_box_shadow(0 0 26px, rgba(0,0,0,.25));
+		@include mb2_border_radius(.15rem);
+
+		.modal-content {
+			padding: 0 !important;
+		}
+	}
+
+	.modal-body {
+		&:focus {
+			outline: none;
+		}
+	}
+
+}

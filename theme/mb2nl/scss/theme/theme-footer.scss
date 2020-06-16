@@ -1,0 +1,80 @@
+
+#footer {
+	background-color: darken($accent2, 3%);
+	position: relative;
+	font-size: $fssmall;
+	padding: 15px 0;
+}
+
+
+.footer-text {
+	float: left;
+	margin: 6px 0 0 0;
+}
+
+
+
+.dir-rtl {
+
+	.footer-text {
+		float: right;
+	}
+
+}
+
+
+
+@media only screen and (max-width:768px){
+
+	#footer {
+		text-align: center;
+	}
+
+	.footer-text {
+		float: none;
+	}
+
+
+	.dir-rtl {
+
+		.footer-text {
+			float: none;
+		}
+
+	}
+
+}
+
+
+
+.footer-tools {
+	padding-top: 1rem;
+	margin-top: 1rem;
+	border-top: solid 1px rgba(255,255,255,.08);
+
+	a {
+		color: $textcolor_dark;
+
+		&:hover,
+		&:focus {
+			color: $linkcolor;
+		}
+	}
+
+	> * {
+		display: inline-block;
+		margin-right: .65rem;
+		margin-bottom: 0;
+
+		&.helplink {
+			i {
+				display: none;
+			}
+		}
+
+		&:last-child {
+			border-right: 0;
+			padding: 0;
+		}
+	}
+}

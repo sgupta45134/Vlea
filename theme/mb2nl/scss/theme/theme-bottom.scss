@@ -1,0 +1,47 @@
+
+#bottom,
+#bottom-abcd {
+	background-color: $accent2;
+	position: relative;
+	padding-top: 18px;
+}
+
+
+#bottom {
+	background-image: url([[pix:theme|svg/strip2_white8]]);
+	border-bottom: solid 1px rgba(255,255,255,.08);
+}
+
+
+#bottom {
+
+	h1,h2,h3,h4,h5,h6 {
+		margin-bottom: 0;
+	}
+
+}
+
+
+
+/* Block */
+
+.style-bottom {
+
+	.block {
+		margin-bottom: 18px;
+	}
+
+
+	.block {
+
+		.block_action {
+			display: none;
+		}
+
+		.header {
+			margin-bottom: 7px;
+		}
+
+	}
+
+}

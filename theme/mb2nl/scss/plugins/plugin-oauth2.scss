@@ -1,0 +1,57 @@
+
+
+/* OAuth2 buttons */
+.btn-microsoft {
+	@include button-variant($color_microsoft, $color_microsoft);
+}
+
+.btn-google {
+	@include button-variant($color_google, $color_google);
+}
+
+.btn-facebook {
+	@include button-variant($color_facebook, $color_facebook);
+}
+
+.btn-twitter {
+	@include button-variant($color_twitter, $color_twitter);
+}
+
+.btn-linkedin {
+	@include button-variant($color_linkedin, $color_linkedin);
+}
+
+.btn-nextcloud {
+	@include button-variant($color_nextcloud, $color_nextcloud);
+}
+
+.btn-openid {
+	@include button-variant($color_openid, $color_openid);
+	color: #fff !important;
+}
+
+
+.potentialidps {
+	h6 {
+		font-size: $fsgeneral;
+		margin-bottom: 10px;
+	}
+
+	.theme-loginform & {
+		h6 {
+			font-size: $fssmall;
+			margin: 12px 0 7px 0;
+		}
+	}
+}
+
+.potentialidplist {
+	margin-left: -.4rem;
+	margin-right: -.4rem;
+
+	> div {
+		display: inline-block;
+		margin: 0 .4rem .4rem .4rem;
+	}
+
+}

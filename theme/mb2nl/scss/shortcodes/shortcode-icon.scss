@@ -1,0 +1,43 @@
+.icon-size-s {
+	i {
+		font-size: 15px;
+	}
+}
+
+.icon-size-l {
+	i {
+		font-size: 28px;
+	}
+}
+
+.icon-size-xl {
+	i {
+		font-size: 48px;
+	}
+}
+
+
+.tmpl-icon-bg {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	@include mb2_border_radius(999px);
+
+	.icon-size-l & {
+		width: 48px;
+		height: 48px;
+		line-height: 48px;
+	}
+
+	.icon-size-xl & {
+		width: 76px;
+		height: 76px;
+		line-height: 76px;
+	}
+
+	i {
+		line-height: inherit;
+	}
+}

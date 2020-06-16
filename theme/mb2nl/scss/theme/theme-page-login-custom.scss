@@ -1,0 +1,48 @@
+
+.custom-login {
+	background-repeat: $loginbgrepeat;
+	background-position: $loginbgpos;
+	background-size: $loginbgsize;
+	background-attachment: $loginbgattach;
+
+	#page {
+		width: 95%;
+		max-width: $fx_pagewidth;
+		margin: auto;
+		padding: 40px 0;
+
+		#page-a {
+			background-color: rgba(0,0,0,.2);
+			padding: 20px 0;
+		}
+
+		#page-b {
+			background-color: transparent;
+		}
+	}
+
+
+
+	#page-outer {
+		background-color: $loginbgcolor;
+		background-attachment: $loginbgattach;
+	}
+
+	.main-logo {
+		float: none;
+		margin: 0 auto !important;
+	}
+
+
+
+	#main-content {
+		background-color: rgba(255,255,255,.95);
+		padding: 40px 0;
+	}
+
+
+	#footer {
+		background-color: rgba(0,0,0,.2);
+		color: #fff;
+	}
+}

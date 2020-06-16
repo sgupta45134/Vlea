@@ -1,0 +1,1 @@
+jQuery(document).ready(function(e){e(".mb2banners-withcookie").each(function(){var s=e(this),n="mb2banners"+s.data("mb2banners_id"),a={expires:s.data("mb2banners_cookieexpiry"),path:"/"},i=s.find(".mb2banners-close");(s.hasClass("show")||"hide"!==Cookies.get(n))&&s.show(),i.click(function(e){e.preventDefault(),s.hasClass("show")||(s.slideUp(250),Cookies.set(n,"hide",a))})})});

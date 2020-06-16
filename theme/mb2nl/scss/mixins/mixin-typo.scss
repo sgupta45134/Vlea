@@ -1,0 +1,47 @@
+
+@mixin mb2_font_family($font)
+{
+    @if $font !=0 {
+        font-family: $font, sans-serif;
+    }
+
+}
+
+
+@mixin mb2_theme_text()
+{
+    font-family: $ffgeneral, sans-serif;
+	font-weight: $fwgeneral;
+}
+
+
+@mixin mb2_headings_color ($color)
+{
+    h1,h2,h3,h4,h5,h6 {
+        color: $color;
+    }
+}
+
+
+@mixin mb2_icon_color ($color)
+{
+    i,
+    .icon {
+        color: $color;
+    }
+}
+
+
+
+@mixin mb2_links_color ($color, $hcolor)
+{
+    a {
+        color: $color;
+
+        &:hover,
+        &:focus {
+            color: $hcolor;
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+O:8:"stdClass":9:{s:7:"modinfo";a:1:{i:510;O:8:"stdClass":11:{s:2:"id";s:2:"83";s:2:"cm";s:3:"510";s:3:"mod";s:5:"forum";s:7:"section";s:1:"0";s:9:"sectionid";s:3:"799";s:6:"module";s:1:"9";s:5:"added";s:10:"1592127377";s:7:"visible";s:1:"1";s:19:"visibleoncoursepage";i:1;s:10:"visibleold";s:1:"1";s:4:"name";s:13:"Announcements";}}s:12:"sectioncache";a:4:{i:0;O:8:"stdClass":3:{s:2:"id";s:3:"799";s:4:"name";N;s:12:"availability";N;}i:1;O:8:"stdClass":4:{s:2:"id";s:3:"800";s:4:"name";s:5:"TOPIC";s:7:"summary";s:22:"<p>Life cycles<br></p>";s:12:"availability";s:28:"{"op":"&","c":[],"showc":[]}";}i:2;O:8:"stdClass":4:{s:2:"id";s:3:"801";s:4:"name";s:9:"DATE/TIME";s:7:"summary";s:41:"<p>20-06-2020 (Saturday) / 2:00PM<br></p>";s:12:"availability";s:28:"{"op":"&","c":[],"showc":[]}";}i:3;O:8:"stdClass":4:{s:2:"id";s:3:"802";s:4:"name";s:39:"Join Zoom Meeting for Primary 4 Science";s:7:"summary";s:288:"<p><p><a href="https://us02web.zoom.us/j/84082660467?pwd=Ni9wblpzTU9ham1iU3ZmRDFVRFZjZz09">https://us02web.zoom.us/j/84082660467?pwd=Ni9wblpzTU9ham1iU3ZmRDFVRFZjZz09</a></p>
+
+<p>&nbsp;</p>
+
+<p>Meeting
+ID: 840 8266 0467</p>
+
+<p>Password:
+66666</p>
+
+<p>One
+tap mobile</p><br></p>";s:12:"availability";s:28:"{"op":"&","c":[],"showc":[]}";}}s:9:"shortname";s:24:"Group Tutorial P4 Scient";s:8:"fullname";s:24:"Group Tutorial P4 Scient";s:6:"format";s:6:"topics";s:16:"enablecompletion";s:1:"1";s:9:"groupmode";s:1:"0";s:14:"groupmodeforce";s:1:"0";s:8:"cacherev";s:10:"1592148380";}

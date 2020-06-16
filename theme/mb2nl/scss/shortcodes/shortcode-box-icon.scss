@@ -1,0 +1,293 @@
+
+
+.theme-boxicon.type-1 {
+
+
+	.theme-boxicon-icon {
+		display: block;
+		background-color: rgba(0,0,0,.08);
+		width: 100px;
+		height: 100px;
+		margin: 0 auto 30px auto;
+		line-height: 100px;
+		text-align: center;
+		font-size: 48px;
+		color: $accent1;
+		@include mb2_transition1(all, .25s);
+		position: relative;
+		overflow: hidden;
+	}
+
+
+	.theme-boxicon-icon:after {
+		content: '';
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 97px;
+		left: 0;
+		background-color: $accent1;
+		@include mb2_transition1(all, .25s);
+	}
+
+	.theme-boxicon-icon i {
+		position: relative;
+		z-index: 2;
+	}
+
+
+	.theme-boxicon-content {
+		text-align: center;
+	}
+
+	&.color-success {
+		.theme-boxicon-icon {
+			color: $color_success;
+			&:after {
+				background-color: $color_success;
+			}
+		}
+	}
+
+	&.color-warning {
+		.theme-boxicon-icon {
+			color: $color_warning;
+			&:after {
+				background-color: $color_warning;
+			}
+		}
+	}
+
+	&.color-info {
+		.theme-boxicon-icon {
+			color: $color_info;
+			&:after {
+				background-color: $color_info;
+			}
+		}
+	}
+
+	&.color-danger {
+		.theme-boxicon-icon {
+			color: $color_danger;
+			&:after {
+				background-color: $color_danger;
+			}
+		}
+	}
+
+	&.color-secondary {
+		.theme-boxicon-icon {
+			color: $accent3;
+			&:after {
+				background-color: $accent3;
+			}
+		}
+	}
+
+	&.color-inverse {
+		.theme-boxicon-icon {
+			color: $accent2;
+			&:after {
+				background-color: $accent2;
+			}
+		}
+	}
+
+
+
+	.dark &,
+	.dark1 & {
+		.theme-boxicon-icon {
+			color: rgba(255,255,255,.8);
+		}
+	}
+
+
+
+	&:hover {
+
+		.theme-boxicon-icon {
+			color: #fff !important;
+		}
+
+
+		.theme-boxicon-icon:after {
+			top: 0;
+		}
+	}
+
+
+}
+
+
+
+
+
+.theme-boxicon.type-2,
+.theme-boxicon.type-3 {
+
+	position: relative;
+	min-height: 45px;
+
+	.theme-boxicon-icon {
+		position: absolute;
+		left: 0;
+		display: block;
+		background-color: rgba($accent1, 80%);
+		width: 46px;
+		text-align: center;
+		font-size: 17px;
+		color: #fff;
+		@include mb2_transition1(all, .25s);
+	}
+
+}
+
+
+
+
+.theme-boxicon.type-2 {
+
+	padding-left: 63px;
+
+	.theme-boxicon-icon {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		margin-top: -23px;
+		height: 46px;
+		line-height: 46px;
+		@include mb2_border_radius(999px);
+	}
+
+	.dir-rtl & {
+		padding-right: 63px;
+		padding-left: 0;
+	}
+}
+
+
+
+
+.theme-boxicon.type-3 {
+
+	background-color: lighten($color_gray3, 3%);
+
+	.theme-boxicon-content {
+		padding: 10px 10px 10px 62px;
+	}
+
+	.theme-boxicon-icon {
+		left: 0;
+		top: 0;
+		bottom: 0;
+
+		i {
+			position: absolute;
+			display: block;
+			width: 46px;
+			height: 46px;
+			line-height: 46px;
+			top: 50%;
+			margin-top: -23px;
+			left: 0;
+		}
+	}
+
+	.dir-rtl & {
+		.theme-boxicon-content {
+			padding: 10px 62px 10px 10px;
+		}
+	}
+
+}
+
+
+
+.theme-boxicon.type-2,
+.theme-boxicon.type-3 {
+
+	&:hover {
+		.theme-boxicon-icon {
+			background-color: $accent1;
+		}
+	}
+
+	&.color-info {
+		.theme-boxicon-icon {
+			background-color: rgba($color_info, 80%);
+		}
+		&:hover {
+			.theme-boxicon-icon {
+				background-color: $color_info;
+			}
+		}
+	}
+
+	&.color-warning {
+		.theme-boxicon-icon {
+			background-color: rgba($color_warning, 80%);
+		}
+		&:hover {
+			.theme-boxicon-icon {
+				background-color: $color_warning;
+			}
+		}
+	}
+
+	&.color-success {
+		.theme-boxicon-icon {
+			background-color: rgba($color_success, 80%);
+		}
+		&:hover {
+			.theme-boxicon-icon {
+				background-color: $color_success;
+			}
+		}
+	}
+
+	&.color-danger {
+		.theme-boxicon-icon {
+			background-color: rgba($color_danger, 80%);
+		}
+		&:hover {
+			.theme-boxicon-icon {
+				background-color: $color_danger;
+			}
+		}
+	}
+
+	&.color-inverse {
+		.theme-boxicon-icon {
+			background-color: rgba($accent2, 80%);
+		}
+		&:hover {
+			.theme-boxicon-icon {
+				background-color: $accent2;
+			}
+		}
+	}
+
+	&.color-gray {
+		.theme-boxicon-icon {
+			background-color: rgba($color_gray1, 80%);
+		}
+		&:hover {
+			.theme-boxicon-icon {
+				background-color: $color_gray1;
+			}
+		}
+	}
+
+	.dir-rtl & {
+
+		.theme-boxicon-icon {
+			left: auto;
+			right: 0;
+		}
+
+	}
+
+}

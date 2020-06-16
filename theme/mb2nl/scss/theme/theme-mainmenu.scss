@@ -1,0 +1,825 @@
+
+
+#main-navigation {
+	z-index: 1;
+
+	&.sticky-nav-element {
+		z-index: 4;
+	}
+
+	.main-navigation-inner {
+		background-color: $accent2;
+		@include mb2_transition1(background,.15s);
+	}
+
+
+	#main-header & {
+		float: right;
+		margin-top: 47px;
+		.main-navigation-inner {
+			background-color: transparent;
+		}
+	}
+
+
+	.header-dark & {
+		.main-navigation-inner {
+			position: relative;
+
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				border-top: solid 1px rgba(255,255,255,.05);
+			}
+
+		}
+	}
+
+
+	.header-light2 & {
+
+		.main-navigation-inner {
+			position: relative;
+			background-color: $color_gray3;
+
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				border-top: solid 1px rgba(255,255,255,.5);
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				border-top: solid 3px $accent1;
+			}
+
+		}
+	}
+
+
+}
+
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+
+	#main-navigation {
+
+
+		.col-md-12 {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+
+		.header-light2 & {
+			.main-navigation-inner {
+				&:after {
+					display: none;
+				}
+			}
+		}
+
+
+		#main-header & {
+
+			float: none;
+			background-color: $accent2;
+			margin-top: 0 !important;
+		}
+
+
+
+	}
+
+}
+
+
+
+/* Mobile menu bar */
+
+.menu-bar {
+	display: none;
+
+	.header-light2 & {
+
+		position: relative;
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			border-top: solid 3px $accent1;
+		}
+
+	}
+}
+
+
+.menu-bar a {
+	display: block;
+	font-size: 20px;
+	color: #fff !important;
+	text-align: center;
+	padding: 10px 15px;
+}
+
+.menu-bar .mobile-home {
+	float: left;
+}
+
+.menu-bar .show-menu {
+	float: right;
+
+	.header-light2 & {
+		color: $accent1 !important;
+	}
+}
+
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.menu-bar {
+		display: block;
+	}
+
+}
+
+
+
+/* Mobile arrows */
+
+.mobile-arrow {
+	display: none;
+}
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+
+	.mobile-arrow {
+		display: block;
+		width: 36px;
+		height: 36px;
+		line-height: 36px;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		margin-top: -18px;
+		text-align: center;
+		font-size: 18px;
+	}
+
+	.mobile-arrow:before {
+		@include mb2_font_fa();
+		content: '\f107';
+	}
+
+
+
+	.mobile-arrow.active:before {
+		content: '\f106';
+	}
+
+
+}
+
+
+
+
+
+
+
+/* General style for dropdown menu */
+
+.main-menu {
+	margin: 0;
+	padding: 0;
+}
+
+
+
+.desk-menu {
+	display: block !important;
+}
+
+@media only screen and (max-width: $tablet_width){
+	.main-menu  {
+		display: none;
+	}
+}
+
+
+.main-menu li > a {
+	position: relative;
+	@include mb2_transition1(all,.15s);
+}
+
+
+
+/* First level menu items */
+
+.main-menu > li {
+	display: block;
+	float: left;
+	position: relative;
+
+	#main-header & {
+		floar: right;
+	}
+
+}
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.main-menu > li {
+		display: block;
+		width: 100%;
+		float: none !important;
+	}
+
+}
+
+.main-menu > li > a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	@include mb2_font_family($ffmenu);
+	font-size: $fsmenu;
+	font-weight: $fwmenu;
+	text-transform: $ttmenu;
+	font-style: $fstmenu;
+	padding: .6rem 1rem;
+
+
+	&:hover,
+	&:focus {
+		background-color: lighten($accent2,5%);
+		outline: none;
+	}
+
+	.header-light2 & {
+		color: $headingscolor;
+
+
+		&:hover,
+		&:focus {
+			background-color: darken($color_gray3,4%);
+		}
+
+	}
+
+	#main-header & {
+		color: $headingscolor;
+		height: auto;
+
+		&:hover {
+			background-color: transparent;
+			color: $accent1;
+		}
+	}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.main-menu > li > a {
+		padding: 10px 15px;
+		height: auto;
+		line-height: inherit;
+		border-top: solid 1px lighten($accent2,5%);
+
+
+		.header-light2 & {
+			border-top: 0;
+			border-bottom: solid 1px darken($color_gray3,8%);
+		}
+
+	}
+
+
+
+
+}
+
+
+
+.main-menu .home-item a,
+.mobile-home {
+
+	background-color: $accent1 !important;
+	color: #fff !important;
+
+	i {
+		font-size: 17px;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: darken($accent1,5%) !important;
+		outline: none;
+	}
+
+}
+
+.main-menu .home-item a {
+	i {
+		position: relative;
+		top: 2px;
+	}
+
+
+
+	#main-header & {
+		background-color: transparent !important;
+		color: $accent1 !important;
+	}
+
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.main-menu .home-item {
+		display: none;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Dropdown menu list */
+
+.main-menu > li ul {
+	position: absolute;
+	width: $ddwidth;
+	top: 100%;
+	left: 0;
+	z-index: 1039;
+	display: none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	@include mb2_box_shadow(0 0 10px 0, rgba(0,0,0,.2));
+}
+
+
+.main-menu > li ul ul {
+	top: 0;
+	left: 100%;
+}
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.main-menu > li ul,
+	.main-menu > li ul ul {
+		position: relative;
+		width: 100%;
+		left: auto;
+		right: auto;
+		top: 0;
+		@include mb2_box_shadow(0 0 0 0, transparent);
+	}
+
+
+}
+
+
+
+
+.main-menu {
+
+	li li {
+		display: block;
+	}
+
+	li li > a {
+		display: block;
+		@include mb2_font_family($ffddmenu);
+		font-size: $fsddmenu2;
+		font-weight: $fwddmenu;
+		text-transform: $ttddmenu;
+		font-style: $fstddmenu;
+		background-color: $color_gray2;
+		padding: .5rem 1rem;
+		border-bottom: solid 1px $color_border;
+		color: $headingscolor;
+	}
+
+	li li:hover > a,
+	li li.active > a,
+	li li a:focus {
+		color: $accent1;
+		background-color: $color_gray3;
+		outline: none;
+	}
+
+	li li:last-child > a {
+		border-bottom: 0;
+	}
+
+}
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.main-menu {
+
+
+		li li a {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		.header-light2 & {
+			li li:hover > a,
+			li li a:focus {
+				background-color: lighten($color_gray3,3%);
+			}
+		}
+
+		li li li a {
+			padding-left: 25px;
+		}
+
+		li li li a:before {
+			display: inline-block;
+			content: '\2022';
+			margin-right: 7px;
+		}
+
+		li li li li a {
+			padding-left: 35px;
+		}
+
+		li li li li a:before {
+			content: '\2022\0020\0020\2022';
+		}
+
+		li li li li li a {
+			padding-left: 45px;
+		}
+
+		li li li li li a:before {
+			content: '\2022\0020\0020\2022\0020\0020\2022';
+		}
+
+		li li li li li li a {
+			padding-left: 55px;
+		}
+
+		li li li li li li a:before {
+			content: '\2022\0020\0020\2022\0020\0020\2022\0020\0020\2022';
+		}
+
+		li li:last-child > a {
+			border-bottom: solid 1px $color_border;
+		}
+
+	}
+
+
+}
+
+
+
+
+/* Language menu */
+
+
+.lang-fullname {
+	display: none;
+}
+
+.main-menu > .lang-item ul {
+	width: 100%;
+}
+
+.main-menu > .lang-item {
+	float: right;
+	min-width: 83px;
+
+	> a {
+		background-color: lighten($accent2,6%);
+
+		&:after {
+			right: 6px !important;
+		}
+	}
+
+
+	.header-light2 & {
+		> a {
+			background-color: darken($color_gray3,4%);
+		}
+	}
+
+
+	#main-header & {
+		> a {
+			background-color: transparent !important;
+		}
+	}
+}
+
+.lang-item a {
+	padding-left: 33px !important;
+	text-transform: capitalize !important;
+	padding-right: .3rem !important;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+
+/* My courses and my bookmarks menu items */
+
+.main-menu {
+
+	.mycourses {
+		> a {
+			background-color: lighten($accent2,6%);
+		}
+
+		.mycourses-num {
+			font-size: $fssmall;
+			opacity: .5;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.visible0 {
+			> a {
+				color: $textcolor_lighten !important;
+			}
+		}
+	}
+
+	.bookmarks-item {
+		> a {
+			background-color: lighten($accent2,4%);
+		}
+
+		.dropdown-list {
+			width: max-content;
+			max-width: 550px;
+			min-width: $ddwidth;
+
+			> li {
+				> a {
+					padding-right: 55px;
+				}
+			}
+		}
+	}
+
+
+	.header-light2 & {
+
+		.mycourses {
+			> a {
+				background-color: darken($color_gray3,6%);
+			}
+		}
+
+		.bookmarks-item {
+			> a {
+				background-color: darken($color_gray3,4%);
+			}
+		}
+	}
+}
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.main-menu {
+
+		.bookmarks-item {
+
+			.dropdown-list {
+				width: 100%;
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.lang-shortname {
+		display: none;
+	}
+
+	.lang-fullname {
+		display: inline-block;
+	}
+}
+
+
+
+
+
+
+/* Language menu flag */
+
+.lang-flag {
+	display: block;
+	position: absolute;
+	left: 6px;
+	top: 50%;
+	margin-top: -10px;
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	background-repeat:no-repeat;
+	background-position: 50% 50%;
+    background-size:cover;
+	@include mb2_border_radius(999px);
+}
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.lang-item a {
+		padding-left: 40px !important;
+	}
+	.lang-flag {
+		left: 15px;
+	}
+}
+
+
+
+
+
+/* Parent menu arrows */
+
+.main-menu .dropdown {
+
+	> a:after {
+		@include mb2_font_fa();
+		content: '\f107';
+		position: absolute;
+		width: 15px;
+		height: 20px;
+		line-height: 20px;
+		right: .1rem;
+		top: 50%;
+		margin-top: -10px;
+		text-align: center;
+	}
+
+	.dropdown > a:after {
+		content: '\f105';
+		right: 4px;
+	}
+
+
+	.dir-rtl & {
+		.dropdown > a:after {
+			content: '\f104';
+		}
+
+	}
+
+
+}
+
+
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.main-menu .dropdown > a:after {
+		display: none;
+	}
+}
+
+
+
+/* Fixed navigation */
+
+.sticky-nav-element {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+@media only screen and (max-width: $tablet_width){
+
+	.sticky-nav-element-offset {
+		display: none;
+	}
+
+	.sticky-nav-element {
+		position: relative !important;
+	}
+
+}
+
+
+
+
+/* Badges */
+
+.mitem-new,
+.mitem-hot,
+.mitem-top,
+.mitem-free  {
+	background-position: right top;
+	background-repeat: no-repeat;
+
+}
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.mitem-new,
+	.mitem-hot,
+	.mitem-top,
+	.mitem-free  {
+		background-position: 92% top;
+
+	}
+
+
+}
+
+.mitem-new {
+	background-image: url([[pix:theme|menu/new]]);
+}
+
+.mitem-hot {
+	background-image: url([[pix:theme|menu/hot]]);
+}
+
+.mitem-top {
+	background-image: url([[pix:theme|menu/top]]);
+}
+
+.mitem-free {
+	background-image: url([[pix:theme|menu/free]]);
+}

@@ -1,0 +1,17 @@
+.border-hor {
+	border-color: $color_border;
+
+	&.light {
+		border-color: rgba(255,255,255,.1);
+	}
+}
+
+
+hr {
+	border-color: $color_border;
+
+	.dark &,
+	.dark1 & {
+		border-color: rgba(255,255,255,.1);
+	}
+}

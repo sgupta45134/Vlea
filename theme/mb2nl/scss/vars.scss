@@ -1,0 +1,158 @@
+
+
+// Variables overwritten by theme options
+$ddwidth: 200px !default;
+
+// Page layout
+$pagewidth: 1240px !default;			$fx_pagewidth: $pagewidth !default;
+
+// Additional font size
+$fs1: 1.5 !default;
+$fs2: 2 !default;
+
+// Fonts
+$ffgeneral: Roboto !default;
+$fsbase: 15px !default;
+$fsbase2: 17px !default;
+$fsbase3: 19px !default;
+$fsgeneral: 1rem !default;
+
+$lhtime: 1.67;
+$lhgeneral: $lhtime;
+
+// Different size of fonts
+$fssmall: 			.85rem !default;
+$fssmall_lh: 		$fssmall * $lhtime !default;
+
+$fsxsmall: 			.75rem !default;
+$fsxsmall_lh: 		$fsxsmall * $lhtime !default;
+
+$fsbig: 			1.25rem !default;
+$fsbig_lh: 			$fsbig * $lhtime !default;
+
+$fxsbig: 			1.5rem !default;
+$fxsbig_lh: 		$fxsbig * $lhtime * 0.95 !default;
+
+
+// General fonts
+$fwgeneral: 300 !default;
+
+
+
+
+// Headings
+$ffheadings: 0 !default;		        $fsheading1: 26px !default;	$fsheading4: 20px !default;
+$ttheadings: none !default;			    $fsheading2: 24px !default;	$fsheading5: 18px !default;
+$fstheadings: normal !default;		    $fsheading3: 22px !default;	$fsheading6: 16px !default;
+$headingscolor: #000000 !default;
+$fwheadings: normal !default;
+
+
+
+
+// Main menu fonts
+$ffmenu: 0 !default;		$fsmenu: 1rem !default;			$fwmenu: normal !default;		$ttmenu: none !default;		$fstmenu: normal !default;
+$ffddmenu: 0 !default;		$fsddmenu2: 1rem !default;		$fwddmenu: normal !default;		$ttddmenu: none !default;	$fstddmenu: normal !default;
+
+
+
+// Accent colors
+$accent1: #e63946 !default;		$accent2: #27323a !default;		$accent3: #ffb400 !default;
+
+
+
+// Links
+$linkcolor: $accent1 !default; 	$linkhcolor: #242424 !default;
+
+// Buttons color
+$btncolor: #435764 !default; 	$btnprimarycolor: $accent1 !default;
+
+
+// Text color
+$textcolor: #4c4c4c !default;							    $textcolor_lighten: lighten($textcolor,35%) !default;
+$textcolor_darken: darken($textcolor,35%) !default; 		$textcolor_dark: desaturate(lighten($accent2, 46%), 9%) !default;
+
+
+
+// Page background
+$pbgcolor: transparent !default;		$pbgrepeat: no-repeat !default;			$pbgpos: center center !default;
+$pbgattach: scroll !default;			$pbgsize: cover !default;
+
+
+// Login page background
+$loginbgcolor: rgba(0,0,0,.5) !default;		$loginbgrepeat: no-repeat !default;			$loginbgpos: center center !default;
+$loginbgattach: scroll !default;		$loginbgsize: cover !default;
+
+
+
+// Before content style
+$bcbgcolor: transparent !default;		$bcbgrepeat: no-repeat !default;			$bcbgpos: center center !default;
+$bcbgattach: scroll !default;			$bcbgsize: cover !default;
+
+
+
+// After content style
+$acbgcolor: transparent !default;		$acbgrepeat: no-repeat !default;			$acbgpos: center center !default;
+$acbgattach: scroll !default;			$acbgsize: cover !default;
+
+
+
+// After slider style
+$asbgcolor: transparent !default;		$asbgrepeat: no-repeat !default;			$asbgpos: center center !default;
+$asbgattach: scroll !default;			$asbgsize: cover !default;
+
+
+
+// Loading screen
+$loadingscrbg: rgba(255,255,255,.95) !default;
+
+
+// Calendar colors
+$color_event_user: #CCFFCC !default;
+$color_event_global: #99CCFF !default;
+$color_event_course: #FFCC99 !default;
+$color_event_group: #FFCCCC !default;
+$color_event_category: #c3d0ff !default;
+
+
+
+$color_border: #d5d5d5 !default;
+$color_gray1: #cccccc !default;
+$color_gray2: #f4f4f4 !default;
+$color_gray3: #e8e8e8 !default;
+$color_bg_ph: rgba(31,31,31,.5) !default;
+$color_default: desaturate(lighten($accent1, 41%), 20%) !default;
+$color_success: #119d65 !default;
+$color_warning: #fb8b24 !default;
+$color_danger: #d9534f !default;
+$color_info: #1C77C3 !default;
+$color_box_border: #dbdbdb !default;
+$color_box_bg: #fcfcfc !default;
+$color_block_heading_bg: $color_gray2 !default;
+
+
+$brand-success: $color_success !default;
+$brand-info: $color_info !default;
+$brand-warning: $color_warning !default;
+$brand-danger: $color_danger !default;
+
+// Screens sizes
+$tablet_width: 768px;
+$phone_width: 480px;
+$phone_ver_width: 530px;
+
+
+// Social icons colors
+
+$color_android: #a4c639;			$color_dribbble: #ea4c89;			$color_dropbox: #7b8994;			$color_facebook: #3b5998;
+$color_flickr: #0063dc;				$color_github: #4078c0;				$color_google: #dd4b39;				$color_instagram: #c13584;
+$color_linkedin: #0077b5;			$color_pinterest: #bd081c;			$color_rss: #f26522;				$color_skype: #00aff0;
+$color_tumblr: #35465c;				$color_twitter: #1da1f2;			$color_vimeo: #1ab7ea;				$color_xing: #026466;
+$color_youtube: #cd201f;            $color_vk: #45668e;                 $color_whatsapp: #25d366;           $color_apple: #666666;
+$color_email: #E63946;              $color_web: #457B9D;                $color_microsoft: #737373;          $color_nextcloud: #2a2a36;
+$color_openid: #f78c40;
+
+
+// Bootstrap vars
+
+$blue: $color_info;

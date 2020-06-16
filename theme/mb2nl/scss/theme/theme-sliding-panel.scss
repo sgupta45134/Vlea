@@ -1,0 +1,590 @@
+
+.sliding-panel {
+	background-color: $accent2;
+	position: relative;
+	z-index: 3;
+	background-image: url([[pix:theme|svg/strip1_white8]]);
+}
+
+
+.sliding-panel:after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 5px;
+	background-color: lighten($accent2,12%);
+}
+
+
+.theme-searchform-links {
+	margin: 0 0 -10px 0;
+	padding: 0;
+	list-style: none;
+	font-size: $fssmall;
+
+	li {
+		display: inline-block;
+		margin: 7px 7px 0 7px;
+
+		.strong {
+			color: #fff;
+		}
+	}
+
+	a {
+		color: $textcolor_dark;
+		@include mb2_transition1(all, .15s);
+
+		&:hover,
+		&:focus {
+			color: #fff;
+		}
+	}
+}
+
+
+.sliding-panel {
+
+	margin-top: -1px;
+
+	.theme-searchform,
+	.theme-loginform,
+	.theme-links {
+		display: none;
+		padding-top: 20px;
+		padding-bottom: 22px;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 840px;
+		text-align: center;
+		@include clearfix();
+	}
+
+	.theme-links {
+		max-width: 100%;
+		padding-bottom: 0;
+	}
+
+	.theme-loginform {
+		padding-bottom: 10px;
+	}
+
+}
+
+
+
+.sliding-panel {
+
+	.theme-searchform,
+	.theme-loginform {
+
+		input,
+		button {
+			padding-top: 0;
+			padding-bottom: 0;
+			height: 34px;
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 5px;
+		}
+
+		button {
+			border: 0;
+		}
+
+	}
+
+	.theme-searchform {
+		button {
+			position: relative;
+			top: 0;
+			padding-left: 0;
+			padding-right: 0;
+			width: 34px;
+		}
+
+	}
+
+
+	#login-password,
+	#login-username,
+	#theme-coursesearchbox {
+		border-color: #fff;
+	}
+
+}
+
+
+
+
+.sliding-panel .theme-loginform {
+
+	.form-field {
+		position: relative;
+		width: 100%;
+		max-width: 220px;
+		padding: 0 5px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.form-field input {
+		padding-left: 34px;
+		margin: 0;
+	}
+
+
+	.form-field label {
+		position: absolute;
+		left: 5px;
+		top: 0;
+		display: block;
+		width: 34px;
+		height: 34px;
+		line-height: 34px;
+		text-align: center;
+		color: $textcolor_lighten;
+		font-size: 20px;
+	}
+
+
+	button {
+		font-size: 18px;
+		width: 34px;
+		text-indent: -1px;
+	}
+
+
+	.login-info {
+		margin: 5px 0 0 0;
+		font-size: $fssmall;
+
+		a {
+			color: $textcolor_dark;
+
+			&:hover,
+			&:focus {
+				color: #fff;
+			}
+		}
+	}
+
+}
+
+
+
+@media only screen and (max-width:360px){
+
+	.sliding-panel  {
+		.theme-searchform {
+			input[type="text"] {
+				display: block;
+				margin: 0 auto 15px auto;
+			}
+		}
+	}
+
+}
+
+
+@media only screen and (max-width:580px){
+	.sliding-panel {
+
+		.theme-loginform {
+			.form-field {
+				display: block;
+				margin: 0 auto 15px auto;
+			}
+		}
+	}
+
+}
+
+
+
+
+
+
+/* Login info in moodle 2.7 */
+
+.sliding-panel .theme-loginform {
+
+	.logininfo {
+		display: inline-block;
+		font-size: $fssmall;
+
+		+ a {
+			display: block;
+			float: right;
+			margin-bottom: 10px;
+			cursor: default;
+
+			img {
+				margin: 0 10px;
+				width: 34px;
+				@include mb2_border_radius(999px);
+			}
+		}
+	}
+
+
+}
+
+
+.loggedin {
+	.sliding-panel .theme-loginform {
+		max-width: 100%;
+	}
+}
+
+
+
+/* Theme links */
+
+
+.theme-links {
+	ul {
+		margin: 0 0 20px 0;
+		padding: 0;
+		list-style: none;
+		float: left;
+		width: 100%;
+		text-align: left;
+
+		li {
+			display: inline-block;
+			margin: 5px;
+			font-size: $fssmall;
+
+			a {
+				padding: 2px 3px;
+				color: $textcolor_dark;
+				@include mb2_transition1(all, .15s);
+
+				i {
+					display: none;
+				}
+			}
+			a:hover,
+			a:focus {
+				color: #fff;
+			}
+
+			&.sep {
+				background-color: rgba(255,255,255,.15);
+				width: 1px;
+			}
+
+			&.purgecaches-link,
+			&.siteadmin-link {
+				a {
+					color: #fff;
+					@include mb2_border_radius(.15rem);
+				}
+			}
+
+			&.purgecaches-link {
+				a {
+					background-color: $color_danger;
+				}
+			}
+
+			&.siteadmin-link {
+				a {
+					background-color: $color_warning;
+				}
+			}
+
+		}
+
+		li.custom-link {
+
+			float: right;
+
+			a {
+				color: #fff;
+				@include mb2_border_radius(.15rem);
+			}
+
+			a.link-doc {
+				background-color: $color_info;
+			}
+
+			a.link-more {
+				background-color: $color_success;
+			}
+		}
+
+	}
+}
+
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+
+	.theme-links {
+		ul {
+			text-align: center;
+
+			li.custom-link {
+				float: none;
+			}
+		}
+	}
+
+}
+
+
+
+
+
+
+.header-tools {
+
+	position: absolute;
+	right: 15px;
+	top: 100%;
+	z-index: 2;
+	margin: 0 -2px;
+
+	.header-tools-link,
+	.theme-plugins,
+	.popover-region-toggle {
+		display: inline-block;
+		width: auto;
+		height: auto !important;
+		line-height: inherit !important;
+	}
+
+	.header-tools-link,
+	.popover-region-toggle {
+		background-color: darken($color_gray1,4%);
+		color: #fff;
+		text-decoration: none;
+		margin: 0 2px;
+		text-align: center;
+		padding: 3px 0;
+		min-width: 39px;
+	}
+
+	.header-tools-link {
+
+		&.tool-login{
+			background-color: $accent1;
+		}
+
+		&.tool-signup {
+			background-color: $accent2;
+		}
+
+		&.tool-links,
+		&.tool-admin {
+			background-color: $color_warning;
+		}
+
+		&.tool-turnediting {
+			display: none;
+			background-color: $color_success;
+
+			&.editing-on {
+				background-color: $color_danger;
+			}
+		}
+
+	}
+
+	&.type-text {
+		.header-tools-link {
+			padding: 3px 10px;
+
+			span {
+				font-size: $fssmall;
+				line-height: 1;
+			}
+		}
+	}
+
+
+	.header-tools-link i,
+	.popover-region-toggle {
+		font-size: 14px;
+
+		> .icon {
+			font-size: 14px;
+			width: auto;
+			height: auto;
+		}
+	}
+
+	.popover-region-toggle {
+		> i {
+			margin: 0;
+		}
+
+		&:before {
+			right: 10px;
+			bottom: -12px;
+		}
+
+		&:after {
+			right: 11px;
+			bottom: -12px;
+		}
+	}
+
+
+	.theme-plugins {
+
+		> .popover-region {
+			display: inline-block;
+			float: none !important;
+		}
+
+		.popover-region-container {
+			color: $textcolor;
+			top: 41px;
+
+
+			.content-item-container {
+				color: $textcolor;
+
+				&:hover,
+				&:focus {
+					color: #fff;
+				}
+			}
+
+			h1,h2,h3,h4,h5,h6 {
+				color: $headingscolor!important;
+			}
+
+			a {
+				color: $linkcolor;
+
+				&:hover,
+				&:focus {
+					color: $linkhcolor;
+				}
+			}
+		}
+
+	}
+
+	.theme-lfx & {
+		.header-tools-link,
+		.popover-region-toggle {
+			background-color: $accent2;
+		}
+
+		.header-tools-link {
+
+			&.tool-login {
+				background-color: $accent1;
+			}
+
+			&.tool-links {
+				background-color: $color_warning;
+			}
+
+		}
+	}
+
+	.header-dark.theme-lfw & {
+		.header-tools-link,
+		.popover-region-toggle {
+			background-color: lighten($accent2,9%);
+		}
+
+		.header-tools-link {
+
+			&.tool-login {
+				background-color: $accent1;
+			}
+
+			&.tool-links {
+				background-color: $color_warning;
+			}
+
+		}
+	}
+
+
+	.text2 {
+		display: none;
+	}
+
+	.header-tools-link.active {
+		background-color: lighten($accent2,12%) !important;
+
+		.text1 {
+			display: none;
+		}
+
+		.text2 {
+			display: inline-block;
+		}
+	}
+
+}
+
+
+@media only screen and (max-width: $tablet_width){
+	.header-tools {
+
+		left: 15px !important;
+		right: 15px !important;
+		text-align: right;
+
+		.popover-region-container {
+			text-align: left;
+			width: 100%;
+		}
+
+		.header-tools-link {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+
+		.text1,
+		.text2 {
+			display: none !important;
+		}
+
+		.theme-plugins {
+
+			float: left;
+
+			> div {
+				position: static;
+
+
+				.popover-region-toggle {
+					&:after,
+					&:before {
+						display: none;
+					}
+				}
+
+			}
+
+		}
+
+	}
+}
+
+
+@media only screen and (max-width: $phone_width){
+
+	.header-tools {
+
+		.header-tools-link,
+		.popover-region-toggle {
+			min-width: 31px;
+		}
+	}
+}

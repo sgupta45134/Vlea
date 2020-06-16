@@ -1,0 +1,40 @@
+
+
+.block_tree {
+	p {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	a {
+		color: $textcolor;
+
+		&:hover,
+		&:focus {
+			color: inherit;
+		}
+	}
+
+	li {
+		padding: .2rem 0 !important;
+	}
+
+	/* Hide empty icons */
+
+	[class="icon fa fa-fw fa-fw navicon"],
+ 	[class="icon fa fa-fw fa-fw "] {
+    	display: none
+	}
+
+	.hasicon {
+		img {
+			margin-left: -2px !important;
+    		margin-right: 4px !important;
+		}
+
+		.icon {
+			font-size: .95rem;
+		}
+	}
+
+}

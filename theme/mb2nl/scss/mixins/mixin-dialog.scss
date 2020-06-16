@@ -1,0 +1,41 @@
+
+
+@mixin mb2_dialog_header()
+{
+
+    position: relative;
+    @include mb2_border_radius(.15rem .15rem 0 0);
+    background-color: $accent2;
+    border-bottom: 0;
+    padding: .47rem 1rem !important;
+    border-top: solid 2px $accent1 !important;
+
+    .modal-title,
+    h1,h2,h3,h4,h5,h6 {
+    	color: #fff;
+        font-size: $fsheading4;
+        margin: 0;
+    }
+
+    .close,
+    button.close {
+    	position: absolute;
+    	margin: 0;
+    	padding: 0;
+    	width: 38px;
+    	height: 38px;
+    	top: .1rem;
+    	right: .3rem;
+    	font-size: 1.7em;
+    	font-weight: inherit;
+    	background-color: transparent !important;
+    	border: 0 !important;
+    	color: rgba(255,255,255,.6);
+    	text-shadow: none;
+
+    	&:hover {
+    		color: #fff;
+    	}
+    }
+
+}

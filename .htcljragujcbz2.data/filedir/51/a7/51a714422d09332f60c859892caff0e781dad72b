@@ -1,0 +1,120 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <title>About Us</title>   
+</head> 
+
+<body>   
+
+<div class="staticpage-wrapper container">
+	<h1 class="staticpage-title">About Us</h1>
+    <div class="staticpage-content">
+	    <div class="team-intro text-center">
+		    <p>This is an example of a Moodle static page. You can use <a href="https://elearning.3rdwavemedia.com/blog/how-to-add-pages-to-moodle-using-the-static-pages-plugin/3277/" target="_blank">Moodle's Static Pages plugin</a> to add static pages to your Moodle site.</p>
+		    <p>Introduce your site and teachers here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquam, tellus id pellentesque viverra, metus lacus lobortis augue, sed malesuada urna sapien id orci. Maecenas pharetra mauris quis tincidunt egestas. Sed condimentum felis quis nulla varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+	    </div>
+	    <div class="team-wrapper">      
+		    <div class="team-item" >
+		        <div class="thumb">
+		            <img class="img-fluid" src="https://3rdwavemedia.com/demo-images/teachers/teacher-1.jpg" alt="profile image" />
+		        </div>
+		        <div class="details">
+		            <h4 class="name">Dr. Larry Peterson</h4>
+		            <h5 class="meta">Founder, Company Lorem</h5>
+		            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquam, tellus id pellentesque viverra, metus lacus lobortis augue, sed malesuada urna sapien id orci. Maecenas pharetra mauris quis tincidunt egestas. Sed condimentum felis quis nulla varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam diam diam, porttitor quis mollis non, suscipit id tellus. Nullam a ultrices sem, vel tincidunt felis. </p>                                 
+		        </div>  
+		        <div class="social">
+			        <ul class="social-list list-inline">
+				        
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-linkedin"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-twitter"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-google-plus"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-envelope"></i></a></li>
+	                </ul>  
+		        </div>                      
+		    </div>
+		    <div class="team-item" >
+		        <div class="thumb">
+		            <img class="img-fluid" src="https://3rdwavemedia.com/demo-images/teachers/teacher-2.jpg" alt="profile image" />
+		        </div>
+		        <div class="details">
+		            <h4 class="name">Ms. Samantha Bates</h4>
+		            <h5 class="meta">Adobe Certified Expert</h5>
+		            <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc</p>                                 
+		        </div>  
+		        <div class="social">
+			        <ul class="social-list list-inline">
+				        
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-linkedin"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-twitter"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-globe"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-envelope"></i></a></li>
+	                </ul>  
+		        </div>                      
+		    </div>
+		    <div class="team-item" >
+		        <div class="thumb">
+		            <img class="img-fluid" src="https://3rdwavemedia.com/demo-images/teachers/teacher-3.jpg" alt="profile image" />
+		        </div>
+		        <div class="details">
+		            <h4 class="name">Mrs. Rebecca Ward</h4>
+		            <h5 class="meta">Google Certified SEO Consultant</h5>
+		            <p>Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.</p>                                 
+		        </div>  
+		        <div class="social">
+			        <ul class="social-list list-inline">
+				        
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-linkedin"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-twitter"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-globe"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-envelope"></i></a></li>
+	                </ul>  
+		        </div>                      
+		    </div>
+		    <div class="team-item" >
+		        <div class="thumb">
+		            <img class="img-fluid" src="https://3rdwavemedia.com/demo-images/teachers/teacher-4.jpg" alt="profile image" />
+		        </div>
+		        <div class="details">
+		            <h4 class="name">Dr. Kenneth Hopkins</h4>
+		            <h5 class="meta">Senior Software Engineer</h5>
+		            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquam, tellus id pellentesque viverra, metus lacus lobortis augue, sed malesuada urna sapien id orci. Maecenas pharetra mauris quis tincidunt egestas. Sed condimentum felis quis nulla varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam diam diam, porttitor quis mollis non, suscipit id tellus. Nullam a ultrices sem, vel tincidunt felis.</p>                                 
+		        </div>  
+		        <div class="social">
+			        <ul class="social-list list-inline">
+				        
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-linkedin"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-twitter"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-globe"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-github"></i></a></li>
+	                </ul>  
+		        </div>                      
+		    </div>
+		    <div class="team-item" >
+		        <div class="thumb">
+		            <img class="img-fluid" src="https://3rdwavemedia.com/demo-images/teachers/teacher-5.jpg" alt="profile image" />
+		        </div>
+		        <div class="details">
+		            <h4 class="name">Dr. Helen Wong</h4>
+		            <h5 class="meta">Mathematician</h5>
+		            <p>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. </p>                                 
+		        </div>  
+		        <div class="social">
+			        <ul class="social-list list-inline">
+				        
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-linkedin"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-twitter"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-globe"></i></a></li>
+	                    <li class="list-inline-item"><a href="#link"><i class="fa fa-google-plus"></i></a></li>
+	                </ul>  
+		        </div>                      
+		    </div>
+		</div>
+	    
+	</div>
+
+</div>
+              
+</body>
+</html> 
+

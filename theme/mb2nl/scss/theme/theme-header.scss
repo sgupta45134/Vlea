@@ -1,0 +1,227 @@
+
+
+/* Logo */
+
+.main-logo {
+	max-width: 100%;
+	float: left;
+	margin: .8rem 0;
+}
+
+
+@media only screen and (max-width: $tablet_width){
+
+	.main-logo {
+		float: none !important;
+		margin-left: auto;
+		margin-right: auto;
+
+		.theme-lfw.loggedin & {
+			margin-top: 50px !important;
+		}
+	}
+
+}
+
+
+@media only screen and (max-width: $phone_width){
+
+	.theme-lfw  {
+
+		&.notloggedin,
+		&.isguestuser {
+
+			.main-logo {
+				margin-top: 50px !important;
+			}
+
+		}
+
+		&.custom-login {
+			.main-logo {
+				margin: 0 auto !important;
+			}
+		}
+
+	}
+
+}
+
+
+
+#main-header {
+
+	@include gradient-y(#fff, $color_gray2);
+
+	.pagelayout-maintenance & {
+		border-bottom: solid 3px $accent2;
+
+		h1 {
+			margin: 20px 0;
+		}
+	}
+
+
+	/* Dark header */
+
+	.header-dark & {
+		background-color: lighten($accent2,3%);
+		@include gradient-y(lighten($accent2,5%), lighten($accent2,3%));
+		border-bottom: solid 1px rgba(0,0,0,.3);
+	}
+
+
+
+	/* Light2 header */
+
+	.header-light2 & {
+		border-bottom: solid 1px rgba(0,0,0,.12);
+	}
+
+
+	/* Static content */
+
+	.theme-static-content {
+		float: left;
+		margin-left: 28px;
+		padding: 0;
+		margin: 0;
+
+		li {
+			display: inline-block;
+			margin-right: 15px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			a:not(.btn) {
+				color: inherit;
+
+				&:hover,
+				&:focus {
+					color: $linkcolor;
+				}
+			}
+		}
+	}
+
+
+}
+
+
+@media only screen and (max-width: $tablet_width){
+
+	#main-header {
+		.theme-static-content {
+			float: none !important;
+			margin: 0 auto 20px auto !important;
+			text-align: center;
+
+			li {
+				display: block;
+				margin: 0 !important;
+			}
+		}
+	}
+}
+
+
+
+
+
+#page-header {
+
+	@include gradient-y(#fff, $color_gray2);
+	.inner {
+		padding: .2rem 0;
+	}
+
+
+	.action-menu {
+		float: right;
+
+		.dropdown-toggle {
+			color: inherit;
+			border: solid 1px $color_border;
+			padding: .2rem;
+			@include mb2_border_radius(.15rem);
+
+			i {
+				font-size: 1.22rem;
+			}
+		}
+	}
+
+}
+
+
+#page-header {
+
+	.singlebutton {
+		margin: 0;
+		float: right;
+	}
+
+	button,
+	input[type="submit"],
+	input[type="button"],
+	button[type="submit"],
+	input[type="button"] {
+		margin: 0 0 0 10px;
+	}
+
+	.forumsearch {
+		float: right;
+
+
+		button,
+		input[type="submit"],
+		input[type="button"],
+		button[type="submit"],
+		input[type="button"] {
+			margin: 0;
+		}
+
+		input#search {
+			margin-right: 0;
+		}
+
+		.text-info {
+			position: relative;
+			top: .3rem;
+		}
+	}
+
+	#coursesearchnavbar {
+		display: none;
+	}
+
+}
+
+
+
+@media only screen and (max-width: $tablet_width){
+
+
+	#page-header {
+
+		text-align: center;
+
+		.singlebutton {
+			float: none;
+			text-align: center;
+		}
+
+		button,
+		input[type="submit"],
+		input[type="button"],
+		button[type="submit"],
+		input[type="button"] {
+			margin: 5px;
+		}
+
+	}
+
+
+}

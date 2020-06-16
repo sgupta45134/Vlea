@@ -1,0 +1,72 @@
+
+
+.theme-boxes {
+	margin-left: -15px;
+	margin-right: -15px;
+	width: auto;
+	max-width: none;
+	flex: none;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.theme-box {
+	padding-left: 15px;
+	padding-right: 15px;
+	float: left;
+	margin-bottom: 30px;
+
+	.col-1 & {
+		float: none;
+	}
+}
+
+
+.col-2 .theme-box {	width: 50%;	}
+.col-3 .theme-box {	width: 33.3333333333%; }
+.col-4 .theme-box {	width: 25%;	}
+.col-5 .theme-box {	width: 20%;	}
+
+
+@media only screen and (max-width:768px){
+
+	.col-2,
+	.col-3,
+	.col-4,
+	.col-5 {
+		.theme-box {
+			width: 50%;
+		}
+	}
+
+}
+
+
+
+@media only screen and (max-width:480px){
+
+	.col-2,
+	.col-3,
+	.col-4,
+	.col-5 {
+		.theme-box {
+			width: 100%;
+		}
+	}
+
+}
+
+
+.theme-box > a {
+	display: block;
+	text-decoration: none !important;
+}
+
+
+
+/* Moodle box */
+
+.generalbox,
+.boxaligncenter {
+	margin-bottom: 20px;
+}

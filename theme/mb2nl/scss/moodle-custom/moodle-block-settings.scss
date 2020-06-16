@@ -1,0 +1,26 @@
+
+
+.block_settings {
+	.footer {
+		margin-top: 1rem;
+		padding-top: 1.3rem;
+		border-top: solid 1px $color_border;
+
+		.form-group {
+			width: 100%;
+		}
+
+		input {
+			width: 100% !important;
+
+			&[type="submit"] {
+				margin-top: .9rem;
+			}
+		}
+
+	}
+
+	#settingsnav {
+		padding: 0 !important;
+	}
+}

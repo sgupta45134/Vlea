@@ -1,0 +1,15 @@
+a:9:{s:10:"blocktitle";s:13:"Credit Expire";s:8:"crontask";s:23:"Credit Expire cron task";s:10:"pluginname";s:13:"Credit Expire";s:29:"access_scorm_not_quiz_subject";s:17:"Assignment Access";s:29:"access_scorm_not_quiz_message";s:660:"Dear {$a->fullname},
+It has been observed from the Learning Portal logs that you have not made submission of assignment {$a->assignment} in the course {$a->coursename}. It is to inform you that 30% is
+the minimum passing marks in every assignment.
+This is a gentle reminder for you to submit the assignment with immediate effect. In case of difficulty in understanding of the concepts, we suggest you to
+participate in the next “Live Interactive Session” for which, all the necessary information are available in Common Room (Link).
+All the best and Happy Learning !
+NOTE: This is an automated mail. Any ambiguity shall be informed to “Support mail id”";s:33:"not_access_scorm_not_quiz_subject";s:12:"Scorm Access";s:33:"not_access_scorm_not_quiz_message";s:742:"Dear {$a->fullname},
+It has been observed from the Learning Portal logs that you aren’t using the learning materials provided in the course {$a->coursename}.
+For an online/ distance course, learning portal is very important aspect to fulfill the norms as well as the learning part. Hence, you are informed to access
+the learning materials as soon as possible and start harnessing the knowledge.
+Also, this is to remind that you have to go through all the contents and submit the periodic assignments for you to successfully complete your course/
+program.
+Happy Learning !
+NOTE:This is an automated mail. Any ambiguity shall be informed to “Support mail id”
+ In case of any issue with the learning material, please write to “Mail ID”";s:7:"emailid";s:8:"Email Id";s:12:"emailiddescp";s:14:"Enter the Name";}

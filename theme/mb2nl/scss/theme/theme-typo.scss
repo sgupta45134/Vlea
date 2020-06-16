@@ -1,0 +1,115 @@
+
+
+html {
+	font-size: $fsbase;
+
+	&.theme-fs2 {
+		font-size: $fsbase2;
+	}
+
+	&.theme-fs3 {
+		font-size: $fsbase3;
+	}
+}
+
+
+body {
+	background-color: #fff;
+	font-family: $ffgeneral, sans-serif;
+	color: $textcolor;
+	font-weight: $fwgeneral;
+	font-size: $fsgeneral;
+	line-height: 1.65rem;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+	@include mb2_font_family($ffheadings);
+	margin-bottom: 1.2rem;
+	font-weight: $fwheadings;
+	color: $headingscolor;
+	text-transform: $ttheadings;
+	font-style: $fstheadings;
+	@include mb2_headings();
+
+	a {
+		color: inherit;
+	}
+}
+
+
+h1,.h1 {font-size: $fsheading1;}
+h2,.h2 {font-size: $fsheading2;}
+h3,.h3 {font-size: $fsheading3;}
+h4,.h4 {font-size: $fsheading4;}
+h5,.h5 {font-size: $fsheading5;}
+h6,.h6 {font-size: $fsheading6;}
+
+
+a {
+	color: $linkcolor;
+
+	&:hover {
+		text-decoration: none;
+		color: $linkhcolor;
+	}
+}
+
+
+
+/* table */
+
+
+th,
+th > a,
+th > a:hover,
+th > a:focus {
+	color: $headingscolor;
+}
+
+.dark1 {
+	th {
+		color: #fff;
+	}
+}
+
+
+abbr[title],
+abbr[data-original-title] {
+	border: 0;
+	text-decoration: none;
+}
+
+
+/* Hr */
+
+hr {
+	border-color: $color_border;
+}
+
+b,
+.strong,
+strong {
+	font-weight: bold;
+}
+
+.small {
+	font-size: $fssmall;
+}
+
+pre {
+	font-family: 'Courier New', Courier, monospace;
+	font-style: normal;
+}
+
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
