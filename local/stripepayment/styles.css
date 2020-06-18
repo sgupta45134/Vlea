@@ -101,7 +101,7 @@ html {
   letter-spacing: 1px;
 }
 
-#page-local-stripepayment-index #region-main, #page-local-stripepayment-index .card, #page-local-stripepayment-index .card-body {background-color:#add8e6;
+.myclass{background-color:#add8e6;
 }
 .pricing-plan{background-color:#fff;border-radius: 10px;}
 

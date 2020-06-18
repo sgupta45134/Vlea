@@ -67,9 +67,11 @@ class local_stripepayment_renderer extends plugin_renderer_base {
                 $180
               </div>
             </div>
-          <ul class="pricing-features">
+          <ul style="list-style: none;" class="pricing-features">
             <li class="pricing-features-item">Video Tutorial</li>
             <li class="pricing-features-item">Small Group Tuition</li>
+            <li></li>
+            </br></br>
           </ul>
           <a href="'.$CFG->wwwroot.'/local/stripepayment/payment.php?p=1" class="is-featured  pricing-button">Buy Now</a>
         </div>
@@ -85,7 +87,7 @@ class local_stripepayment_renderer extends plugin_renderer_base {
                 $320
               </div>
             </div>
-          <ul class="pricing-features">
+          <ul style="list-style: none;" class="pricing-features">
             <li class="pricing-features-item">Video Tutorial</li>
             <li class="pricing-features-item">Small Group Tuition</li>
             <li class="pricing-features-item">Individual Coaching</li>
@@ -105,7 +107,7 @@ class local_stripepayment_renderer extends plugin_renderer_base {
                 $500
               </div>
             </div>
-          <ul class="pricing-features">
+          <ul style="list-style: none;" class="pricing-features">
             <li class="pricing-features-item">Video Tutorial</li>
             <li class="pricing-features-item">Small Group Tuition</li>
             <li class="pricing-features-item">Individual Coaching</li>
