@@ -105,6 +105,9 @@ echo $OUTPUT->footer();
   overflow: hidden;
   background-color: #FFFFFF;
 }
+.bottom-abcd{
+  display: none;
+}
 </style>
 <script>
 var coll = document.getElementsByClassName("collapsible");
