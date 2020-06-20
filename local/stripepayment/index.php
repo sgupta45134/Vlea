@@ -42,7 +42,7 @@ $renderer = $PAGE->get_renderer('local_stripepayment');
 
 
 echo $renderer->print_pricing_plan();
-echo  '<button type="button" class="collapsible">Terms and Conditions for VLE Subscriptions:</button>
+echo  '<button type="button" class="collapsible">Terms and Conditions:</button>
 <div class="content">
 <p><br></p>
 <p>A one-time registration fee of $10 is applicable from 01st August 2020.This fee is waived for all sign-ups during our promotional period from today to 31st July 2020</p>
@@ -84,8 +84,7 @@ echo $OUTPUT->footer();
 	.pricewrapper .fone, .pricewrapper .ftwo{display: inline-block;}
 	.pricewrapper .fone{margin-right: 10px;border-right: solid 1px #ccc;padding-right: 5px;}
 .collapsible {
-  background-color: #777;
-  color: white;
+  background-color: #fff;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -96,7 +95,7 @@ echo $OUTPUT->footer();
 }
 
 .active, .collapsible:hover {
-  background-color: #555;
+  background-color: #13b8dd;
 }
 
 .content {
@@ -105,7 +104,7 @@ echo $OUTPUT->footer();
   overflow: hidden;
   background-color: #FFFFFF;
 }
-.bottom-abcd{
+#bottom-abcd{
   display: none;
 }
 </style>
