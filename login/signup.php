@@ -84,6 +84,9 @@ if ($mform_signup->is_cancelled()) {
 
 } else if ($user = $mform_signup->get_data()) {
     // Add missing required fields.
+  if(isset($user->findother)){
+    $user->find = $user->findother;
+  }
     $user = signup_setup_new_user($user);
 
     // Plugins can perform post sign up actions once data has been validated.

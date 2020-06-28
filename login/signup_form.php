@@ -51,17 +51,7 @@ class login_signup_form extends moodleform implements renderable, templatable {
         $mform->addRule('password', get_string('missingpassword'), 'required', null, 'client');
 
         $mform->addElement('header', 'supplyinfo', get_string('supplyinfo'),'');
-
-        $mform->addElement('text', 'email', get_string('email'), 'maxlength="100" size="25"');
-        $mform->setType('email', core_user::get_property_type('email'));
-        $mform->addRule('email', get_string('missingemail'), 'required', null, 'client');
-        $mform->setForceLtr('email');
-
-        $mform->addElement('text', 'email2', get_string('emailagain'), 'maxlength="100" size="25"');
-        $mform->setType('email2', core_user::get_property_type('email'));
-        $mform->addRule('email2', get_string('missingemail'), 'required', null, 'client');
-        $mform->setForceLtr('email2');
-
+        
         $namefields = useredit_get_required_name_fields();
         foreach ($namefields as $field) {
             $mform->addElement('text', $field, get_string($field), 'maxlength="100" size="30"');
@@ -72,7 +62,72 @@ class login_signup_form extends moodleform implements renderable, templatable {
             }
             $mform->addRule($field, get_string($stringid), 'required', null, 'client');
         }
+        
+        $mform->addElement('text', 'school', get_string('school'), 'maxlength="100" size="25"');
+        $mform->setType('school', PARAM_RAW);
+        $mform->addRule('school', get_string('missingschool'), 'required', null, 'client');
+        
+        $mform->addElement('text', 'phone1', get_string('contact'), 'maxlength="100" size="25"');
+        $mform->setType('phone1', PARAM_RAW);
+        $mform->addRule('phone1', get_string('missingcontact'), 'required', null, 'client');
+        
+        $mform->addElement('text', 'student_id', get_string('student_id'), 'maxlength="100" size="25"');
+        $mform->setType('student_id', PARAM_RAW);
+        $mform->addRule('student_id', get_string('missingid'), 'required', null, 'client');
+        
+        $mform->addElement('text', 'email', get_string('email'), 'maxlength="100" size="25"');
+        $mform->setType('email', core_user::get_property_type('email'));
+        $mform->addRule('email', get_string('missingemail'), 'required', null, 'client');
+        $mform->setForceLtr('email');
 
+        $mform->addElement('text', 'email2', get_string('emailagain'), 'maxlength="100" size="25"');
+        $mform->setType('email2', core_user::get_property_type('email'));
+        $mform->addRule('email2', get_string('missingemail'), 'required', null, 'client');
+        $mform->setForceLtr('email2');
+        
+        $mform->addElement('date_selector', 'dob', get_string('dob'));
+        $mform->addRule('dob', get_string('missingdob'), 'required', null, 'client');
+        
+        $radioarray=array();
+        $radioarray[] = $mform->createElement('radio', 'gender', '', get_string('male'), 'Male');
+        $radioarray[] = $mform->createElement('radio', 'gender', '', get_string('female'), 'Female');
+        $mform->addGroup($radioarray, 'gender_group', get_string('gender'), '', false);
+        $mform->setDefault('gender', 'Male');
+        
+        
+        $mform->addElement('text', 'parent', get_string('parent'), 'maxlength="100" size="25"');
+        $mform->setType('parent', PARAM_RAW);
+        $mform->addRule('parent', get_string('missingparent'), 'required', null, 'client');     
+        
+        $mform->addElement('text', 'address', get_string('address'), 'maxlength="100" size="25"');
+        $mform->setType('address', PARAM_RAW);
+        $mform->addRule('address', get_string('missingaddress'), 'required', null, 'client');        
+        
+        $mform->addElement('text', 'zip', get_string('zip'), 'maxlength="100" size="25"');
+        $mform->setType('zip', PARAM_RAW);
+        $mform->addRule('zip', get_string('missingzip'), 'required', null, 'client');
+        
+        $radioarray=array();
+        $radioarray[] = $mform->createElement('radio', 'package', '', get_string('basic'), 'Basic');
+        $radioarray[] = $mform->createElement('radio', 'package', '', get_string('advance'), 'Advance');
+        $mform->addGroup($radioarray, 'package_group', get_string('package'), '', false);
+        $mform->setDefault('package', 'Basic');
+
+        $issuancedetails = array();
+        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('website'), 'Website');
+        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('google'), 'Google');
+        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('facebook'), 'Facebook');
+        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('friend'), 'Friend');
+        $issuancedetails[] =& $mform->createElement('static', 'none_break', null, '<br/>');
+        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('others'), 1);
+        $issuancedetails[] =& $mform->createElement('text', 'findother', '');
+        
+        
+        $mform->addGroup($issuancedetails, 'findothergr', get_string('find'), array(' '), false);
+        $mform->setDefault('find', 'Website');
+        $mform->setType('findother', PARAM_RAW);
+        $mform->disabledIf('findother', 'find', 'neq', 1);
+        
         $mform->addElement('text', 'city', get_string('city'), 'maxlength="120" size="20"');
         $mform->setType('city', core_user::get_property_type('city'));
         if (!empty($CFG->defaultcity)) {
@@ -91,6 +146,9 @@ class login_signup_form extends moodleform implements renderable, templatable {
         }
 
         profile_signup_fields($mform);
+        
+        $mform->addElement('text', 'refer', get_string('refer'), 'maxlength="100" size="25"');
+        $mform->setType('refer', PARAM_RAW);   
 
         if (signup_captcha_enabled()) {
             $mform->addElement('recaptcha', 'recaptcha_element', get_string('security_question', 'auth'));
@@ -169,3 +227,4 @@ class login_signup_form extends moodleform implements renderable, templatable {
         return $context;
     }
 }
+?>

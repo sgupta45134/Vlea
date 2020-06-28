@@ -299,7 +299,35 @@ function useredit_shared_definition(&$mform, $editoroptions, $filemanageroptions
     $mform->addElement('select', 'maildisplay', get_string('emaildisplay'), $choices);
     $mform->setDefault('maildisplay', core_user::get_property_default('maildisplay'));
     $mform->addHelpButton('maildisplay', 'emaildisplay');
-
+     
+    $mform->addElement('text', 'school', get_string('school'), 'maxlength="255" size="25"');
+    $mform->setType('school', core_user::get_property_type('school'));
+    
+    $mform->addElement('text', 'student_id', get_string('student_id'), 'maxlength="255" size="25"');
+    $mform->setType('student_id', core_user::get_property_type('student_id'));
+    
+    $mform->addElement('date_selector', 'dob', get_string('dob'), 'maxlength="255" size="25"');
+    $mform->setType('dob', core_user::get_property_type('dob'));
+    
+    $mform->addElement('text', 'gender', get_string('gender'), 'maxlength="255" size="25"');
+    $mform->setType('gender', core_user::get_property_type('gender'));
+    
+    $mform->addElement('text', 'parent', get_string('parent'), 'maxlength="255" size="25"');
+    $mform->setType('parent', core_user::get_property_type('parent'));
+    
+    $mform->addElement('text', 'zip', get_string('zip'), 'maxlength="255" size="25"');
+    $mform->setType('zip', core_user::get_property_type('zip'));
+  
+    $mform->addElement('text', 'package', get_string('package'), 'maxlength="255" size="25"');
+    $mform->setType('package', core_user::get_property_type('package'));
+    
+    $mform->addElement('text', 'find', get_string('find'), 'maxlength="255" size="25"');
+    $mform->setType('find', core_user::get_property_type('find'));
+    
+    $mform->addElement('text', 'refer', get_string('refer'), 'maxlength="255" size="25"');
+    $mform->setType('refer', core_user::get_property_type('refer'));
+    
+    
     $mform->addElement('text', 'city', get_string('city'), 'maxlength="120" size="21"');
     $mform->setType('city', PARAM_TEXT);
     if (!empty($CFG->defaultcity)) {
