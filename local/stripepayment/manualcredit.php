@@ -35,7 +35,7 @@ $PAGE->set_context(context_system::instance());
 $mform_manualcredit = new manualcredit_form(null,$userid);
 
 if ($mform_manualcredit->is_cancelled()) {
-    redirect("$CFG->wwwroot/my");
+    redirect("$CFG->wwwroot/admin/user.php");
 
 } else if ($creditdata = $mform_manualcredit->get_data()) {
     $data = new stdClass();
@@ -66,7 +66,7 @@ if ($mform_manualcredit->is_cancelled()) {
     $payment->dataformat = 0;
     $insertid = $DB->insert_record('user_info_data', $payment);
   }
-    redirect("$CFG->wwwroot/local/stripepayment/manualcredit.php?id=$userid");
+    redirect("$CFG->wwwroot/local/stripepayment/manualcredit.php?id=$userid", get_string('credit_assigned', 'local_stripepayment'));
 } else {
     
 

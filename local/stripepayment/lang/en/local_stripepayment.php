@@ -39,3 +39,4 @@ $string['plan1'] = '180 Credits';
 $string['plan2'] = '320 Credits';
 $string['plan3'] = '500 Credits';
 $string['manual_credit_expire'] = 'Manual Credits(Will Expire in 30 days)';
+$string['credit_assigned'] = 'Credits Assigned';
