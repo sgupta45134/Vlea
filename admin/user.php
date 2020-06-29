@@ -364,6 +364,8 @@
                 if (is_siteadmin($USER) or !is_siteadmin($user)) {
                     $url = new moodle_url('/user/editadvanced.php', array('id'=>$user->id, 'course'=>$site->id));
                     $buttons[] = html_writer::link($url, $OUTPUT->pix_icon('t/edit', $stredit));
+                    $url = new moodle_url('/local/stripepayment/manualcredit.php', array('id'=>$user->id));
+                    $buttons[] = html_writer::link($url, $OUTPUT->pix_icon('t/add', $stredit));
                 }
             }
 

@@ -14,6 +14,7 @@
         <FIELD NAME="expire" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="total_credit_left"/>
         <FIELD NAME="status" TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="total_credit_consumed"/>
         <FIELD NAME="timemodified" TYPE="char"  LENGTH   =   "100" NOTNULL="true" SEQUENCE="false" PREVIOUS="status"/>
+        <FIELD NAME="payment_type" TYPE="char"  LENGTH = "100" NOTNULL="true" SEQUENCE="false"/>
         
       </FIELDS>
       <KEYS>

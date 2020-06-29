@@ -493,7 +493,7 @@ class assigntraining_learningplan__form extends moodleform {
             $row[] = date("d-M-Y",$recordvalue->timemodified);
             $amount = ($recordvalue->total_credit == 100) ? 70 : 300;
             $row[] = $amount.".00";
-            $row[] = "Credit Card";
+            $row[] = $recordvalue->payment_type;
 
             $table->data[] = $row;
         }

@@ -153,6 +153,7 @@ function insert_payment_info($userid, $creditplan) {
     $payment->total_credit_consumed =0;
     $payment->status = 0;
     $payment->timemodified = time();
+    $data->payment_type = 'credit_card';
     $insertid = $DB->insert_record('user_credits', $payment);
     return $insertid;
 }

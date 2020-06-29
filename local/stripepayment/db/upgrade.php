@@ -68,5 +68,16 @@ function xmldb_local_stripepayment_upgrade($oldversion) {
     upgrade_plugin_savepoint(true, 2016042504, 'local', 'stripepayment');
   }
 
+  if ($oldversion < 2016042505) {
+
+    $table = new xmldb_table('user_credits');
+    $field = new xmldb_field('payment_type', XMLDB_TYPE_CHAR, null, null, XMLDB_NOTNULL, null, 'credit_card');
+    
+    if (!$dbman->field_exists($table, $field)) {
+      $dbman->add_field($table, $field);
+    }
+
+    upgrade_plugin_savepoint(true, 2016042505, 'local', 'stripepayment');
+  }
   return $result;
 }
