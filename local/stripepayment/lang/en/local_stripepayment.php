@@ -59,3 +59,4 @@ $string['selected_plans'] = 'Selected Plans';
 $string['credit_refund'] = 'Refund the credits';
 $string['refund_exceed'] = 'Refund can not be more than the plan';
 $string['please_select_plan'] = 'Please Select Plan';
+$string['ord_no'] = 'Order No.';

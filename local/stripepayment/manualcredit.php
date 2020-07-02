@@ -134,10 +134,10 @@ else {
 function active_plans_user($userid) {
   global $DB;
   $table = new html_table();
-  $table->head = array(get_string('payment_method', 'local_stripepayment'), get_string('purchased_credit', 'local_stripepayment'),
+  $table->head = array(get_string('ord_no', 'local_stripepayment'), get_string('payment_method', 'local_stripepayment'), get_string('purchased_credit', 'local_stripepayment'),
     get_string('credit_left', 'local_stripepayment'),
     get_string('purchase_date', 'local_stripepayment'), get_string('expiry_date', 'local_stripepayment'));
-  $table->size = array('20%', '20%', '20%', '20%', '20%');
+  $table->size = array('16%', '16%', '16%', '16%', '16%', '16%');
   $table->attributes = array('class' => 'display');
   $table->align = array('center', 'center', 'center', 'center', 'center');
   $table->width = '100%';
@@ -145,6 +145,7 @@ function active_plans_user($userid) {
   if (!empty($records)) {
     foreach ($records as $recordkey => $recordvalue) {
       $row = array();
+      $row[] = "ORD-".$recordvalue->id;
       $payment_type = array('credit_card' => 'Stripe Top Up', 'manual' => 'Manual');
       $row[] = $payment_type[$recordvalue->payment_type];
       $row[] = $recordvalue->total_credit;
