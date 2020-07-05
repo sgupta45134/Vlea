@@ -491,8 +491,7 @@ class assigntraining_learningplan__form extends moodleform {
             $row[] = "ORD-$recordvalue->id";
             $row[] = $recordvalue->total_credit.' credits'; 
             $row[] = date("d-M-Y",$recordvalue->timemodified);
-            $amount = ($recordvalue->total_credit == 100) ? 70 : 300;
-            $row[] = $amount.".00";
+            $row[] = $recordvalue->total_credit.".00";
             $row[] = $recordvalue->payment_type;
 
             $table->data[] = $row;
