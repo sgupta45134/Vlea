@@ -21,24 +21,23 @@ function email_assignment_scorm_cron(){
 
 global $DB, $CFG;
 $time = time();
-$date = '"'.date('d-m-Y', strtotime('-30 days')).'"';
-$fieldid = $DB->get_field('user_info_field','id',array('shortname' => 'user_credits'));
-$sql = "SELECT * FROM `mdl_user_credits` where expire = 0 AND status = 1 AND from_unixtime(timemodified, '%d-%m-%Y') = $date";
+$date = '"' . date('d-m-Y', strtotime('-30 days')) . '"';
+$fieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'user_credits'));
+$sql = "SELECT * FROM {user_credits} where expire = 0 AND status = 1 AND from_unixtime(timemodified, '%d-%m-%Y') = $date";
 $records = $DB->get_records_sql($sql);
-if(isset($records)){
-foreach($records as $key => $value){
-      $data = new stdClass();
-      $data->id = $value->id;
-      $data->expire = 1;
-      if($DB->update_record('user_credits', $data) && $value->total_credit_left != 0){  
-      $balance = $DB->get_field('user_info_data','data',array('fieldid' => $fieldid,'userid' => $value->userid));
-      $id = $DB->get_field('user_info_data','id',array('fieldid' => $fieldid,'userid' => $value->userid));
+if (isset($records)) {
+  foreach ($records as $key => $value) {
+    $data = new stdClass();
+    $data->id = $value->id;
+    $data->expire = 1;
+    if ($DB->update_record('user_credits', $data) && $value->total_credit_left != 0) {
+      $balance = $DB->get_field('user_info_data', 'data', array('fieldid' => $fieldid, 'userid' => $value->userid));
+      $id = $DB->get_field('user_info_data', 'id', array('fieldid' => $fieldid, 'userid' => $value->userid));
       $datanew = new stdClass();
       $datanew->id = $id;
       $datanew->data = $balance - $value->total_credit_left;
-//      if($DB->update_record('user_info_data', $datanew)){  
-//      }
-}
-}
+      $DB->update_record('user_info_data', $datanew);
+    }
+  }
 }
 }
