@@ -79,5 +79,23 @@ function xmldb_local_stripepayment_upgrade($oldversion) {
 
     upgrade_plugin_savepoint(true, 2016042505, 'local', 'stripepayment');
   }
+  
+ 
+  if ($oldversion < 2016042507) {
+
+    $table = new xmldb_table('user');
+    $field = new xmldb_field('parent_email', XMLDB_TYPE_CHAR, '70', null, XMLDB_NOTNULL, null, 'NA');
+    $field2 = new xmldb_field('parent_phone', XMLDB_TYPE_CHAR, '70', null, XMLDB_NOTNULL, null, 'NA');
+        
+    if (!$dbman->field_exists($table, $field)) {
+      $dbman->add_field($table, $field);
+    }
+    if (!$dbman->field_exists($table, $field2)) {
+      $dbman->add_field($table, $field2);
+    }
+
+    upgrade_plugin_savepoint(true, 2016042507, 'local', 'stripepayment');
+  }
+  
   return $result;
 }

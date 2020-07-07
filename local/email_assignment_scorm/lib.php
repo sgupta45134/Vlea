@@ -17,7 +17,7 @@
 
 require_once(dirname(__FILE__) . '/../../config.php');
 
-function email_assignment_scorm_cron() {
+function email_assignment_scorm_cron(){
 
 global $DB, $CFG;
 $time = time();
@@ -36,8 +36,8 @@ foreach($records as $key => $value){
       $datanew = new stdClass();
       $datanew->id = $id;
       $datanew->data = $balance - $value->total_credit_left;
-      if($DB->update_record('user_info_data', $datanew)){  
-      }
+//      if($DB->update_record('user_info_data', $datanew)){  
+//      }
 }
 }
 }

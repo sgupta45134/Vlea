@@ -730,6 +730,7 @@ class core_user {
         $fields['firstnamephonetic'] = array('type' => PARAM_NOTAGS, 'null' => NULL_ALLOWED);
         $fields['middlename'] = array('type' => PARAM_NOTAGS, 'null' => NULL_ALLOWED);
         $fields['alternatename'] = array('type' => PARAM_NOTAGS, 'null' => NULL_ALLOWED);
+        //Customization for adding field
         $fields['school'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
         $fields['student_id'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
         $fields['dob'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
@@ -738,7 +739,9 @@ class core_user {
         $fields['zip'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED); 
         $fields['package'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
         $fields['find'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
-        $fields['refer'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
+        $fields['refer'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED); 
+        $fields['parent_email'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
+        $fields['parent_phone'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
         self::$propertiescache = $fields;
     }
 

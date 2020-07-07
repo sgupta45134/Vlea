@@ -304,6 +304,7 @@
         foreach ($extracolumns as $field) {
             $table->head[] = ${$field};
         }
+        $table->head[] = get_string('credit_left','local_stripepayment');
         $table->head[] = $city;
         $table->head[] = $country;
         $table->head[] = $lastaccess;
@@ -405,6 +406,9 @@
             foreach ($extracolumns as $field) {
                 $row[] = s($user->{$field});
             }
+            $fieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'user_credits'));
+            $balance = $DB->get_field('user_info_data', 'data', array('fieldid' => $fieldid, 'userid' => $user->id));
+            $row[] = $balance;
             $row[] = $user->city;
             $row[] = $user->country;
             $row[] = $strlastaccess;

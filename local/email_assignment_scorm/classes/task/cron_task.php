@@ -25,6 +25,8 @@
  */
 namespace local_email_assignment_scorm\task;
 
+defined('MOODLE_INTERNAL') || die();
+
 class cron_task extends \core\task\scheduled_task {
 
     /**

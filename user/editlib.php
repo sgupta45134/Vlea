@@ -315,6 +315,12 @@ function useredit_shared_definition(&$mform, $editoroptions, $filemanageroptions
     $mform->addElement('text', 'parent', get_string('parent'), 'maxlength="255" size="25"');
     $mform->setType('parent', core_user::get_property_type('parent'));
     
+    $mform->addElement('text', 'parent_email', get_string('parent'), 'maxlength="255" size="25"');
+    $mform->setType('parent_email', core_user::get_property_type('parent'));
+    
+    $mform->addElement('text', 'parent_phone', get_string('parent'), 'maxlength="255" size="25"');
+    $mform->setType('parent_phone', core_user::get_property_type('parent'));
+    
     $mform->addElement('text', 'zip', get_string('zip'), 'maxlength="255" size="25"');
     $mform->setType('zip', core_user::get_property_type('zip'));
   

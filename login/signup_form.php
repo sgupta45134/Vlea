@@ -97,7 +97,17 @@ class login_signup_form extends moodleform implements renderable, templatable {
         
         $mform->addElement('text', 'parent', get_string('parent'), 'maxlength="100" size="25"');
         $mform->setType('parent', PARAM_RAW);
-        $mform->addRule('parent', get_string('missingparent'), 'required', null, 'client');     
+        $mform->addRule('parent', get_string('missingparent'), 'required', null, 'client');
+        
+        $mform->addElement('text', 'parent_email', get_string('parent_email'), 'maxlength="100" size="25"');
+        $mform->setType('parent_email', core_user::get_property_type('email'));
+        $mform->addRule('parent_email', get_string('missingparent_email'), 'required', null, 'client');
+        $mform->setForceLtr('parent_email');
+        
+        $mform->addElement('text', 'parent_phone', get_string('parent_phone'), 'maxlength="100" size="25"');
+        $mform->setType('parent_phone', PARAM_RAW);
+        $mform->addRule('parent_phone', get_string('missingparent_phone'), 'required', null, 'client');
+        
         
         $mform->addElement('text', 'address', get_string('address'), 'maxlength="100" size="25"');
         $mform->setType('address', PARAM_RAW);

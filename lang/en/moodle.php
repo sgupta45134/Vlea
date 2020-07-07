@@ -2292,3 +2292,8 @@ $string['friend'] = 'Friend           ';
 $string['others'] = 'Others';
 $string['find'] = 'How did you find us?';
 $string['missingfind'] = 'Please Select One';
+$string['parent_email'] = 'Parent\'s Email';
+$string['parent_phone'] = 'Parent\'s Phone Number';
+$string['missingparent_email'] = 'Missing Parent Email';
+$string['missingparent_phone'] = 'Missing Parent Phone Number';
+
