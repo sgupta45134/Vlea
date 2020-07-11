@@ -27,7 +27,7 @@ $string['username'] = 'Username';
 $string['password'] = 'Password';
 $string['usernamedescp'] = 'Enter the Username Here';
 $string['passworddescp'] = 'Enter the Password Here';
-$string['less_credit_subject'] = 'Credits Running Less';
+$string['less_credit_subject'] = '[VLE Academy] Your credits are running low';
 $string['less_credit_message'] = 'Dear {$a->fullname},
 
 On behalf of VLEAcademy, we would like to express our heartfelt thanks for your support.
