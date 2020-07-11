@@ -46,6 +46,7 @@ function send_enrol_message(\core\event\user_enrolment_created $event) {
     }
     $already_adjusted = 0;
     $row = 1;
+    $less_credit_mail = 0;
     foreach ($credit_array as $credit_array_key => $credit_array_value) {
       if ($count == $row) {
         $left = $credit_array_value - $credits;
@@ -54,8 +55,36 @@ function send_enrol_message(\core\event\user_enrolment_created $event) {
         $credits -= $credit_array_value;
         $left = 0;
       }
+      $less_credit_mail = $DB->get_field('user_credits', 'less_credit_mail', array('id' => $$credit_array_key));
+
+      if ($left < 50 && $less_credit_mail == 0) {
+
+        $sql = "SELECT u.id, u.email ,concat(u.firstname, ' ' , u.lastname) as fullname FROM {user} u WHERE u.id =$userid";
+
+        $records = $DB->get_records_sql($sql);
+
+        foreach ($records as &$record) {
+          $param->fullname = "$record->fullname";
+          $emailuser->email = $record->email;
+          $emailuser->firstname = $record->firstname;
+          $emailuser->lastname = $record->lastname;
+          $emailuser->maildisplay = true;
+          $emailuser->mailformat = 1; // 0 (zero) text-only emails, 1 (one) for HTML/Text emails.
+          $emailuser->id = -99;
+          $emailuser->firstnamephonetic = '';
+          $emailuser->lastnamephonetic = '';
+          $emailuser->middlename = '';
+          $emailuser->alternatename = '';
+          $from = \core_user::get_noreply_user();
+          $subject = get_string('less_credit_subject', 'local_send_enrol_message');
+          $message = get_string('less_credit_message', 'local_send_enrol_message', $param);
+          email_to_user($emailuser, $from, $subject, $message);
+        }
+        $less_credit_mail = 1;
+      }
       $data = new stdClass();
       $data->id = $credit_array_key;
+      $data->less_credit_mail = $less_credit_mail;
       $data->total_credit_left = $left;
       $DB->update_record('user_credits', $data);
       $row++;

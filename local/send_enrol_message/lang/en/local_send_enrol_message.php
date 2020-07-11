@@ -27,4 +27,25 @@ $string['username'] = 'Username';
 $string['password'] = 'Password';
 $string['usernamedescp'] = 'Enter the Username Here';
 $string['passworddescp'] = 'Enter the Password Here';
-$string['subject'] = 'Course Enrolment';
+$string['less_credit_subject'] = 'Credits Running Less';
+$string['less_credit_message'] = 'Dear {$a->fullname},
+
+On behalf of VLEAcademy, we would like to express our heartfelt thanks for your support.
+
+We are writing to gently remind you that credits in your child\'s account is running low. You may like to repurchase a new package to top-up the credits so that he/she can continue to join us for more great tuition programs.
+You may do so with these options :
+
+1.	Make a PayNow transfer for the Basic $180 or Advance $320 package for another 30 days to our UEN 202012386K and send us a screenshot to Mobile 9172 3109. We will immediately upload the credits into your account or 
+
+2.	Visit our website at www.vleacademy.com to repurchase the package and pay with your Credit/Debit card. 
+
+More good news! Get rewarded with a small token from us when you refer your friends/relatives to join us on this fun and interactive learning journey. 
+
+VLEAcademy values you and helps you meet your child’s potential goals in attaining their best professional academic achievement.
+
+Please let us know if you have questions or concerns.
+
+We look forward once again to your support.
+
+Thank you.
+Sincerely,';

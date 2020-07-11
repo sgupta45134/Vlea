@@ -97,5 +97,21 @@ function xmldb_local_stripepayment_upgrade($oldversion) {
     upgrade_plugin_savepoint(true, 2016042507, 'local', 'stripepayment');
   }
   
+    if ($oldversion < 2016042509) {
+
+    $table = new xmldb_table('user_credits');
+    $field = new xmldb_field('less_credit_mail', XMLDB_TYPE_INTEGER, '20', null, XMLDB_NOTNULL, null, 0);
+    $field1 = new xmldb_field('expire_reminder_mail', XMLDB_TYPE_INTEGER, '20', null, XMLDB_NOTNULL, null, 0);
+
+        if (!$dbman->field_exists($table, $field)) {
+      $dbman->add_field($table, $field);
+    }
+        if (!$dbman->field_exists($table, $field1)) {
+      $dbman->add_field($table, $field1);
+    }
+
+    upgrade_plugin_savepoint(true, 2016042509, 'local', 'stripepayment');
+  }
+  
   return $result;
 }
