@@ -59,28 +59,30 @@ function send_enrol_message(\core\event\user_enrolment_created $event) {
 
       if ($left < 50 && $less_credit_mail == 0) {
 
-        $sql = "SELECT u.id, u.email ,concat(u.firstname, ' ' , u.lastname) as fullname FROM {user} u WHERE u.id =$userid";
+        $sql = "SELECT u.id, u.parent_email ,concat(u.firstname, ' ' , u.lastname) as fullname FROM {user} u WHERE u.id =$userid and WHERE parent_email != 'NA'";
 
         $records = $DB->get_records_sql($sql);
-
-        foreach ($records as &$record) {
-          $param->fullname = "$record->fullname";
-          $emailuser->email = $record->email;
-          $emailuser->firstname = $record->firstname;
-          $emailuser->lastname = $record->lastname;
-          $emailuser->maildisplay = true;
-          $emailuser->mailformat = 1; // 0 (zero) text-only emails, 1 (one) for HTML/Text emails.
-          $emailuser->id = -99;
-          $emailuser->firstnamephonetic = '';
-          $emailuser->lastnamephonetic = '';
-          $emailuser->middlename = '';
-          $emailuser->alternatename = '';
-          $from = \core_user::get_noreply_user();
-          $subject = get_string('less_credit_subject', 'local_send_enrol_message');
-          $message = get_string('less_credit_message', 'local_send_enrol_message', $param);
-          email_to_user($emailuser, $from, $subject, $message);
+        if (isset($records)) {
+          foreach ($records as &$record) {
+            $param->fullname = "$record->fullname";
+            $emailuser->email = $record->email;
+            $emailuser->firstname = $record->firstname;
+            $emailuser->lastname = $record->lastname;
+            $emailuser->maildisplay = true;
+            $emailuser->mailformat = 1; // 0 (zero) text-only emails, 1 (one) for HTML/Text emails.
+            $emailuser->id = -99;
+            $emailuser->firstnamephonetic = '';
+            $emailuser->lastnamephonetic = '';
+            $emailuser->middlename = '';
+            $emailuser->alternatename = '';
+            $from = \core_user::get_noreply_user();
+            $subject = get_string('less_credit_subject', 'local_send_enrol_message');
+            $message = get_string('less_credit_message', 'local_send_enrol_message', $param);
+            if (email_to_user($emailuser, $from, $subject, $message)) {
+              $less_credit_mail = 1;
+            }
+          }
         }
-        $less_credit_mail = 1;
       }
       $data = new stdClass();
       $data->id = $credit_array_key;
