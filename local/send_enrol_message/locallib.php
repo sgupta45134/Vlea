@@ -59,13 +59,13 @@ function send_enrol_message(\core\event\user_enrolment_created $event) {
 
       if ($left < 50 && $less_credit_mail == 0) {
 
-        $sql = "SELECT u.id, u.parent_email ,u.parent as fullname FROM {user} u WHERE u.id =$userid and WHERE parent_email != 'NA'";
+        $sql = "SELECT u.id, u.parent_email ,u.parent as fullname FROM {user} u WHERE u.id =$userid and parent_email != 'NA'";
 
         $records = $DB->get_records_sql($sql);
         if (isset($records)) {
           foreach ($records as &$record) {
             $param->fullname = "$record->fullname";
-            $emailuser->email = $record->email;
+            $emailuser->email = $record->parent_email;
             $emailuser->firstname = $record->firstname;
             $emailuser->lastname = $record->lastname;
             $emailuser->maildisplay = true;
