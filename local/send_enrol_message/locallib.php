@@ -58,7 +58,7 @@ function send_enrol_message(\core\event\user_enrolment_created $event) {
       $less_credit_mail = $DB->get_field('user_credits', 'less_credit_mail', array('id' => $$credit_array_key));
 
       if ($left < 50 && $less_credit_mail == 0) {
-
+        $param = new stdClass();
         $sql = "SELECT u.id, u.parent_email ,u.parent as fullname FROM {user} u WHERE u.id =$userid and parent_email != 'NA'";
 
         $records = $DB->get_records_sql($sql);
