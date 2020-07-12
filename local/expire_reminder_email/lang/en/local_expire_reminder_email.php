@@ -21,7 +21,7 @@
 $string['crontask'] = 'Expire Reminder Email';
 $string['pluginname'] = 'Expire Reminder Email';
 $string['expire_reminder_email_subject'] = '[VLE Academy] Your credits are going to expire on {$a->expiredate}';
-$string['expire_reminder_email_message'] = 'Dear {$a->fullanme},
+$string['expire_reminder_email_message'] = 'Dear {$a->fullname},
   
 On behalf of VLEAcademy, we would like to express our heartfelt thanks for your support.
 
