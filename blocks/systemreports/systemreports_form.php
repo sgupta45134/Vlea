@@ -490,7 +490,7 @@ class assigntraining_learningplan__form extends moodleform {
     $table = new html_table();
     $table->head = array(get_string('s_no', 'block_systemreports'),
       get_string('order_item', 'block_systemreports'), get_string('order_date', 'block_systemreports'), get_string('paid', 'block_systemreports')
-      , get_string('payment_method', 'block_systemreports'), get_string('payment_method', 'delete'));
+      , get_string('payment_method', 'block_systemreports'), get_string('delete', 'block_systemreports'));
     $table->size = array('20%', '20%', '20%', '20%', '20%');
     $table->attributes = array('class' => 'display');
     $table->align = array('center', 'left', 'left', 'center');
