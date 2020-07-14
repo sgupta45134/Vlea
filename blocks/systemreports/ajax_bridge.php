@@ -43,7 +43,7 @@ $hideusers = optional_param('hideusers', null, PARAM_INT);
 $t_type_id = optional_param('t_type_id', null, PARAM_INT);
 $g_id = optional_param('g_id', null, PARAM_INT);
 $lpid = optional_param('lpid', null, PARAM_INT);
-$courseid = optional_param('courseid', null, PARAM_INT);
+$recordid = optional_param('recordid', null, PARAM_INT);
 if (!isloggedin()) {
     redirect($CFG->wwwroot);
 }
@@ -69,10 +69,14 @@ if(isset($action) && $action == "savecourseorder") {
 }
 
 
-if(isset($action) && $action == "removecourse") {
+if(isset($action) && $action == "removerecord") {
     global $DB;
-    $DB->set_debug(true);
-    $DB->delete_records('systemreports_courses', array('learningplanid'=>$lpid, 'course'=>$courseid));
+    $data = new stdClass();
+    $data->id = $recordid;
+    $data->status = 0;
+    $data->deleted = 1;
+
+    $DB->update_record('user_credits', $data);
     
 }
 

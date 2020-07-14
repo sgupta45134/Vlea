@@ -61,36 +61,24 @@ $(function(){
      });
      
     $(".btn-primary").click(function () {
-        var id = $(this).attr('id');
-        if(id == 'courses-list'){
-     	var userid = $(this).attr('userid');
-        var startyear = $(this).attr('startyear');
-        var endyear = $(this).attr('currentyear');
-                        $.ajax({
-                url: 'ajax_bridge.php',
-                type: 'POST',
-                data: 'action=getCourses&userid=' + userid + '&startyear=' + startyear + '&endyear=' + endyear,
-                success: function (data) {
-                 var obj = jQuery.parseJSON(data);
-                 var courses = obj.result;
-                 $( ".modal-body" ).html( courses );
-                }
+     	var conf = confirm("Are you sure you want to delete this record?");
+     	var id = $(this).attr('id');
+     	var recordid = id.split('_')[1];
+		if (conf == true) {
+		  $.ajax({
+                method:'POST',
+                url:M.cfg.wwwroot+'/blocks/systemreports/ajax_bridge.php',
+                data:{'action':'removerecord', 'recordid':recordid },
+                success:function(result){
+                	alert('Record deleted successfully');
+                     location.reload();
+//                      document.getElementById(id).value="Close Curtain";
+//                	$('#'+id).parent('.coursewrapper').remove();	
+            }
             });
-        }
-        if(id == 'systemenrolledcourses'){
-            var startyear = $(this).attr('startyear');
-            var endyear = $(this).attr('currentyear');
-               $.ajax({
-                url: 'ajax_bridge.php',
-                type: 'POST',
-                data: 'action=getenrolledCourses&startyear=' + startyear + '&endyear=' + endyear,
-                success: function (data) {
-                 var obj = jQuery.parseJSON(data);
-                 var courses = obj.result;
-                 $( ".modal-body" ).html( courses );
-                }
-            });   
-        }
+		} else {
+			return false;
+		}
      });
 });
 
