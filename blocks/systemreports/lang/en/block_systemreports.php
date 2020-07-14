@@ -134,7 +134,4 @@ $string['order_item'] = "Order Item";
 $string['order_date'] = "Order Date";
 $string['paid'] = "Paid";
 $string['payment_method'] = 'Payment Method';
-
-
-
-
+$string['delete'] = "Delete Record";
