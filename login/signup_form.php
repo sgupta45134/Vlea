@@ -113,9 +113,29 @@ class login_signup_form extends moodleform implements renderable, templatable {
         $mform->setType('address', PARAM_RAW);
         $mform->addRule('address', get_string('missingaddress'), 'required', null, 'client');        
         
+        $mform->addElement('text', 'address_extend', get_string('address_extend'), 'maxlength="100" size="25"');
+        $mform->setType('address_extend', PARAM_RAW);
+        
         $mform->addElement('text', 'zip', get_string('zip'), 'maxlength="100" size="25"');
         $mform->setType('zip', PARAM_RAW);
         $mform->addRule('zip', get_string('missingzip'), 'required', null, 'client');
+        
+        $mform->addElement('text', 'city', get_string('city'), 'maxlength="120" size="20"');
+        $mform->setType('city', core_user::get_property_type('city'));
+        if (!empty($CFG->defaultcity)) {
+            $mform->setDefault('city', $CFG->defaultcity);
+        }
+
+        $country = get_string_manager()->get_list_of_countries();
+        $default_country[''] = get_string('selectacountry');
+        $country = array_merge($default_country, $country);
+        $mform->addElement('select', 'country', get_string('country'), $country);
+
+        if( !empty($CFG->country) ){
+            $mform->setDefault('country', $CFG->country);
+        }else{
+            $mform->setDefault('country', '');
+        }
         
         $radioarray=array();
         $radioarray[] = $mform->createElement('radio', 'package', '', get_string('basic'), 'Basic');
@@ -136,24 +156,7 @@ class login_signup_form extends moodleform implements renderable, templatable {
         $mform->addGroup($issuancedetails, 'findothergr', get_string('find'), array(' '), false);
         $mform->setDefault('find', 'Website');
         $mform->setType('findother', PARAM_RAW);
-        $mform->disabledIf('findother', 'find', 'neq', 1);
-        
-        $mform->addElement('text', 'city', get_string('city'), 'maxlength="120" size="20"');
-        $mform->setType('city', core_user::get_property_type('city'));
-        if (!empty($CFG->defaultcity)) {
-            $mform->setDefault('city', $CFG->defaultcity);
-        }
-
-        $country = get_string_manager()->get_list_of_countries();
-        $default_country[''] = get_string('selectacountry');
-        $country = array_merge($default_country, $country);
-        $mform->addElement('select', 'country', get_string('country'), $country);
-
-        if( !empty($CFG->country) ){
-            $mform->setDefault('country', $CFG->country);
-        }else{
-            $mform->setDefault('country', '');
-        }
+        $mform->disabledIf('findother', 'find', 'neq', 1); 
 
         profile_signup_fields($mform);
         

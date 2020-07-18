@@ -125,6 +125,19 @@ function xmldb_local_stripepayment_upgrade($oldversion) {
 
     upgrade_plugin_savepoint(true, 2016042510, 'local', 'stripepayment');
   }
+  
+    if ($oldversion < 2016042511) {
+
+    $table = new xmldb_table('user');
+    $field = new xmldb_field('address_extend', XMLDB_TYPE_CHAR, '70', null, XMLDB_NOTNULL, null, 'NA');
+
+    if (!$dbman->field_exists($table, $field)) {
+      $dbman->add_field($table, $field);
+    }
+
+
+    upgrade_plugin_savepoint(true, 2016042511, 'local', 'stripepayment');
+  }
 
   return $result;
 }

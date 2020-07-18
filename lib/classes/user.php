@@ -742,6 +742,7 @@ class core_user {
         $fields['refer'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED); 
         $fields['parent_email'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
         $fields['parent_phone'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
+        $fields['address_extend'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
         self::$propertiescache = $fields;
     }
 

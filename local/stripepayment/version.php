@@ -20,7 +20,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$plugin->version = 2016042510;
+$plugin->version = 2016042511;
 $plugin->requires = 2015051100;
 $plugin->component  = 'local_stripepayment';
 $plugin->cron   =   0;
