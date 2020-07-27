@@ -5,6 +5,7 @@
     require_once($CFG->libdir.'/authlib.php');
     require_once($CFG->dirroot.'/user/filters/lib.php');
     require_once($CFG->dirroot.'/user/lib.php');
+    require_once(__DIR__ . '/../local/stripepayment/lib.php');
 
     $delete       = optional_param('delete', 0, PARAM_INT);
     $confirm      = optional_param('confirm', '', PARAM_ALPHANUM);   //md5 confirmation hash
@@ -305,6 +306,7 @@
             $table->head[] = ${$field};
         }
         $table->head[] = get_string('credit_left','local_stripepayment');
+        $table->head[] = get_string('plan','local_stripepayment');
         $table->head[] = $city;
         $table->head[] = $country;
         $table->head[] = $lastaccess;
@@ -409,6 +411,9 @@
             $fieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'user_credits'));
             $balance = $DB->get_field('user_info_data', 'data', array('fieldid' => $fieldid, 'userid' => $user->id));
             $row[] = $balance;
+           //customization for adding current active plan
+            $row[] = current_active_plan($user->id);
+          //customization end for adding current active plan
             $row[] = $user->city;
             $row[] = $user->country;
             $row[] = $strlastaccess;

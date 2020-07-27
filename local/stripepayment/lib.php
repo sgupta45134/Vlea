@@ -181,3 +181,12 @@ function update_user_credit($update) {
   $DB->execute($sql);
   return true;
 }
+
+function current_active_plan($userid) {
+  global $DB;
+  $plan = array(180 => 'Essential', 320 => 'Premium', 500 => 'Ultimate');
+  $sql = "SELECT total_credit FROM mdl_user_credits where userid = $userid and status = 1 and expire = 0 and deleted = 0 ORDER BY id DESC LIMIT 0, 1";
+  $record = $DB->get_record_sql($sql);
+  $current_plan = isset($record->total_credit) ? $plan[$record->total_credit] : 'No Active Plan';
+  return $current_plan;
+}

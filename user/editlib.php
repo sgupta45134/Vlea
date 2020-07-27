@@ -23,6 +23,7 @@
  */
 
 require_once($CFG->dirroot . '/user/lib.php');
+require_once(__DIR__ . '/../local/stripepayment/lib.php');
 
 /**
  * Cancels the requirement for a user to update their email address.
@@ -299,6 +300,12 @@ function useredit_shared_definition(&$mform, $editoroptions, $filemanageroptions
     $mform->addElement('select', 'maildisplay', get_string('emaildisplay'), $choices);
     $mform->setDefault('maildisplay', core_user::get_property_default('maildisplay'));
     $mform->addHelpButton('maildisplay', 'emaildisplay');
+    
+    $current_plan = current_active_plan($user->id);
+    $mform->addElement('text', 'subscribe_plan', get_string('subscribe_plan','local_stripepayment'), 'maxlength="255" size="25"');
+    $mform->setType('subscribe_plan', PARAM_RAW);
+    $mform->setDefault('subscribe_plan', $current_plan);
+    
      
     $mform->addElement('text', 'school', get_string('school'), 'maxlength="255" size="25"');
     $mform->setType('school', core_user::get_property_type('school'));
