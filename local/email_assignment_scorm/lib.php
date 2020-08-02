@@ -38,6 +38,12 @@ if (isset($records)) {
       $datanew->data = $balance - $value->total_credit_left;
       $DB->update_record('user_info_data', $datanew);
     }
+    $fieldid_subscribed_plan = $DB->get_field('user_info_field', 'id', array('shortname' => 'subscribed_plan'));
+    $subscribed_plan_id = $DB->get_field('user_info_data', 'id', array('fieldid' => $fieldid_subscribed_plan, 'userid' => $value->userid));
+    $datanew = new stdClass();
+    $datanew->id = $subscribed_plan_id;
+    $datanew->data = 'No Active Plan';
+    $DB->update_record('user_info_data', $datanew);
   }
 }
 }

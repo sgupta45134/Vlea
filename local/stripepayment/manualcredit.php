@@ -24,6 +24,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require_once('../../config.php');
+require_once('lib.php');
 require_login();
 $userid = optional_param('id', 0, PARAM_INT);
 
@@ -101,6 +102,21 @@ else if ($creditdata = $mform_manualcredit->get_data()) {
       $payment->dataformat = 0;
       $insertid = $DB->insert_record('user_info_data', $payment);
     }
+    
+  $fieldid_subscribed_plan = $DB->get_field('user_info_field', 'id', array('shortname' => 'subscribed_plan'));
+  if ($record =  $DB->get_record('user_info_data', array('fieldid' => $fieldid_subscribed_plan, 'userid' => $userid))) {
+    $subscribed_plan_name = "'".subscribed_plan_name($new_credit)."'";
+    $sql = "update {user_info_data} set data = $subscribed_plan_name where id=$record->id";
+    $DB->execute($sql);
+  }
+  else {
+    $data = new stdClass();
+    $data->userid = $userid;
+    $data->fieldid = $fieldid_subscribed_plan;
+    $data->data = subscribed_plan_name($new_credit);
+    $data->dataformat = 0;
+    $insertid = $DB->insert_record('user_info_data', $data);
+  }
   }
   else {
     redirect("$CFG->wwwroot/local/stripepayment/manualcredit.php?id=$userid", get_string('some_issue', 'local_stripepayment'));

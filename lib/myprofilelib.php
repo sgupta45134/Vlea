@@ -152,15 +152,6 @@ function core_myprofile_navigation(core_user\output\myprofile\tree $tree, $user,
         $tree->add_node($node);
     }
 
-    //customization for adding current active plan
-        require_once(__DIR__ . '/../local/stripepayment/lib.php');
-        $current_plan = current_active_plan($user->id);
-        $node = new core_user\output\myprofile\node('contact', 'plan', get_string('subscribe_plan','local_stripepayment'), null, null,
-                 $current_plan);
-        $tree->add_node($node);
-        
-     //customization end for adding current active plan
-
     if ($iscurrentuser
         or (!isset($hiddenfields['email']) and (
             $user->maildisplay == core_user::MAILDISPLAY_EVERYONE

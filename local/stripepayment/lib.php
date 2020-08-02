@@ -177,6 +177,20 @@ function update_user_credit($update) {
     $payment->dataformat = 0;
     $insertid = $DB->insert_record('user_info_data', $payment);
   }
+   $fieldid_subscribed_plan = $DB->get_field('user_info_field', 'id', array('shortname' => 'subscribed_plan'));
+  if ($record =  $DB->get_record('user_info_data', array('fieldid' => $fieldid_subscribed_plan, 'userid' => $USER->id))) {
+    $subscribed_plan_name = "'".subscribed_plan_name($new_credit)."'";
+    $sql = "update {user_info_data} set data = $subscribed_plan_name where id=$record->id";
+    $DB->execute($sql);
+  }
+  else {
+    $data = new stdClass();
+    $data->userid = $USER->id;
+    $data->fieldid = $fieldid_subscribed_plan;
+    $data->data = subscribed_plan_name($new_credit);
+    $data->dataformat = 0;
+    $insertid = $DB->insert_record('user_info_data', $data);
+  }
   $sql = "update {user_credits} set status = 1 where id=$update->id";
   $DB->execute($sql);
   return true;
@@ -184,9 +198,15 @@ function update_user_credit($update) {
 
 function current_active_plan($userid) {
   global $DB;
-  $plan = array(180 => 'Essential', 320 => 'Premium', 500 => 'Ultimate');
-  $sql = "SELECT total_credit FROM {user_credits} where userid = $userid and status = 1 and expire = 0 and deleted = 0 ORDER BY id DESC LIMIT 0, 1";
+  $fieldid_subscribed_plan = $DB->get_field('user_info_field', 'id', array('shortname' => 'subscribed_plan'));
+  $sql = "SELECT data FROM {user_info_data} where userid = $userid and fieldid = $fieldid_subscribed_plan";
   $record = $DB->get_record_sql($sql);
-  $current_plan = isset($record->total_credit) ? $plan[$record->total_credit] : 'No Active Plan';
+  $current_plan = isset($record->data) ? $record->data : 'No Active Plan';
   return $current_plan;
+}
+function subscribed_plan_name($credit) {
+  global $DB;
+  $plan = array(180 => 'Essential', 320 => 'Premium', 500 => 'Ultimate');
+  $subscribed_plan = isset($plan[$credit]) ? $plan[$credit] : 'Something wrong';
+  return $subscribed_plan;
 }
