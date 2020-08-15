@@ -36,6 +36,9 @@ if (isset($records)) {
       $datanew = new stdClass();
       $datanew->id = $id;
       $datanew->data = $balance - $value->total_credit_left;
+      if($datanew->data < 0) {
+        $datanew->data = 0;
+      }
       $DB->update_record('user_info_data', $datanew);
     }
     $sql = "SELECT * FROM {user_credits} where userid = $value->userid and expire = 0 AND status = 1 AND from_unixtime(timemodified, '%d-%m-%Y') > $date";
