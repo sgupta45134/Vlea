@@ -149,7 +149,16 @@ class course_edit_form extends moodleform {
             $mform->addHelpButton('relativedatesmodegroup', 'relativedatesmode');
         }
 
-        $mform->addElement('text','idnumber', get_string('idnumbercourse'),'maxlength="100"  size="10"');
+
+        $mform->addElement('text','repeat_delay', get_string('repeat_delay'),'maxlength="100"  size="10"');
+        $mform->addElement('checkbox', 'enable', get_string('enable'));
+        $mform->setDefault('enable', $course->enable);
+        $mform->setType('repeat_delay', PARAM_INT);
+        if (!empty($course->id) and !has_capability('moodle/course:changeidnumber', $coursecontext)) {
+            $mform->setConstants('repeat_delay', $course->repeat_delay);
+        }
+
+        $mform->addElement('text','idnumber', get_string('idnumbercourse'),'maxlength="50"  size="10"');
         $mform->addHelpButton('idnumber', 'idnumbercourse');
         $mform->setType('idnumber', PARAM_RAW);
         if (!empty($course->id) and !has_capability('moodle/course:changeidnumber', $coursecontext)) {

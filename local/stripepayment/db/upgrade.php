@@ -139,5 +139,21 @@ function xmldb_local_stripepayment_upgrade($oldversion) {
     upgrade_plugin_savepoint(true, 2016042511, 'local', 'stripepayment');
   }
 
+    if ($oldversion < 2016042512) {
+
+    $table = new xmldb_table('course');
+    $field = new xmldb_field('enable',  XMLDB_TYPE_INTEGER, '20', null, XMLDB_NOTNULL, null, 0);
+    $field2 = new xmldb_field('repeat_delay',  XMLDB_TYPE_INTEGER, '20', null, XMLDB_NOTNULL, null, 0);
+        
+    if (!$dbman->field_exists($table, $field)) {
+      $dbman->add_field($table, $field);
+    }
+    if (!$dbman->field_exists($table, $field2)) {
+      $dbman->add_field($table, $field2);
+    }
+
+    upgrade_plugin_savepoint(true, 2016042512, 'local', 'stripepayment');
+  }
+
   return $result;
 }

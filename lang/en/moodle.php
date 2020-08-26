@@ -2297,4 +2297,5 @@ $string['parent_phone'] = 'Parent\'s Phone Number';
 $string['missingparent_email'] = 'Missing Parent Email';
 $string['missingparent_phone'] = 'Missing Parent Phone Number';
 $string['address_extend'] = '';
-
+$string['repeat_delay'] = 'Repeat Delay(in hours)';
+$string['enable'] = 'Enable';

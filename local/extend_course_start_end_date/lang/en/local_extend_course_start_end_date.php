@@ -15,14 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    local-stripepayment
- * @author     surendra prasad
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * Strings for component 'local_email', language 'en'
  */
 
-$plugin->version = 2016042512;
-$plugin->requires = 2015051100;
-$plugin->component  = 'local_stripepayment';
-$plugin->cron   =   0;
-$plugin->maturity  =   MATURITY_STABLE;
-$plugin->release = '1.0'; //This is our first release for moodle 2.9 onwards
+$string['crontask'] = 'Extend Course Start and End date';
+$string['pluginname'] = 'Extend Course Start and End date';
+

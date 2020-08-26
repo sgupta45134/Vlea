@@ -15,14 +15,24 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    local-stripepayment
- * @author     surendra prasad
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * Definition of Forum scheduled tasks.
+ *
+ * @package   local_email_assignment_scorm
+ * @category  task
+ * @copyright Sudhanshu Gupta <sudhanshug5@gmail.com>
  */
 
-$plugin->version = 2016042512;
-$plugin->requires = 2015051100;
-$plugin->component  = 'local_stripepayment';
-$plugin->cron   =   0;
-$plugin->maturity  =   MATURITY_STABLE;
-$plugin->release = '1.0'; //This is our first release for moodle 2.9 onwards
+defined('MOODLE_INTERNAL') || die();
+
+$tasks = array(
+    array(
+        'classname' => '\local_extend_course_start_end_date\task\cron_task',
+        'blocking' => 0,
+        'minute' => '*',
+        'hour' => '*',
+        'day' => '*',
+        'month' => '*',
+        'dayofweek' => '*',
+        'disabled' => 0
+    )
+);

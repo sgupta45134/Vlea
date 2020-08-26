@@ -14,15 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * @package    local-stripepayment
- * @author     surendra prasad
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
-$plugin->version = 2016042512;
-$plugin->requires = 2015051100;
-$plugin->component  = 'local_stripepayment';
-$plugin->cron   =   0;
-$plugin->maturity  =   MATURITY_STABLE;
-$plugin->release = '1.0'; //This is our first release for moodle 2.9 onwards
+$plugin->version  = 2020041301;   // The (date) version of this plugin.
+$plugin->requires = 2010021900;   // Requires this Moodle version.
+$plugin->release  = '3.6.6 (Build: 20190909)'; // Human-friendly version name
+$plugin->component  = 'local_extend_course_start_end_date';

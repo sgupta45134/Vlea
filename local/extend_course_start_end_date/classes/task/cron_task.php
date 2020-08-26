@@ -15,14 +15,36 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    local-stripepayment
- * @author     surendra prasad
+ * A scheduled task for forum cron.
+ *
+ * @todo MDL-44734 This job will be split up properly.
+ *
+ * @package    local_email
+ * @copyright  2014 E-Learn Design
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+namespace local_extend_course_start_end_date\task;
 
-$plugin->version = 2016042512;
-$plugin->requires = 2015051100;
-$plugin->component  = 'local_stripepayment';
-$plugin->cron   =   0;
-$plugin->maturity  =   MATURITY_STABLE;
-$plugin->release = '1.0'; //This is our first release for moodle 2.9 onwards
+defined('MOODLE_INTERNAL') || die();
+
+class cron_task extends \core\task\scheduled_task {
+
+    /**
+     * Get a descriptive name for this task (shown to admins).
+     *
+     * @return string
+     */
+    public function get_name() {
+        return get_string('crontask', 'local_extend_course_start_end_date');
+    }
+
+    /**
+     * Run email cron.
+     */
+    public function execute() {
+        global $CFG;
+        require_once($CFG->dirroot . '/local/extend_course_start_end_date/lib.php');
+        extend_course_start_end_date_cron();
+    }
+
+}
