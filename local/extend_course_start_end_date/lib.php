@@ -19,38 +19,17 @@ require_once(dirname(__FILE__) . '/../../config.php');
 
 function extend_course_start_end_date_cron() {
 
-  global $DB, $CFG;
-  $date = '"' . date('d-m-Y', strtotime('-23 days')) . '"';
+global $DB;
+$time = time();
+$sql = "SELECT * from {course} where enddate < $time and enable = 1";
+$records = $DB->get_records_sql($sql);
+foreach($records as $recordkey => $record){
+  $delay = $record->repeat_delay * 3600;
   $expiretime = $time + strtotime('+7 days');
-  $expiredate = date('d/m/Y', $expiretime);
-  $param = new stdClass();
-  $param->expiredate = $expiredate;
-  $sql = "SELECT uc.id as credit_id, u.id, u.parent_email, u.parent as fullname FROM {user} u INNER JOIN {user_credits} uc ON uc.userid = u.id
-    WHERE uc.status = 1 and uc.expire = 0 and from_unixtime(uc.timemodified, '%d-%m-%Y') = $date and uc.expire_reminder_mail = 0 and u.parent_email != 'NA'";
-  $records = $DB->get_records_sql($sql);
-
-  if (isset($records)) {
-    foreach ($records as &$record) {
-      $param->fullname = "$record->fullname";
-      $emailuser->email = $record->parent_email;
-      $emailuser->firstname = $record->firstname;
-      $emailuser->lastname = $record->lastname;
-      $emailuser->maildisplay = true;
-      $emailuser->mailformat = 1; // 0 (zero) text-only emails, 1 (one) for HTML/Text emails.
-      $emailuser->id = -99;
-      $emailuser->firstnamephonetic = '';
-      $emailuser->lastnamephonetic = '';
-      $emailuser->middlename = '';
-      $emailuser->alternatename = '';
-      $from = \core_user::get_noreply_user();
-      $subject = get_string('expire_reminder_email_subject', 'local_expire_reminder_email' , $param);
-      $message = get_string('expire_reminder_email_message', 'local_expire_reminder_email',$param);
-      if (email_to_user($emailuser, $from, $subject, $message)) {
-        $data = new stdClass();
-        $data->id = $record->credit_id;
-        $data->expire_reminder_mail = 1;
-        $DB->update_record('user_credits', $data);
-      }
-    }
-  }
+  $data = new stdClass();
+  $data->id = $record->id;
+  $data->startdate =  strtotime('+7 days') + $delay;
+  $data->enddate =  strtotime('+14 days') + $delay;
+  $DB->update_record('course', $data);
+}
 }
