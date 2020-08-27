@@ -2634,7 +2634,12 @@ class coursecat_helper {
             // option 4, course category context:
             // $options['context'] = $context->get_parent_context();
         }
-        $summary = file_rewrite_pluginfile_urls($course->summary, 'pluginfile.php', $context->id, 'course', 'summary', null);
+        $variable = $course->summary;
+        $variable .= "</br></br>DATE/TIME</br>";
+        $timestamp = $course->enddate;
+        $variable .= gmdate("d-m-Y(l)/h:iA", $timestamp);
+
+        $summary = file_rewrite_pluginfile_urls($variable, 'pluginfile.php', $context->id, 'course', 'summary', null);
         $summary = format_text($summary, $course->summaryformat, $options, $course->id);
         if (!empty($this->searchcriteria['search'])) {
             $summary = highlight($this->searchcriteria['search'], $summary);
