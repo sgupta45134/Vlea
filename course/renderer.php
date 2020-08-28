@@ -2634,10 +2634,13 @@ class coursecat_helper {
             // option 4, course category context:
             // $options['context'] = $context->get_parent_context();
         }
+
         $variable = $course->summary;
+        if($course->startdate != 0){
         $variable .= "</br></br>DATE/TIME</br>";
-        $timestamp = $course->enddate;
-        $variable .= gmdate("d-m-Y(l)/h:iA", $timestamp);
+        $timestamp = $course->startdate;
+        $variable .= date("d-m-Y(l)/h:iA", $timestamp);
+        }
 
         $summary = file_rewrite_pluginfile_urls($variable, 'pluginfile.php', $context->id, 'course', 'summary', null);
         $summary = format_text($summary, $course->summaryformat, $options, $course->id);
