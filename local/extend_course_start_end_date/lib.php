@@ -24,12 +24,16 @@ $time = time();
 $sql = "SELECT * from {course} where enddate < $time and enable = 1";
 $records = $DB->get_records_sql($sql);
 foreach($records as $recordkey => $record){
-  $delay = $record->repeat_delay * 3600;
-  $expiretime = $time + strtotime('+7 days');
   $data = new stdClass();
   $data->id = $record->id;
-  $data->startdate =  strtotime('+7 days') + $delay;
-  $data->enddate =  strtotime('+14 days') + $delay;
+  $data->startdate =  $record->startdate + time_to_add(7,$record->repeat_delay);
+  $data->enddate =  $record->enddate + time_to_add(7,$record->repeat_delay);
   $DB->update_record('course', $data);
 }
 }
+
+function time_to_add($days, $hours){
+$dayshours = $days*24;
+$newtime_add = ($dayshours + $hours)*3600;
+return $newtime_add;
+} 
