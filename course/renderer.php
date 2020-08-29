@@ -2636,11 +2636,11 @@ class coursecat_helper {
         }
 
         $variable = $course->summary;
-        if($course->startdate != 0){
-        $variable .= "</br></br>DATE/TIME</br>";
-        $timestamp = $course->startdate;
-        $variable .= date("d-m-Y(l)/h:iA", $timestamp);
-        }
+//        if($course->startdate != 0){
+//        $variable .= "</br></br>DATE/TIME</br>";
+//        $timestamp = $course->startdate;
+//        $variable .= date("d-m-Y(l)/h:iA", $timestamp);
+//        }
 
         $summary = file_rewrite_pluginfile_urls($variable, 'pluginfile.php', $context->id, 'course', 'summary', null);
         $summary = format_text($summary, $course->summaryformat, $options, $course->id);
