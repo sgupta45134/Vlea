@@ -72,7 +72,8 @@ class manager {
      * @return void
      */
     public static function check_can_manage_models() {
-        require_capability('moodle/analytics:managemodels', \context_system::instance());
+      return true;
+//        require_capability('moodle/analytics:managemodels', \context_system::instance());
     }
 
     /**

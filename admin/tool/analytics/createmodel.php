@@ -62,7 +62,7 @@ if ($mform->is_cancelled()) {
     redirect($returnurl);
 
 } else if ($data = $mform->get_data()) {
-
+   print_object($data);die;
     // Converting option names to class names.
     $targetclass = \tool_analytics\output\helper::option_to_class($data->target);
     if (empty($targets[$targetclass])) {

@@ -7,20 +7,19 @@ $CFG = new stdClass();
 $CFG->dbtype    = 'mysqli';
 $CFG->dblibrary = 'native';
 $CFG->dbhost    = 'localhost';
-$CFG->dbname    = 'i6600317_mo1';
-$CFG->dbuser    = 'i6600317_mo1';
-$CFG->dbpass    = 'I.fDGh4mS5jumu6p0qB84';
-$CFG->usepaypalsandbox = 1;
-$CFG->prefix    = 'mo_';
+$CFG->dbname    = 'moodle_vela';
+$CFG->dbuser    = 'root';
+$CFG->dbpass    = 'Admin@123';
+$CFG->prefix    = 'mdl_';
 $CFG->dboptions = array (
   'dbpersist' => 0,
-  'dbport' => 3306,
-  'dbsocket' => '0',
-  'dbcollation' => 'utf8_unicode_ci',
+  'dbport' => '',
+  'dbsocket' => '',
+  'dbcollation' => 'utf8_general_ci',
 );
 
-$CFG->wwwroot   = 'https://www.vleacademy.com';
-$CFG->dataroot  = '/home/hfgmgvmwda5f/public_html/.htcljragujcbz2.data/';
+$CFG->wwwroot   = 'http://localhost/vlea';
+$CFG->dataroot  = 'C:\\UniServerZ\\www\\vela/../moodledata_vela';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;

@@ -1561,7 +1561,7 @@ class model {
      */
     public function export(\renderer_base $output) {
 
-        \core_analytics\manager::check_can_manage_models();
+//        \core_analytics\manager::check_can_manage_models();
 
         $data = clone $this->model;
 
