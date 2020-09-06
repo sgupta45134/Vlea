@@ -489,19 +489,22 @@ class assigntraining_learningplan__form extends moodleform {
 
     $table = new html_table();
     $table->head = array(get_string('s_no', 'block_systemreports'),
-      get_string('order_item', 'block_systemreports'), get_string('order_date', 'block_systemreports'), get_string('paid', 'block_systemreports')
+      get_string('order_item', 'block_systemreports'), get_string('order_date', 'block_systemreports'),get_string('name', 'block_systemreports'), get_string('paid', 'block_systemreports')
       , get_string('payment_method', 'block_systemreports'), get_string('delete', 'block_systemreports'));
     $table->size = array('20%', '20%', '20%', '20%', '20%');
     $table->attributes = array('class' => 'display');
     $table->align = array('center', 'left', 'left', 'center');
     $table->width = '100%';
-    $records = $DB->get_records('user_credits', array('status' => 1));
+    $sql = "Select uc.*, u.firstname from {user_credits} as uc left join {user} as u on uc.userid = u.id where uc.status =1";
+    $records = $DB->get_records_sql($sql);
+//    $records = $DB->get_records('user_credits', array('status' => 1));
     if (!empty($records)) {
       foreach ($records as $recordkey => $recordvalue) {
         $row = array();
         $row[] = "ORD-$recordvalue->id";
         $row[] = $recordvalue->total_credit . ' credits';
         $row[] = date("d-M-Y", $recordvalue->timemodified);
+        $row[] = $recordvalue->firstname;
         $row[] = $recordvalue->total_credit . ".00";
         $row[] = $recordvalue->payment_type;
         $content = '<button type="button" id="viewdetail_' . $recordvalue->id . '" class="btn btn-primary viewdetail">
