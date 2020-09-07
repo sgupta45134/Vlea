@@ -62,3 +62,7 @@ $string['please_select_plan'] = 'Please Select Plan';
 $string['ord_no'] = 'Order No.';
 $string['plan'] = 'Plan';
 $string['subscribe_plan'] = 'Subscribed Plan';
+$string['credits_deducted'] = 'Credits to be deducted';
+$string['deduct_credits'] = 'Deduct Credits';
+$string['credits_been_deducted'] = 'Credits has been deducted';
+

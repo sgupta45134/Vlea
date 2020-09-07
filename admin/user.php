@@ -369,6 +369,8 @@
                     $buttons[] = html_writer::link($url, $OUTPUT->pix_icon('t/edit', $stredit));
                     $url = new moodle_url('/local/stripepayment/manualcredit.php', array('id'=>$user->id));
                     $buttons[] = html_writer::link($url, $OUTPUT->pix_icon('t/add', $stredit));
+                    $url = new moodle_url('/local/stripepayment/removecredit.php', array('id'=>$user->id));
+                    $buttons[] = html_writer::link($url, $OUTPUT->pix_icon('t/switch_minus', $stredit));
                 }
             }
 
