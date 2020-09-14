@@ -46,6 +46,7 @@ function theme_mb2nl_site_menu()
 	$siteMenuIems[] = 'turneditingcourse';
   $siteMenuIems[] = 'credits';
   $siteMenuIems[] = 'creditreport';
+    $siteMenuIems[] = 'enrolmentreport';
 	$course_access = theme_mb2nl_site_access();
 	$can_manage = array('admin','manager','editingteacher','teacher');
 
@@ -244,7 +245,14 @@ function theme_mb2nl_site_menu_items()
 			'course' => true,
 			'icon' => 'fa fa-bar-chart',
 			'text' => get_string('creditreport','theme_mb2nl'),
-      'link' => new moodle_url('/blocks/systemreports/view.php')
+      'link' => new moodle_url('/blocks/systemreports/view.php?viewpage=1')
+		),
+      'enrolmentreport' => array(
+			'access' => array('coursemgmt','admin'),
+			'course' => true,
+			'icon' => 'fa fa-sign-in',
+			'text' => get_string('enrolmentreport','theme_mb2nl'),
+      'link' => new moodle_url('/blocks/systemreports/view.php?viewpage=2')
 		),
 	);
 

@@ -31,7 +31,7 @@ require_once('lib.php');
 require_once("{$CFG->libdir}/formslib.php");
 global $DB, $USER, $OUTPUT, $PAGE, $CFG;
 
-$viewpage = 4;//required_param('viewpage', PARAM_INT);
+$viewpage = required_param('viewpage', PARAM_INT);
 $rem = optional_param('rem', null, PARAM_RAW);
 $edit = optional_param('edit', null, PARAM_RAW);
 $delete = optional_param('delete', null, PARAM_RAW);
@@ -64,9 +64,9 @@ $table->align = array('center', 'center', 'center', 'center', 'center', 'center'
 $table->width = '100%';
 $table->data[] = $row;
 echo html_writer::table($table);
-if ($viewpage == 1) { // quater wise learning
+if ($viewpage == 2) { // quater wise learning
     $form = new learningplan_form();
-}else if ($viewpage == 4) { // Enrollment vs certificaton
+}else if ($viewpage == 1) { // Enrollment vs certificaton
     $form = new assigntraining_learningplan__form();
 }
 // Set viewpage with form.

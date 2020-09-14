@@ -398,3 +398,4 @@ $string['region-banner-bottom'] = 'Deprecated';
 
 $string['credits'] = 'Credits';
 $string['creditreport'] = ' Orders ';
+$string['enrolmentreport'] = ' Enrolments ';

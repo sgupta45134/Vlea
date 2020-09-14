@@ -32,6 +32,7 @@ require_once("{$CFG->libdir}/formslib.php");
  */
 class learningplan_form extends moodleform {
 
+  
   public function definition() {
     
   }
@@ -44,132 +45,31 @@ class learningplan_form extends moodleform {
     global $DB, $OUTPUT, $CFG;
     // Page parameters.
     $yearid = optional_param('year', 0, PARAM_INT);
-    $course = optional_param('course', 1, PARAM_INT);
 
     $table = new html_table();
-    if ($course == 1) {
-      $table->head = array(get_string('s_no', 'block_systemreports'), get_string('period', 'block_systemreports'),
-        get_string('students_enrolled', 'block_systemreports'), get_string('courses_name', 'block_systemreports'),
-        get_string('no_of_student', 'block_systemreports'));
-    }
-    else {
-      $table->head = array(get_string('s_no', 'block_systemreports'), get_string('period', 'block_systemreports'),
-        get_string('students_enrolled', 'block_systemreports'), get_string('no_of_student', 'block_systemreports'));
-    }
-    $table->size = array('10%', '30', '45%');
+    $table->head = array(get_string('enrol_date', 'block_systemreports'), get_string('student_name', 'block_systemreports'),
+      get_string('category', 'block_systemreports'),get_string('course_name', 'block_systemreports'));
+    $table->size = array('20%', '20%', '20%', '20%', '20%');
     $table->attributes = array('class' => 'display');
-    $table->align = array('center', 'left', 'left', 'center', 'center', 'center');
+    $table->align = array('center', 'left', 'left', 'center');
     $table->width = '100%';
-    $yearlist = array();
-    for ($i = 2019; $i <= date("Y"); $i++)
-      $yearlist["$i"] = $i;
-    if ($yearid != 0) {
-      $startyear = $yearid;
-      $currentyear = $yearid;
-    }
-    else {
-      $startyear = 2019;
-      $currentyear = date("Y");
-    }
-    $courselist = array(1 => 'All Courses');
-    $courses = get_courses();
-    if (!empty($courses)) {
-      foreach ($courses as $courseid) {
-        if ($courseid->id == 1)
-          continue;
-        $courselist[$courseid->id] = $courseid->fullname;
-      }
-    }
-
-    echo $OUTPUT->single_select(new moodle_url('?viewpage=1', array()), 'year', $yearlist, $yearid, 'Select Year', '', array('label' => 'Select Year'));
-    echo $OUTPUT->single_select(new moodle_url('?viewpage=1', array('year' => $yearid)), 'course', $courselist, $course, 'Choose Course', array(), array('label' => 'Select Course'));
-    $no_of_rows = 4 + ($currentyear - $startyear) * 4;
-    $year_array = array($startyear);
-    $inc = 1;
-    for ($inc = 1; $inc <= ($currentyear - $startyear); $inc++) {
-      $year_array[] = $startyear + $inc;
-    }
-    $quater = ['Oct-Dec', 'Jan-Mar', 'Apr-Jun', 'Jul-Sep'];
-    if (($currentyear - $startyear) != -1) {
-      for ($inc = 1; $inc <= $no_of_rows; $inc++) {
-        $no_of_completion = 0;
+    $sql = "Select ue.*, concat(u.firstname,' ', u.lastname) as fullname, c.fullname as coursename, cat.name as categoryname from {user_enrolments} as ue left join {user} as u on ue.userid = u.id left join "
+        . "{enrol} as e on e.id = ue.enrolid left join {course} as c on e.courseid = c.id left join {course_categories} as cat on cat.id = c.category";
+    $records = $DB->get_records_sql($sql);
+    if (!empty($records)) {
+      foreach ($records as $recordkey => $recordvalue) {
         $row = array();
-        $row[] = $inc;
-        $quater_index = $inc % 4;
-        $year_index = ($inc - 1) / 4;
-        $row[] = "$quater[$quater_index],$year_array[$year_index]"; //format_string($log->systemreports, false);
-        switch ($quater_index) {
-          case 0 :
-            $startdate = strtotime("01-10-" . $year_array[$year_index] . " 12:00 AM");
-            $enddate = strtotime("31-12-" . $year_array[$year_index] . " 11:59:59 PM");
-            break;
-          case 1 :
-            $startdate = strtotime("01-01-" . $year_array[$year_index] . " 12:00 AM");
-            $enddate = strtotime("31-03-" . $year_array[$year_index] . " 11:59:59 PM");
-            break;
-          case 2 :
-            $startdate = strtotime("01-04-" . $year_array[$year_index] . " 12:00 AM");
-            $enddate = strtotime("30-06-" . $year_array[$year_index] . " 11:59:59 PM");
-            break;
-          case 3 :
-            $startdate = strtotime("01-07-" . $year_array[$year_index] . " 12:00 AM");
-            $enddate = strtotime("30-09-" . $year_array[$year_index] . " 11:59:59 PM");
-            break;
-        }
-        if ($course == 1)
-          $query = "SELECT count(id) as count FROM {course_completions} WHERE `timecompleted` < $enddate and `timecompleted` > $startdate";
-        else
-          $query = "SELECT count(id) as count FROM {course_completions} WHERE `timecompleted` < $enddate and `timecompleted` > $startdate and course = $course";
-        $record = $DB->get_record_sql($query);
-        if ($course == 1)
-          $query = "SELECT count(id) as enrolled FROM {user_enrolments}  WHERE `timemodified` < $enddate and `timemodified` > $startdate";
-        else
-          $query = "SELECT count(ue.id) as enrolled FROM `mdl_user_enrolments` as ue left join `mdl_enrol` as e on ue.enrolid = e.id"
-              . " WHERE ue.timemodified < $enddate and ue.timemodified > $startdate and e.courseid = $course";
-        $record_enrolled = $DB->get_record_sql($query);
-        $row[] = $record_enrolled->enrolled;
-        if ($course == 1) {
-          $row[] = '<button type="button" id="systemenrolledcourses" class="btn btn-primary" startyear="' . $startdate . '" currentyear="' . $enddate . '"data-toggle="modal" data-target="#myenrolledcourses">
-                         View Courses
-                      </button>';
-          ?>
-          <html lang="en">
-              <body>
+        $row[] = date("d-M-Y", $recordvalue->timemodified);;
+        $row[] = $recordvalue->fullname;
+        $row[] = $recordvalue->categoryname;
+        $row[] = $recordvalue->coursename;
 
-                  <div class="container">
-                      <!-- Modal -->
-                      <div class="modal fade" id="myenrolledcourses" role="dialog">
-                          <div class="modal-dialog">
-
-                              <!-- Modal content-->
-                              <div class="modal-content">
-                                  <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  </div>
-                                  <div id = "modal-body-enrolledcourses" class="modal-body">
-                                  </div>
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                                  </div>
-                              </div>
-
-                          </div>
-                      </div>
-
-                  </div>
-
-              </body>
-          </html>
-          <?php
-        }
-        $row[] = $record->count;
         $table->data[] = $row;
       }
     }
     else {
       $table->data[] = array('', '', get_string('notfound', 'block_systemreports'), '', '');
     }
-    // $rs->close();
     return $table;
     // echo html_writer::table($table);
   }

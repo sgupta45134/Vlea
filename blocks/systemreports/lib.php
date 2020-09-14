@@ -242,8 +242,8 @@ function display_list($lp_id, $u_id) {
  */
 function nav_title($viewpage) {
     $array = array(
-        1 => get_string('quater_wise_systemreports', 'block_systemreports'),
-        4 => get_string('enrol_cert_comp', 'block_systemreports'),
+        1 => get_string('order_details', 'block_systemreports'),
+        2 => get_string('enrolment_report', 'block_systemreports'),
         5 => get_string('user_high_low_att', 'block_systemreports'),
         6 => get_string('user_max_cert', 'block_systemreports'),
         7 => get_string('hla', 'block_systemreports'),
