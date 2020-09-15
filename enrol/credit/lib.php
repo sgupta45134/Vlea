@@ -790,6 +790,12 @@ class enrol_credit_plugin extends enrol_plugin {
         $mform->addElement('date_time_selector', 'enrolenddate', get_string('enrolenddate', 'enrol_credit'), $options);
         $mform->setDefault('enrolenddate', 0);
         $mform->addHelpButton('enrolenddate', 'enrolenddate', 'enrol_credit');
+        
+        $mform->addElement('text','repeat_delay', get_string('repeat_delay'),'maxlength="100"  size="10"');
+        $mform->addElement('checkbox', 'enable', get_string('enable'));
+        $mform->setDefault('enable', $instance->enable);
+        $mform->setType('repeat_delay', PARAM_INT);
+        $mform->setConstants('repeat_delay', $instance->repeat_delay);
 
         $options = $this->get_longtimenosee_options();
         $mform->addElement('select', 'customint2', get_string('longtimenosee', 'enrol_credit'), $options);
@@ -958,10 +964,13 @@ class enrol_credit_plugin extends enrol_plugin {
         }
         // Add previous value of newenrols if disabled.
         if (!isset($data->customint6)) {
-            $data->customint6 = $instance->customint6;
+      $data->customint6 = $instance->customint6;
         }
-
-        return parent::update_instance($instance, $data);
+        
+        if (!isset($data->enable)) {
+        $data->enable = 0;
+        }
+    return parent::update_instance($instance, $data);
     }
 
     /**

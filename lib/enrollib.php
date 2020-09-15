@@ -2488,7 +2488,7 @@ abstract class enrol_plugin {
                             'customchar1', 'customchar2', 'customchar3', 'customdec1', 'customdec2',
                             'customtext1', 'customtext2', 'customtext3', 'customtext4', 'roleid',
                             'enrolperiod', 'expirynotify', 'notifyall', 'expirythreshold',
-                            'enrolstartdate', 'enrolenddate', 'cost', 'currency');
+                            'enrolstartdate', 'enrolenddate', 'cost', 'currency','enable');
 
         foreach ($properties as $key) {
             if (isset($data->$key)) {
