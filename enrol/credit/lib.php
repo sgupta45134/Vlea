@@ -394,11 +394,14 @@ class enrol_credit_plugin extends enrol_plugin {
         $a = new stdClass();
         $a->coursename = format_string($course->fullname, true, ['context' => $context]);
         $a->profileurl = "$CFG->wwwroot/user/view.php?id=$user->id&course=$course->id";
+        $a->courselink = "$CFG->wwwroot/course/view.php?id=$course->id";
+        $dt = new DateTime("now", new DateTimeZone('Asia/Singapore'));
+        $a->enroltime = $dt->format('m/d/Y, H:i');
 
         if (trim($instance->customtext1) !== '') {
             $message = $instance->customtext1;
-            $key = ['{$a->coursename}', '{$a->profileurl}', '{$a->fullname}', '{$a->email}'];
-            $value = [$a->coursename, $a->profileurl, fullname($user), $user->email];
+            $key = ['{$a->coursename}', '{$a->profileurl}', '{$a->fullname}', '{$a->email}', '{$a->courselink}', '{$a->enroltime}'];
+            $value = [$a->coursename, $a->profileurl, fullname($user), $user->email, $a->courselink, $a->enroltime];
             $message = str_replace($key, $value, $message);
             if (strpos($message, '<') === false) {
                 // Plain text only.
