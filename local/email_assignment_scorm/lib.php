@@ -21,7 +21,7 @@ function email_assignment_scorm_cron(){
 
 global $DB, $CFG;
 $time = time();
-$date = '"' . date('d-m-Y', strtotime('-30 days')) . '"';
+$date = '"' . date('d-m-Y', strtotime('-31 days')) . '"';
 $fieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'user_credits'));
 $sql = "SELECT * FROM {user_credits} where expire = 0 AND status = 1 AND from_unixtime(timemodified, '%d-%m-%Y') = $date";
 $records = $DB->get_records_sql($sql);
