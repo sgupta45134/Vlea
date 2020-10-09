@@ -44,9 +44,10 @@ $nav_title = nav_title($viewpage);
 
 require_login();
 $context = context_system::instance();
+if($viewpage != 3){
 if (!has_capability('block/systemreports:managepages', $context)) {
     redirect($CFG->wwwroot);
-}
+}}
 $PAGE->set_context($context);
 $PAGE->set_url($pageurl);
 $PAGE->set_pagelayout('standard');
@@ -68,6 +69,9 @@ if ($viewpage == 2) { // quater wise learning
     $form = new learningplan_form();
 }else if ($viewpage == 1) { // Enrollment vs certificaton
     $form = new assigntraining_learningplan__form();
+}else if ($viewpage == 3) { // Enrollment vs certificaton
+    $form = new my_credit_history_form();
+    $form1 = new my_purchase_history_form();
 }
 // Set viewpage with form.
 if ($viewpage != 8) {
@@ -77,6 +81,12 @@ if ($viewpage != 8) {
 // Display List.
     if ($table = $form->display_list()) {
         echo html_writer::table($table);
+    }
+    if(isset($form1)){
+    if ($table = $form1->display_list()) {
+        echo "<br><br>";
+        echo html_writer::table($table);
+    }
     }
 }
 echo html_writer::end_tag('div');
@@ -97,6 +107,7 @@ echo html_writer::end_tag('div');
 
         $('.display').DataTable({
             dom: 'T<"clear">lfrtip',
+             "order": [[ 0, "desc" ]],
             tableTools: {
                 "aButtons": [
                     "copy",

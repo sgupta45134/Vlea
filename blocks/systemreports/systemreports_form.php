@@ -82,7 +82,57 @@ class learningplan_form extends moodleform {
  * @copyright 3i Logic<lms@3ilogic.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class assignlerningplan_user_form extends moodleform {
+class my_credit_history_form extends moodleform {
+
+public function definition() {
+    
+  }
+
+  public function validation($data, $files) {
+    
+  }
+
+  public function display_list() {
+    global $DB, $OUTPUT, $CFG, $USER;
+    // Page parameters.
+    $table = new html_table();
+    $table->head = array(get_string('course_name', 'block_systemreports'), get_string('category', 'block_systemreports'),
+               get_string('credits', 'block_systemreports'), get_string('enrol_date', 'block_systemreports'),
+      );
+    $table->size = array('20%', '20%', '20%', '20%', '20%');
+    $table->attributes = array('class' => 'display');
+    $table->align = array('center', 'left', 'left', 'center');
+    $table->width = '100%';
+    $sql = "Select ue.*, concat(u.firstname,' ', u.lastname) as fullname, e.customint7 as credits, c.fullname as coursename, cat.name as categoryname from {user_enrolments} as ue left join {user} as u on ue.userid = u.id left join "
+        . "{enrol} as e on e.id = ue.enrolid left join {course} as c on e.courseid = c.id left join {course_categories} as cat on cat.id = c.category where u.id = $USER->id and e.enrol = 'credit'";
+    $records = $DB->get_records_sql($sql);
+    if (!empty($records)) {
+      foreach ($records as $recordkey => $recordvalue) {
+        $row = array();
+        $row[] = $recordvalue->coursename;
+        $row[] = $recordvalue->categoryname;
+        $row[] = $recordvalue->credits;
+        $row[] = date("d-M-Y", $recordvalue->timemodified);;
+
+        $table->data[] = $row;
+      }
+    }
+    else {
+      $table->data[] = array('', '', get_string('notfound', 'block_systemreports'), '', '');
+    }
+    return $table;
+    // echo html_writer::table($table);
+  }
+
+}
+
+/**
+ * Class for assign trainings in to a learning plan.
+ *
+ * @copyright 3i Logic<lms@3ilogic.com>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class my_purchase_history_form extends moodleform {
 
   public function definition() {
     
@@ -93,62 +143,33 @@ class assignlerningplan_user_form extends moodleform {
   }
 
   public function display_list() {
-    global $DB, $OUTPUT, $CFG;
-    $course = optional_param('course', 1, PARAM_INT);
+  global $DB,$USER;
+  $userid = $USER->id;
+  $table = new html_table();
+  $table->head = array(get_string('payment_method', 'local_stripepayment'), get_string('plan', 'block_systemreports'),
+    get_string('purchased_credit', 'local_stripepayment'),
+    get_string('purchase_date', 'local_stripepayment'), get_string('expiry_date', 'local_stripepayment'));
+  $table->size = array('16%', '16%', '16%', '16%', '16%', '16%');
+  $table->attributes = array('class' => 'display');
+  $table->align = array('center', 'center', 'center', 'center', 'center');
+  $table->width = '100%';
+  $records = $DB->get_records('user_credits', array('status' => 1, 'userid' => $userid, 'expire' => 0));
+  $plan = array(180 => 'Essential', 320 => 'Premium', 500 => 'Ultimate');
+  if (!empty($records)) {
+    foreach ($records as $recordkey => $recordvalue) {
+      $row = array();
+      $payment_type = array('credit_card' => 'Stripe Top Up', 'manual' => 'Manual');
+      $row[] = $payment_type[$recordvalue->payment_type];
+      $row[] = $plan[$recordvalue->total_credit];
+      $row[] = $recordvalue->total_credit;
+      $row[] = date("d-M-Y", $recordvalue->timemodified);
+      $row[] = date("d-M-Y", strtotime('+30 days', $recordvalue->timemodified));
 
-    $courselist = array();
-    $courses = get_courses();
-    if (!empty($courses)) {
-      foreach ($courses as $courseid) {
-        if ($courseid->id == 1)
-          continue;
-        $courselist[$courseid->id] = $courseid->fullname;
+      $table->data[] = $row;
       }
-    }
-    echo $OUTPUT->single_select(new moodle_url('/blocks/systemreports/view.php?viewpage=5', array()), 'course', $courselist, $course, 'Choose Course', array(), array('label' => 'Select Course'));
-
-    // Page parameters.
-    $userlist = array();
-    $users = $DB->get_records_sql("SELECT u.id as id, c.id as courseid, CONCAT(u.firstname,' ', u.lastname) as fullname FROM {user} u INNER JOIN {role_assignments} ra ON ra.userid = u.id INNER JOIN {context} ct ON ct.id = ra.contextid INNER JOIN {course} c ON c.id =ct.instanceid INNER JOIN {role} r ON r.id = ra.roleid  WHERE r.id =5 and c.id = $course 
-            and u.suspended = 0 and u.deleted = 0");
-
-    if (!empty($users)) {
-      foreach ($users as $user) {
-        $userlist[$user->id] = $user->fullname;
-      }
-    }
-    $table = new html_table();
-    $table->head = array(get_string('s_no', 'block_systemreports'), get_string('student_name', 'block_systemreports'),
-      get_string('attendance', 'block_systemreports'));
-    $table->size = array('10%', '35%', '25%');
-    $table->attributes = array('class' => 'display');
-    $table->align = array('center', 'left', 'left', 'center');
-    $table->width = '100%';
-    $course_access_log = $DB->get_records_sql("SELECT count(id) as id,userid FROM {logstore_standard_log} WHERE action = 'viewed' and "
-        . "courseid = $course and target = 'course' group by userid");
-    $course_access_count = array();
-    if (!empty($course_access_log)) {
-      foreach ($course_access_log as $course_access) {
-        $course_access_count[$course_access->userid] = $course_access->id;
-      }
-    }
-    $inc = 1;
-    if (!empty($userlist)) {
-      foreach ($userlist as $userlist_key => $userlist_value) {
-        $row = array();
-        $row[] = $inc;
-        $row[] = $userlist_value;
-        $row[] = isset($course_access_count[$userlist_key]) ? $course_access_count[$userlist_key] : 0; //($quiz_grade_id_value != 0) ? substr($quiz_grade_id_value,0,5) : '0.0';
-
-        $table->data[] = $row;
-        $inc++;
-      }
-    }
-    else if ($course == 1) {
-      $table->data[] = array('', get_string('choose_course_first', 'block_systemreports'), '');
     }
     else {
-      $table->data[] = array('', get_string('no_one_visited', 'block_systemreports'), '');
+      $table->data[] = array('', '', get_string('notfound', 'block_systemreports'), '', '');
     }
     return $table;
   }
@@ -388,8 +409,8 @@ class assigntraining_learningplan__form extends moodleform {
     $yearid = optional_param('year', 0, PARAM_INT);
 
     $table = new html_table();
-    $table->head = array(get_string('s_no', 'block_systemreports'),
-      get_string('order_item', 'block_systemreports'), get_string('order_date', 'block_systemreports'),get_string('name', 'block_systemreports'), get_string('paid', 'block_systemreports')
+    $table->head = array(get_string('order_date', 'block_systemreports'), get_string('s_no', 'block_systemreports'),
+      get_string('order_item', 'block_systemreports') ,get_string('name', 'block_systemreports'), get_string('paid', 'block_systemreports')
       , get_string('payment_method', 'block_systemreports'), get_string('delete', 'block_systemreports'));
     $table->size = array('20%', '20%', '20%', '20%', '20%');
     $table->attributes = array('class' => 'display');
@@ -401,9 +422,9 @@ class assigntraining_learningplan__form extends moodleform {
     if (!empty($records)) {
       foreach ($records as $recordkey => $recordvalue) {
         $row = array();
+        $row[] = date("d-M-Y", $recordvalue->timemodified);
         $row[] = "ORD-$recordvalue->id";
         $row[] = $recordvalue->total_credit . ' credits';
-        $row[] = date("d-M-Y", $recordvalue->timemodified);
         $row[] = $recordvalue->firstname;
         $row[] = $recordvalue->total_credit . ".00";
         $row[] = $recordvalue->payment_type;
