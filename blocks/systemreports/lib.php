@@ -244,7 +244,7 @@ function nav_title($viewpage) {
     $array = array(
         1 => get_string('order_details', 'block_systemreports'),
         2 => get_string('enrolment_report', 'block_systemreports'),
-        5 => get_string('user_high_low_att', 'block_systemreports'),
+        3 => get_string('my_credit_report', 'block_systemreports'),
         6 => get_string('user_max_cert', 'block_systemreports'),
         7 => get_string('hla', 'block_systemreports'),
     );

@@ -238,7 +238,7 @@ function theme_mb2nl_site_menu_items()
 			'course' => true,
 			'icon' => 'fa fa-credit-card',
 			'text' => get_string('credits','theme_mb2nl')." ($balance)",
-      'link' => new moodle_url('#')
+      'link' => new moodle_url('/blocks/systemreports/view.php?viewpage=3')
 		),
       'creditreport' => array(
 			'access' => array('coursemgmt','admin'),

@@ -95,11 +95,13 @@ public function definition() {
   public function display_list() {
     global $DB, $OUTPUT, $CFG, $USER;
     // Page parameters.
+  echo "</br></br>";
+  echo $OUTPUT->heading(get_string('purchase_history', 'local_stripepayment'));
     $table = new html_table();
-    $table->head = array(get_string('course_name', 'block_systemreports'), get_string('category', 'block_systemreports'),
-               get_string('credits', 'block_systemreports'), get_string('enrol_date', 'block_systemreports'),
+    $table->head = array( get_string('enrol_date', 'block_systemreports'),get_string('course_name', 'block_systemreports'),
+      get_string('category', 'block_systemreports'), get_string('credits', 'block_systemreports')
       );
-    $table->size = array('20%', '20%', '20%', '20%', '20%');
+    $table->size = array('25%', '25%', '25%', '25%');
     $table->attributes = array('class' => 'display');
     $table->align = array('center', 'left', 'left', 'center');
     $table->width = '100%';
@@ -109,10 +111,10 @@ public function definition() {
     if (!empty($records)) {
       foreach ($records as $recordkey => $recordvalue) {
         $row = array();
+        $row[] = date("d-M-Y", $recordvalue->timemodified);
         $row[] = $recordvalue->coursename;
         $row[] = $recordvalue->categoryname;
         $row[] = $recordvalue->credits;
-        $row[] = date("d-M-Y", $recordvalue->timemodified);;
 
         $table->data[] = $row;
       }
@@ -143,12 +145,14 @@ class my_purchase_history_form extends moodleform {
   }
 
   public function display_list() {
-  global $DB,$USER;
+  global $DB,$USER, $OUTPUT;
   $userid = $USER->id;
+  echo "</br></br></br></br>";
+  echo $OUTPUT->heading(get_string('purchase_history', 'local_stripepayment'));
   $table = new html_table();
-  $table->head = array(get_string('payment_method', 'local_stripepayment'), get_string('plan', 'block_systemreports'),
-    get_string('purchased_credit', 'local_stripepayment'),
-    get_string('purchase_date', 'local_stripepayment'), get_string('expiry_date', 'local_stripepayment'));
+  $table->head = array( get_string('purchase_date', 'local_stripepayment'), get_string('expiry_date', 'local_stripepayment'),
+    get_string('payment_method', 'local_stripepayment'), get_string('plan', 'block_systemreports'),
+    get_string('purchased_credit', 'local_stripepayment'));
   $table->size = array('16%', '16%', '16%', '16%', '16%', '16%');
   $table->attributes = array('class' => 'display');
   $table->align = array('center', 'center', 'center', 'center', 'center');
@@ -159,11 +163,11 @@ class my_purchase_history_form extends moodleform {
     foreach ($records as $recordkey => $recordvalue) {
       $row = array();
       $payment_type = array('credit_card' => 'Stripe Top Up', 'manual' => 'Manual');
+      $row[] = date("d-M-Y", $recordvalue->timemodified);
+      $row[] = date("d-M-Y", strtotime('+30 days', $recordvalue->timemodified));
       $row[] = $payment_type[$recordvalue->payment_type];
       $row[] = $plan[$recordvalue->total_credit];
       $row[] = $recordvalue->total_credit;
-      $row[] = date("d-M-Y", $recordvalue->timemodified);
-      $row[] = date("d-M-Y", strtotime('+30 days', $recordvalue->timemodified));
 
       $table->data[] = $row;
       }

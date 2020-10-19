@@ -57,6 +57,17 @@ $PAGE->navbar->ignore_active();
 $PAGE->navbar->add(get_string("pluginname", 'block_systemreports'), new moodle_url($learningplan_url));
 $PAGE->navbar->add($nav_title);
 echo $OUTPUT->header();
+if ($viewpage == 3) {
+$userid = $USER->id;
+$user = $DB->get_record('user', array('id' => $userid));
+$userfullname = fullname($user, true);
+echo $OUTPUT->heading($userfullname);
+$fieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'user_credits'));
+$balance = $DB->get_field('user_info_data', 'data', array('fieldid' => $fieldid, 'userid' => $userid));
+$credits = ($balance > 0) ? $balance : 0;
+$total_credits = get_string('total_credits', 'local_stripepayment') . $credits;
+echo $OUTPUT->heading($total_credits);
+}
 echo html_writer::start_tag('div class="report_table_design"');
 $table = new html_table();
     
