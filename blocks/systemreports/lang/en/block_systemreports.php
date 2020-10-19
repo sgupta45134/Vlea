@@ -144,3 +144,5 @@ $string['category'] = 'Category';
 $string['course_name'] = 'Course Name';
 $string['credits'] = 'Credits';
 $string['plan'] = 'Plan';
+$string['enrol_history'] = 'Enrol History';
+$string['purchase_history'] = 'Purchase History';

@@ -96,7 +96,7 @@ public function definition() {
     global $DB, $OUTPUT, $CFG, $USER;
     // Page parameters.
   echo "</br></br>";
-  echo $OUTPUT->heading(get_string('purchase_history', 'local_stripepayment'));
+  echo $OUTPUT->heading(get_string('enrol_history', 'block_systemreports'));
     $table = new html_table();
     $table->head = array( get_string('enrol_date', 'block_systemreports'),get_string('course_name', 'block_systemreports'),
       get_string('category', 'block_systemreports'), get_string('credits', 'block_systemreports')
@@ -148,7 +148,7 @@ class my_purchase_history_form extends moodleform {
   global $DB,$USER, $OUTPUT;
   $userid = $USER->id;
   echo "</br></br></br></br>";
-  echo $OUTPUT->heading(get_string('purchase_history', 'local_stripepayment'));
+  echo $OUTPUT->heading(get_string('purchase_history', 'block_systemreports'));
   $table = new html_table();
   $table->head = array( get_string('purchase_date', 'local_stripepayment'), get_string('expiry_date', 'local_stripepayment'),
     get_string('payment_method', 'local_stripepayment'), get_string('plan', 'block_systemreports'),
