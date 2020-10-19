@@ -157,7 +157,7 @@ class my_purchase_history_form extends moodleform {
   $table->attributes = array('class' => 'display');
   $table->align = array('center', 'center', 'center', 'center', 'center');
   $table->width = '100%';
-  $records = $DB->get_records('user_credits', array('status' => 1, 'userid' => $userid, 'expire' => 0));
+  $records = $DB->get_records('user_credits', array('status' => 1, 'userid' => $userid));
   $plan = array(180 => 'Essential', 320 => 'Premium', 500 => 'Ultimate');
   if (!empty($records)) {
     foreach ($records as $recordkey => $recordvalue) {
