@@ -65,4 +65,6 @@ $string['subscribe_plan'] = 'Subscribed Plan';
 $string['credits_deducted'] = 'Credits to be deducted';
 $string['deduct_credits'] = 'Deduct Credits';
 $string['credits_been_deducted'] = 'Credits has been deducted';
+$string['print_profile'] = 'Print Profile';
+
 

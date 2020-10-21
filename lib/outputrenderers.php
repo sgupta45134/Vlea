@@ -4164,7 +4164,14 @@ EOD;
                                 'page' => $this->page
                             );
                     }
-
+                        $userbuttons['printprofile'] = array(
+                            'buttontype' => 'print',
+                            'title' => get_string('print_profile', 'local_stripepayment'),
+                            'url' => new moodle_url('/local/stripepayment/print_user_profile.php', array('id' => $user->id)),
+                            'image' => 'print',
+                            'linkattributes' => \core_message\helper::messageuser_link_params($user->id),
+                            'page' => $this->page
+                            );
                     $this->page->requires->string_for_js('changesmadereallygoaway', 'moodle');
                 }
             } else {
