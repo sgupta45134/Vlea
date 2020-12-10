@@ -118,6 +118,27 @@ else if ($creditdata = $mform_manualcredit->get_data()) {
     $insertid = $DB->insert_record('user_info_data', $data);
   }
   }
+    elseif ($creditdata->submitbutton == 'Add Rewards') {
+    $data = new stdClass();
+    $userid = $creditdata->userid;
+    $points = $creditdata->points;
+    $fieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'reward_points'));
+    if ($record = $DB->get_record('user_info_data', array('fieldid' => $fieldid, 'userid' => $userid))) {
+      $balance = $record->data;
+      $balance += $points;
+      $sql = "update {user_info_data} set data = $balance where id=$record->id";
+      $DB->execute($sql);
+    }
+    else {
+      $add_rewards = new stdClass();
+      $add_rewards->userid = $userid;
+      $add_rewards->fieldid = $fieldid;
+      $add_rewards->data = $points;
+      $add_rewards->dataformat = 0;
+      $insertid = $DB->insert_record('user_info_data', $add_rewards);
+    }
+    redirect("$CFG->wwwroot/local/stripepayment/manualcredit.php?id=$userid", get_string('points_assigned', 'local_stripepayment'));
+  }
   else {
     redirect("$CFG->wwwroot/local/stripepayment/manualcredit.php?id=$userid", get_string('some_issue', 'local_stripepayment'));
   }
@@ -138,6 +159,11 @@ else {
   $credits = ($balance > 0) ? $balance : 0;
   $total_credits = get_string('total_credits', 'local_stripepayment') . $credits;
   echo $OUTPUT->heading($total_credits);
+  $fieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'reward_points'));
+  $balance = $DB->get_field('user_info_data', 'data', array('fieldid' => $fieldid, 'userid' => $userid));
+  $points = ($balance > 0) ? $balance : 0;
+  $points = get_string('rewards_points', 'local_stripepayment') . $points;
+  echo $OUTPUT->heading($points);
   echo "</br></br>";
   echo $OUTPUT->heading(get_string('purchase_history', 'local_stripepayment'));
   echo html_writer::table(active_plans_user($userid));

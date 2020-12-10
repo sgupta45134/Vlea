@@ -306,6 +306,7 @@
             $table->head[] = ${$field};
         }
         $table->head[] = get_string('credit_left','local_stripepayment');
+        $table->head[] = get_string('rewards_points','local_stripepayment');
         $table->head[] = get_string('plan','local_stripepayment');
         $table->head[] = $city;
         $table->head[] = $country;
@@ -410,10 +411,14 @@
             foreach ($extracolumns as $field) {
                 $row[] = s($user->{$field});
             }
+            //customization for adding current active plan
             $fieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'user_credits'));
             $balance = $DB->get_field('user_info_data', 'data', array('fieldid' => $fieldid, 'userid' => $user->id));
             $row[] = $balance;
-           //customization for adding current active plan
+            
+            $fieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'reward_points'));
+            $balance = $DB->get_field('user_info_data', 'data', array('fieldid' => $fieldid, 'userid' => $user->id));
+            $row[] = ($balance > 0) ? $balance : 0;
             $row[] = current_active_plan($user->id);
           //customization end for adding current active plan
             $row[] = $user->city;

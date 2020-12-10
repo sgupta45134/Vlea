@@ -66,5 +66,10 @@ $string['credits_deducted'] = 'Credits to be deducted';
 $string['deduct_credits'] = 'Deduct Credits';
 $string['credits_been_deducted'] = 'Credits has been deducted';
 $string['print_profile'] = 'Print Profile';
+$string['reward_points'] = 'Reward Points(Will Reset on 31st Dec)';
+$string['points'] = 'Points';
+$string['submitrewarddata'] = 'Add Rewards';
+$string['points_assigned'] = 'Points Assigned';
+$string['rewards_points'] = 'Reward Points:';
 
 

@@ -92,6 +92,19 @@ class manualcredit_form extends moodleform {
        $mform->setType('userid', PARAM_INT);
         // buttons
         $this->add_action_buttons(true, get_string('submitdata', 'local_stripepayment'));
+        
+                
+        
+        $mform->addElement('header', 'reward_points', get_string('reward_points', 'local_stripepayment'), '');
+        $radioarray=array();
+        $mform->addElement('text', 'points', get_string('points','local_stripepayment'));
+        $mform->setType('points', PARAM_INT);
+        $mform->setDefault('points', '0');
+            
+       $mform->addElement('hidden', 'userid', $userid);
+       $mform->setType('userid', PARAM_INT);
+        // buttons
+        $this->add_action_buttons(true, get_string('submitrewarddata', 'local_stripepayment'));
 
     }
 
