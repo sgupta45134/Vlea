@@ -22,7 +22,7 @@
  */
 
 require_once('../../config.php');
-require_once("$CFG->libdir/formslib.php");
+require_once($CFG->libdir.'/formslib.php');
 
 class rewards_form extends moodleform {
     
@@ -48,8 +48,13 @@ class rewards_form extends moodleform {
         $mform->setType('id', PARAM_INT);
 
         $mform->addElement('text', 'points', get_string('points','local_rewards'));
-        $mform->setType('points', PARAM_INT);
+        $mform->setType('points', PARAM_TEXT);
         $mform->addRule('points', get_string('missingpoints', 'local_rewards'), 'required', null, 'client');
+
+        $mform->addElement('filepicker', 'userfile', get_string('file'), null,
+                   array('maxbytes' => 10240, 'accepted_types' => '*'));
+
+        $fpoptions = rewards_filepicker_options();
 		
         $this->add_action_buttons();
           

@@ -36,17 +36,39 @@ $mform = new rewards_form(null, $args);
 if($mform->is_cancelled()) {
     redirect(new moodle_url('/local/rewards/manage.php'));
 } else if ($fromform = $mform->get_data()) {
+        $content = $mform->get_file_content('userfile');
+        $newfilename = $mform->get_new_filename('userfile');
         $insert                 = new stdClass();
         $insert->prizename      =   $fromform->prizename;
         $insert->description    =   $fromform->description;
         $insert->points         =   $fromform->points;
-        $insert->image         =    'default-image.jpg';
+        if(empty($newfilename)) {
+            $insert->image      =   '';
+        } else {
+            $insert->image      =   $newfilename;
+        }
         $insert->timecreated    =   time();
         $insert->timemodified   =   time();
         $insert->createdby      =   $USER->id;
-        $insertid = $DB->insert_record('local_rewards', $insert);
+        $insertid = $DB->insert_record('local_rewards', $insert);        
 
         if($insertid) {
+            if(!empty($newfilename)) {
+                $fmoptions = rewards_filepicker_options();
+                $fileapiparams = file_api_params();
+                $tempfile = $mform->save_stored_file(
+                    'userfile',
+                    $context->id,
+                    $fileapiparams['component'],
+                    $fileapiparams['tempfilearea'],
+                    $insertid,
+                    $fileapiparams['filepath'],
+                    $newfilename,
+                    true
+                );
+
+                $newfile = set_file_from_stored_file($tempfile, $newfilename, $insertid);
+            }
             redirect(new moodle_url('/local/rewards/manage.php')); 
         }
 	

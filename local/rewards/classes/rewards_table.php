@@ -6,7 +6,6 @@
  */
 
 namespace local_rewards;
-
 use html_writer;
 use moodle_url;
 
@@ -31,9 +30,9 @@ class rewards_table extends \table_sql {
     public function __construct(moodle_url $url) {
         parent::__construct('local_rewards_table');
 
-        $fields = "r.id,prizename, r.description, points, concat(u.firstname, ' ',u.lastname) as creator, createdby, r.timecreated";
+        $fields = "r.id,prizename, r.description, points, r.image , concat(u.firstname, ' ',u.lastname) as creator, createdby, r.timecreated";
         $from   = "  {local_rewards} r join {user} u  on u.id= r.createdby ";
-        $where  = "1 ";
+        $where  = "1";
         $params = [];
 
         $this->define_baseurl($url);
@@ -41,6 +40,7 @@ class rewards_table extends \table_sql {
             'prizename',            
             'description',
             'points',
+            'image',
             'creator',
             'timecreated',
             'actions',
@@ -49,6 +49,7 @@ class rewards_table extends \table_sql {
             get_string('prizename', 'local_rewards'),            
             get_string('description', 'local_rewards'), 
             get_string('points', 'local_rewards'), 
+            get_string('image', 'local_rewards'), 
             get_string('createdby', 'local_rewards'), 
             get_string('timecreated', 'local_rewards'), 
             get_string('actions'), 
@@ -88,11 +89,6 @@ class rewards_table extends \table_sql {
 
 
         $buttons[] = $OUTPUT->action_icon($edit_url, new \pix_icon('t/edit', get_string('edit')));
-        // if ( ! $row->active) {
-        //     $buttons[] = $OUTPUT->action_icon($activate_url, new \pix_icon('t/show', get_string('activate', 'block_vslate_quicklinks')));
-        // } else {
-        //     $buttons[] = $OUTPUT->action_icon($deactivate_url, new \pix_icon('t/hide', get_string('deactivate', 'block_vslate_quicklinks')));
-        // }
         $buttons[] = $OUTPUT->action_icon($delete_url, new \pix_icon('t/delete', get_string('delete')));
 
         return implode(" ", $buttons);
@@ -110,6 +106,27 @@ class rewards_table extends \table_sql {
     public function col_timecreated($row) {
 
         return userdate($row->timecreated);
+    }
+
+    public function col_image($row) {
+        global $CFG;
+        $config = file_api_params();
+        
+        if(empty($row->image)) {
+            $imageurl = $CFG->wwwroot.'/local/rewards/pix/default-image.jpg';
+        } else {
+            $imageurl = \moodle_url::make_pluginfile_url(
+                    \context_system::instance()->id,
+                    $config['component'],
+                    $config['filearea'],
+                    $row->id,
+                    $config['filepath'],
+                    $row->image,
+                    false
+                )->out();
+        }
+
+        return '<img src="'.$imageurl.'" alt="prize image" style="height:50px;" class="prizeimage" />';
     }
     
 }

@@ -55,4 +55,5 @@ echo html_writer::empty_tag('br');
 echo html_writer::tag('p', $OUTPUT->action_link($addurl, get_string('add_entry', 'local_rewards'), null, ['class' => 'btn btn-secondary'],
     new pix_icon('t/add', '', null, ['class' => 'iconsmall'])));
 
+$config = file_api_params();
 echo $OUTPUT->footer();
