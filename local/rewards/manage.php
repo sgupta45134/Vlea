@@ -5,7 +5,7 @@ use local_rewards\rewards_table;
 
 require_once(dirname(__FILE__) . "/../../config.php");
 require_once($CFG->libdir . '/adminlib.php');
-
+require_once(dirname(__FILE__) . "/lib.php");
 $action     = optional_param('action', '', PARAM_TEXT);
 $delete     = optional_param('delete', 0, PARAM_INT);
 $id         = optional_param('id', 0, PARAM_INT);

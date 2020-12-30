@@ -5,6 +5,7 @@ use local_rewards\prize_redemption_table;
 
 require_once(dirname(__FILE__) . "/../../config.php");
 require_once($CFG->libdir . '/adminlib.php');
+require_once(dirname(__FILE__) . "/lib.php");
 
 
 $context = context_system::instance();
