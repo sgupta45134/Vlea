@@ -15,18 +15,31 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * Rewards plugin
  *
- * @package    format_collapsibletopics
- * @author     Jean-Roch Meurisse
- * @copyright  2018 - Cellule TICE - Unversite de Namur
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   local_assessments
+ * @category  Local Plugins
+ * @copyright 2018 
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+class local_rewards_renderer extends \plugin_renderer_base
+{
+    //use renderable;
+    public $data;
+    /**
+     * Renders the add dops page
+     *
+     * @return bool|string
+     * @throws \moodle_exception
+     */
+    public function render_prize_listing($data)
+    {
+        // TODO: check for the capability
+        
+        $this->data['prizes'] = $data;
+        //print_object($this->data);die();
+        return $this->render_from_template('local_rewards/redeem-prize', $this->data);
+    }
 
-$plugin->version   = 2020061701;        // The current plugin version (Date: YYYYMMDDXX).
-$plugin->maturity = MATURITY_STABLE;
-$plugin->requires  = 2016120509;        // Requires this Moodle version.
-$plugin->component = 'local_rewards';    // Full name of the plugin (used for diagnostics).
-$plugin->release = '3.9'; // Align version number with most recent moodle compatible version.
+}

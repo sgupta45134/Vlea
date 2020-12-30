@@ -42,10 +42,10 @@ if($mform->is_cancelled()) {
         $insert->prizename      =   $fromform->prizename;
         $insert->description    =   $fromform->description;
         $insert->points         =   $fromform->points;
-        if(empty($newfilename)) {
-            $insert->image      =   '';
-        } else {
+        if(!empty($newfilename)) {
             $insert->image      =   $newfilename;
+        } else {
+            $insert->image      =   '';
         }
         $insert->timecreated    =   time();
         $insert->timemodified   =   time();

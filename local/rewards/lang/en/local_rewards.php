@@ -42,3 +42,6 @@ $string['points'] = 'Points';
 $string['image'] = 'image';
 $string['reward_deleted'] = 'Prize deleted succesfully';
 $string['viewall'] = 'View all';
+$string['redeem-prize'] = 'Redeem prize';
+$string['prize-redemption-logs'] = 'All redeemed prize logs';
+$string['studentname'] = 'Student name';

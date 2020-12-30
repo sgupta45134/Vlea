@@ -48,6 +48,8 @@ function theme_mb2nl_site_menu()
   $siteMenuIems[] = 'creditreport';
   $siteMenuIems[] = 'enrolmentreport';
   $siteMenuIems[] = 'add_rewards';
+  $siteMenuIems[] = 'redeem_rewards';
+  $siteMenuIems[] = 'reward_points';
   
 	$course_access = theme_mb2nl_site_access();
 	$can_manage = array('admin','manager','editingteacher','teacher');
@@ -129,6 +131,8 @@ function theme_mb2nl_site_menu_items()
    }
     $fieldid = $DB->get_field('user_info_field','id',array('shortname' => 'user_credits'));
     $balance = $DB->get_field('user_info_data','data',array('fieldid' => $fieldid,'userid' => $USER->id));
+    $rewardfieldid = $DB->get_field('user_info_field','id',array('shortname' => 'reward_points'));
+    $reward_points = $DB->get_field('user_info_data','data',array('fieldid' => $rewardfieldid,'userid' => $USER->id));
 	$items = array(
 		'addcourse' => array(
 			'access' => array('admin','manager','coursecreator'),
@@ -262,6 +266,20 @@ function theme_mb2nl_site_menu_items()
 			'icon' => 'fa fa-gift',
 			'text' => get_string('add_rewards','theme_mb2nl'),
       'link' => new moodle_url('/local/rewards/manage.php')
+		),
+      'redeem_rewards' => array(
+		  'access' => array('coursemgmt','admin'),
+			'course' => true,
+			'icon' => 'fa fa-list',
+			'text' => get_string('redeem_rewards','theme_mb2nl'),
+      'link' => new moodle_url('/local/rewards/prize-redemption-logs.php')
+		),
+      'reward_points' => array(
+			'access' => array('student','user'),
+			'course' => true,
+			'icon' => 'fa fa-trophy',
+			'text' => get_string('reward_points','theme_mb2nl')." ($reward_points)",
+      'link' => new moodle_url('/local/rewards/redeem-prize.php')
 		),
 	);
 

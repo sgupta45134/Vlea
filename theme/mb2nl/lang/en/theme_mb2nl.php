@@ -400,3 +400,5 @@ $string['credits'] = 'Credits';
 $string['creditreport'] = ' Orders ';
 $string['enrolmentreport'] = ' Enrolments ';
 $string['add_rewards'] = 'Add Gifts';
+$string['redeem_rewards'] = 'Redeemed List';
+$string['reward_points'] = 'Reward Points';

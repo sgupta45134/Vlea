@@ -47,36 +47,68 @@ function local_rewards_extend_navigation(global_navigation $nav) {
     global $CFG, $DB;
     $context = context_system::instance();
     $pluginname = get_string('pluginname', 'local_rewards');
-    if (has_capability('local/rewards:manageprize', $context)) {
-        $mainnode = $nav->add(
-            get_string('pluginname', 'local_rewards'),
-            new moodle_url($CFG->wwwroot . "/local/rewards/manage.php"),
-            navigation_node::TYPE_CONTAINER,
-            'local_rewards',
-            'local_rewards',
-            new pix_icon('newspaper', $pluginname, 'local_rewards')
-        );
-        $mainnode->nodetype = 0;
-        $mainnode->showinflatnavigation = true;
-    }
+//    if (has_capability('local/rewards:manageprize', $context)) {
+//        $mainnode = $nav->add(
+//            get_string('pluginname', 'local_rewards'),
+//            new moodle_url($CFG->wwwroot . "/local/rewards/manage.php"),
+//            navigation_node::TYPE_CONTAINER,
+//            'local_rewards',
+//            'local_rewards',
+//            new pix_icon('newspaper', $pluginname, 'local_rewards')
+//        );
+//        $mainnode->nodetype = 0;
+//        $mainnode->showinflatnavigation = true;
+//
+//        $mainnode = $nav->add(
+//            get_string('redeem-prize', 'local_rewards'),
+//            new moodle_url($CFG->wwwroot . "/local/rewards/redeem-prize.php"),
+//            navigation_node::TYPE_CONTAINER,
+//            'redeem-prize',
+//            'redeem-prize',
+//            new pix_icon('newspaper', $pluginname, 'local_rewards')
+//        );
+//        $mainnode->nodetype = 0;
+//        $mainnode->showinflatnavigation = true;
+//
+//
+//        $mainnode = $nav->add(
+//            get_string('prize-redemption-logs', 'local_rewards'),
+//            new moodle_url($CFG->wwwroot . "/local/rewards/prize-redemption-logs.php"),
+//            navigation_node::TYPE_CONTAINER,
+//            'redeem-prize-logs',
+//            'redeem-prize-logs',
+//            new pix_icon('newspaper', $pluginname, 'local_rewards')
+//        );
+//        $mainnode->nodetype = 0;
+//        $mainnode->showinflatnavigation = true;
+
+//    }
     
 }
 
-function send_acknowledement_mail_to_user($fromuser, $touseremail, $message, $subject) {
+function send_acknowledement_mail_to_user($senderemail, $receiver, $message, $subject) {
 
         global $DB;
 
-        $fromuser = $DB->get_record('user', array('email'=>$fromuser));
-        $touser = new stdClass();
-        $touser->id = 1;
-        $touser->mailformat = 1;
-        $fromuser->mailformat = 1;
-        $touser->email = $touseremail;
-        $touser->deleted = 0;
-        $touser->auth = 'manual';
+        $sender = $DB->get_record('user', array('email'=>$senderemail));
+        
+        $receiver->mailformat = 1;
+        $sender->mailformat = 1;
+
         $messagehtml = text_to_html($message);
-        email_to_user($touser, $fromuser,
-        $subject, $message, $messagehtml);
+        email_to_user($receiver, $sender, $subject, $message, $messagehtml);
+}
+
+function send_acknowledement_mail_to_admin($senderemail, $receiver, $message, $subject) {
+
+        global $DB;
+        $sender = $DB->get_record('user', array('email'=>$senderemail));
+        $receiver = $DB->get_record('user', array('email'=>$receiver));
+        $receiver->mailformat = 1;
+        $sender->mailformat = 1;
+
+        $messagehtml = text_to_html($message);
+        email_to_user($receiver, $sender, $subject, $message, $messagehtml);
 }
 
 function get_single_record($id) {
@@ -87,6 +119,15 @@ function get_single_record($id) {
     return $record;
 
 }
+
+function get_prize_details($prizeid) {
+
+    global $DB;
+    $record = $DB->get_record('local_rewards', array('id'=>$prizeid));
+    return $record;
+    
+}
+
 
 /**
  * Options to pass to the filepicker when adding items to a gallery.
@@ -210,3 +251,48 @@ function file_api_params() {
             return false;
         }
     }
+
+
+
+
+function get_all_prizes() {
+    global $DB;
+
+    $prizes = $DB->get_records('local_rewards', array());
+    return $prizes;
+}
+
+function get_image_url($row) {
+
+    global $CFG;
+    $config = file_api_params();
+
+    if(empty($row->image)) {
+            $imageurl = $CFG->wwwroot.'/local/rewards/pix/default-image.jpg';
+        } else {
+            $imageurl = \moodle_url::make_pluginfile_url(
+                    \context_system::instance()->id,
+                    $config['component'],
+                    $config['filearea'],
+                    $row->id,
+                    $config['filepath'],
+                    $row->image,
+                    false
+                )->out();
+        }
+
+    return $imageurl;
+}
+
+function  save_prize_redemption($data) {
+    global $DB;
+
+    if(!empty($data)) {
+        $insert = new stdClass();
+        $insert->userid = $data->userid;
+        $insert->prizeid = $data->prizeid;
+        $insert->timecreated = time();
+        $insertid = $DB->insert_record('rewards_redemption_logs', $insert);
+    }
+    return $insertid;
+}

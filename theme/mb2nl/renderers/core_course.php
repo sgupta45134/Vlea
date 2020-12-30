@@ -39,7 +39,7 @@ class theme_mb2nl_core_course_renderer extends core_course_renderer {
 	protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '')
 	{
 
-	    global $CFG, $USER;
+	    global $CFG, $DB, $USER;
 
 		if (!isset($this->strings->summary))
 		{
@@ -110,7 +110,6 @@ class theme_mb2nl_core_course_renderer extends core_course_renderer {
 					$url = new moodle_url('/course/info.php', array('id' => $course->id));
 					$image = $this->output->pix_icon('i/info', $this->strings->summary);
 					$content .= html_writer::link($url, $image, array('title' => $this->strings->summary));
-
 					// Make sure JS file to expand course content is included.
 					$this->coursecat_include_js();
 				}

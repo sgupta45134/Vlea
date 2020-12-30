@@ -1,0 +1,33 @@
+<div id="courses-wrapper">
+
+                    <!-- row -->
+                    <div class="row">
+
+                        <!-- single course -->
+                        {{#prizes}}
+                        <div class="col-md-4 col-sm-6 col-xs-6">
+                            <div class="course">
+                                <a href="#" class="course-img">
+                                    <img src="{{prizeimage}}" alt="">
+                                    <i class="course-link-icon fa fa-link"></i>
+                                </a>
+                                <h3 class="course-title" href="#">{{prizename}}</h3>
+                                <h4 class="course-title" href="#">{{points}} Points</h4>
+                                <div class="course-details">
+                                    <span class="course-category">{{description}}</span>                                 
+                                </div>
+                                <div class="button-wrapper">
+                                <span id="notification-message-{{id}}"></span>
+                                <button id="prize_{{id}}" class="btn btn-primary">Redeem Now</button></div>
+
+                            </div>
+                        </div>
+                        {{/prizes}}
+                        <!-- /single course -->
+
+                        
+
+                    </div>
+                    <!-- /row -->
+
+                </div>
