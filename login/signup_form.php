@@ -67,6 +67,10 @@ class login_signup_form extends moodleform implements renderable, templatable {
         $mform->setType('school', PARAM_RAW);
         $mform->addRule('school', get_string('missingschool'), 'required', null, 'client');
         
+        $mform->addElement('text', 'level', get_string('level'), 'maxlength="100" size="25"');
+        $mform->setType('level', PARAM_RAW);
+        $mform->addRule('level', get_string('missinglevel'), 'required', null, 'client');
+        
         $mform->addElement('text', 'phone1', get_string('contact'), 'maxlength="100" size="25"');
         $mform->setType('phone1', PARAM_RAW);
         $mform->addRule('phone1', get_string('missingcontact'), 'required', null, 'client');
@@ -137,11 +141,11 @@ class login_signup_form extends moodleform implements renderable, templatable {
             $mform->setDefault('country', '');
         }
         
-        $radioarray=array();
-        $radioarray[] = $mform->createElement('radio', 'package', '', get_string('basic'), 'Basic');
-        $radioarray[] = $mform->createElement('radio', 'package', '', get_string('advance'), 'Advance');
-        $mform->addGroup($radioarray, 'package_group', get_string('package'), '', false);
-        $mform->setDefault('package', 'Basic');
+//        $radioarray=array();
+//        $radioarray[] = $mform->createElement('radio', 'package', '', get_string('basic'), 'Basic');
+//        $radioarray[] = $mform->createElement('radio', 'package', '', get_string('advance'), 'Advance');
+//        $mform->addGroup($radioarray, 'package_group', get_string('package'), '', false);
+//        $mform->setDefault('package', 'Basic');
 
         $issuancedetails = array();
         $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('website'), 'Website');

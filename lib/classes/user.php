@@ -737,7 +737,7 @@ class core_user {
         $fields['gender'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);
         $fields['parent'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);
         $fields['zip'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED); 
-        $fields['package'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
+        $fields['level'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
         $fields['find'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  
         $fields['refer'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED); 
         $fields['parent_email'] = array('type' => PARAM_RAW, 'null' => NULL_ALLOWED);  

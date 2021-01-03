@@ -2264,6 +2264,8 @@ $string['sitemessage'] = 'Message users';
 
 $string['missingschool'] = 'Missing School Name';
 $string['school'] = 'School';
+$string['missinglevel'] = 'Missing Level';
+$string['level'] = 'Level';
 $string['missingcontact'] = 'Missing Contact Number';
 $string['contact'] = 'Contact Number';
 $string['missingid'] = 'Missing Student Id';

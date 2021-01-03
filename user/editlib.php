@@ -304,6 +304,9 @@ function useredit_shared_definition(&$mform, $editoroptions, $filemanageroptions
     $mform->addElement('text', 'school', get_string('school'), 'maxlength="255" size="25"');
     $mform->setType('school', core_user::get_property_type('school'));
     
+    $mform->addElement('text', 'level', get_string('level'), 'maxlength="255" size="25"');
+    $mform->setType('level', core_user::get_property_type('level'));
+    
     $mform->addElement('text', 'student_id', get_string('student_id'), 'maxlength="255" size="25"');
     $mform->setType('student_id', core_user::get_property_type('student_id'));
     
@@ -344,9 +347,6 @@ function useredit_shared_definition(&$mform, $editoroptions, $filemanageroptions
     if (!empty($CFG->country)) {
         $mform->setDefault('country', core_user::get_property_default('country'));
     }
-  
-    $mform->addElement('text', 'package', get_string('package'), 'maxlength="255" size="25"');
-    $mform->setType('package', core_user::get_property_type('package'));
     
     $mform->addElement('text', 'find', get_string('find'), 'maxlength="255" size="25"');
     $mform->setType('find', core_user::get_property_type('find'));
