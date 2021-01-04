@@ -70,7 +70,7 @@ if ($action == 'redeem') {
 
         save_prize_redemption($data);
         echo "<h3 class='suceess'>Prize redeemed</h3>";
-        $senderemail = 'admin@gmail.com'; // Replace admin email id
+        $senderemail = 'contact@vleacademy.com'; // Replace admin email id
         $receiver = $USER;
         $message = "<h4>You have suceessfully redeemed the following prize</h4>
         	<table>
@@ -91,7 +91,7 @@ if ($action == 'redeem') {
         	</table>";
         	$subject = 'Prize redemption';
         send_acknowledement_mail_to_user($senderemail, $receiver, $message, $subject);
-        $receiveremail = 'admin@gmail.com'; // Replace admin email id
+        $receiveremail = 'tim@hg.sg'; // Replace admin email id
         $message = 'The following user has claimed prize
         			<table><tr><td>'.$USER->firstname.' '.$USER->lastname.'('.$USER->email.')</td></tr>
         			<tr><td>'.$prizedetails->prizename.'</td><td><img style="height:100px;width:100px;" src='.$prizeimage.' /></td></tr></table>

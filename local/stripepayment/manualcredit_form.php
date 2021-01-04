@@ -79,6 +79,7 @@ class manualcredit_form extends moodleform {
         
         
         $mform->addElement('header', 'credit', get_string('manual_credit_expire', 'local_stripepayment'), '');
+        $mform->setExpanded('credit', true);
         $radioarray=array();
         $radioarray[] =& $mform->createElement('radio', 'manual_credit', '', get_string('plan1', 'local_stripepayment'), '180');
         $radioarray[] =& $mform->createElement('static', 'none_break', null, '<br/>');
@@ -96,6 +97,7 @@ class manualcredit_form extends moodleform {
                 
         
         $mform->addElement('header', 'reward_points', get_string('reward_points', 'local_stripepayment'), '');
+        $mform->setExpanded('reward_points', true);
         $radioarray=array();
         $mform->addElement('text', 'points', get_string('points','local_stripepayment'));
         $mform->setType('points', PARAM_INT);
