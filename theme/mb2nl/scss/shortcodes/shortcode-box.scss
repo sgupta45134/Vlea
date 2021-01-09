@@ -71,3 +71,9 @@
 	margin-bottom: 20px;
 }
 
+.moodle-dialogue-base, .moodle-dialogue-exception {
+	 display: none!important;
+}
+body.lockscroll {
+	overflow: unset!important;
+}
