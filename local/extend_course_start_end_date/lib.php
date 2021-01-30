@@ -26,8 +26,8 @@ $records = $DB->get_records_sql($sql);
 foreach($records as $recordkey => $record){
   $data = new stdClass();
   $data->id = $record->id;
-  $data->startdate =  $record->startdate + time_to_add(7,$record->repeat_delay);
-  $data->enddate =  $record->enddate + time_to_add(7,$record->repeat_delay);
+  $data->startdate =  $record->startdate + time_to_add(30,$record->repeat_delay);
+  $data->enddate =  $record->enddate + time_to_add(30,$record->repeat_delay);
   $DB->update_record('course', $data);
 }
 }
