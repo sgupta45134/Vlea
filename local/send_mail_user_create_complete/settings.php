@@ -23,11 +23,11 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($hassiteconfig) {
-  $settings = new admin_settingpage('local_send_mail_user_create_complete', 'Set Email Here to Send Email:');
+  $settings = new admin_settingpage('local_send_mail_user_create_complete', 'Set address here to send email:');
 
   // Create 
   $ADMIN->add('localplugins', $settings);
   $settings->add(new admin_setting_configtext('local_send_mail_user_create_complete/email', get_string('email', 'local_send_mail_user_create_complete'), get_string('emaildescp', 'local_send_mail_user_create_complete'), '', PARAM_TEXT, 30));
 
-  $settings->add(new admin_setting_configtext('local_send_mail_user_create_complete/adminemail', get_string('adminemail', 'local_send_mail_user_create_complete'), get_string('adminemaildescp', 'local_send_mail_user_create_complete'), '', PARAM_TEXT, 30));
+//  $settings->add(new admin_setting_configtext('local_send_mail_user_create_complete/adminemail', get_string('adminemail', 'local_send_mail_user_create_complete'), get_string('adminemaildescp', 'local_send_mail_user_create_complete'), '', PARAM_TEXT, 30));
 }

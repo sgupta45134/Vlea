@@ -23,10 +23,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Send Mail on Course Completion and Enrolment';
-$string['email'] = 'Accessor Email';
-$string['emaildescp'] = 'Enter the Accessor Email Above to receive email on user creation';
+$string['email'] = 'Admin Email';
+$string['emaildescp'] = 'Enter the Admin Email Above to receive email';
 $string['user_created'] = 'New User Created';
 $string['course_complete'] = 'Course Completed';
-$string['adminemail'] = 'Admin Email';
-$string['adminemaildescp'] = 'Enter the Admin Email Above to receive email post course completion this would be disabled if course manager exists';
-$string['subject'] = 'MethSoluions Course Enrollment Notification';
+//$string['adminemail'] = 'Admin Email';
+//$string['adminemaildescp'] = 'Enter the Admin Email Above to receive email post course completion this would be disabled if course manager exists';
+$string['subject'] = 'Vleacademy Course Enrollment Notification';
