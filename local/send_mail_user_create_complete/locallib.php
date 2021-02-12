@@ -41,7 +41,7 @@ function send_mail_user_create(\core\event\user_created $event) {
   $emailuser->alternatename = '';
   $from = \core_user::get_noreply_user();
   $subject = get_string('user_created', 'local_send_mail_user_create_complete');
-  $message = "A new user named $name has been created in the system";
+  $message = "A new user named $name has been created into the system";
   email_to_user($emailuser, $from, $subject, $message);
 }
 
@@ -107,6 +107,6 @@ function send_enrol_mail(\core\event\user_enrolment_created $event) {
   $emailuser->lastnamephonetic = '';
   $emailuser->middlename = '';
   $emailuser->alternatename = '';
-  $message = "A new user named $name has been enrolle in the course named:$course_name";
+  $message = "A new user named $name has been enrolled in the course $course_name";
   email_to_user($emailuser, $from, $subject, $message);
 }
