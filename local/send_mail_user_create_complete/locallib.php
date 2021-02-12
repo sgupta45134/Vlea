@@ -30,7 +30,7 @@ function send_mail_user_create(\core\event\user_created $event) {
   $name = $user->firstname . ' ' . $user->lastname;
   $config = get_config('local_send_mail_user_create_complete');
   $emailuser->email = $config->email;
-  $emailuser->firstname = 'Assessor';
+  $emailuser->firstname = 'Admin';
   $emailuser->lastname = '';
   $emailuser->maildisplay = true;
   $emailuser->mailformat = 1; // 0 (zero) text-only emails, 1 (one) for HTML/Text emails.
@@ -98,7 +98,7 @@ function send_enrol_mail(\core\event\user_enrolment_created $event) {
   $name = $user->firstname . ' ' . $user->lastname;
   $config = get_config('local_send_mail_user_create_complete');
   $emailuser->email = $config->email;
-  $emailuser->firstname = 'Assessor';
+  $emailuser->firstname = 'Admin';
   $emailuser->lastname = '';
   $emailuser->maildisplay = true;
   $emailuser->mailformat = 1; // 0 (zero) text-only emails, 1 (one) for HTML/Text emails.
