@@ -91,7 +91,7 @@ if ($action == 'redeem') {
         	</table>";
         	$subject = 'Prize redemption';
         send_acknowledement_mail_to_user($senderemail, $receiver, $message, $subject);
-        $receiveremail = 'tim@hg.sg'; // Replace admin email id
+        $receiveremail = "contact@vleacademy.com"; // Replace admin email id
         $message = 'The following user has claimed prize
         			<table><tr><td>'.$USER->firstname.' '.$USER->lastname.'('.$USER->email.')</td></tr>
         			<tr><td>'.$prizedetails->prizename.'</td><td><img style="height:100px;width:100px;" src='.$prizeimage.' /></td></tr></table>
