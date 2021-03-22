@@ -73,7 +73,7 @@ class local_stripepayment_renderer extends plugin_renderer_base {
             <li></li>
             </br></br>
           </ul>
-          <a href="'.$CFG->wwwroot.'/local/stripepayment/payment.php?p=1" class="is-featured  pricing-button">Buy Now</a>
+          <a href="'.$CFG->wwwroot.'/local/stripepayment/student_profile.php?p=1" class="is-featured  pricing-button">Buy Now</a>
         </div>
         
         <div class="pricing-plan">
@@ -93,7 +93,7 @@ class local_stripepayment_renderer extends plugin_renderer_base {
             <li class="pricing-features-item">Individual Coaching</li>
           </ul>
           
-          <a href="'.$CFG->wwwroot.'/local/stripepayment/payment.php?p=2" class="is-featured  pricing-button">Buy Now</a>
+          <a href="'.$CFG->wwwroot.'/local/stripepayment/student_profile.php?p=2" class="is-featured  pricing-button">Buy Now</a>
         </div>
         
         <div class="pricing-plan">
@@ -113,7 +113,7 @@ class local_stripepayment_renderer extends plugin_renderer_base {
             <li class="pricing-features-item">Individual Coaching</li>
           </ul>
           
-          <a href="'.$CFG->wwwroot.'/local/stripepayment/payment.php?p=3" class="is-featured  pricing-button">Buy Now</a>
+          <a href="'.$CFG->wwwroot.'/local/stripepayment/student_profile.php?p=3" class="is-featured  pricing-button">Buy Now</a>
         </div>
        
       </div>

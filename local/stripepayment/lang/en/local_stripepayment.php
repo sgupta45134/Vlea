@@ -71,5 +71,6 @@ $string['points'] = 'Points';
 $string['submitrewarddata'] = 'Add Rewards';
 $string['points_assigned'] = 'Points Assigned';
 $string['rewards_points'] = 'Reward Points:';
-
-
+$string['update_procced'] = 'Update and Proceed';
+$string['update_profile_first'] = 'Update your profile first: ';
+$string['record_updated'] = 'Thank you for your time your record has been updated!';

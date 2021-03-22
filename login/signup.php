@@ -83,7 +83,17 @@ if ($mform_signup->is_cancelled()) {
     redirect(get_login_url());
 
 } else if ($user = $mform_signup->get_data()) {
-    // Add missing required fields.
+     $level = '';
+  foreach ($user->level as $levelkey => $levelvalue) {
+    if ($levelvalue == 1) {
+      $level .= $levelkey . ',';
+    }
+  }
+  $user->level = $level;
+  if (empty($user->email2)) {
+    $user->email2 = $user->email;
+  }
+  // Add missing required fields.
   if(isset($user->findother)){
     $user->find = $user->findother;
   }

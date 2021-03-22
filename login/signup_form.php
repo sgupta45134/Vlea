@@ -52,6 +52,10 @@ class login_signup_form extends moodleform implements renderable, templatable {
 
         $mform->addElement('header', 'supplyinfo', get_string('supplyinfo'),'');
         
+        $mform->addElement('text', 'parent', get_string('parent'), 'maxlength="100" size="25"');
+        $mform->setType('parent', PARAM_RAW);
+        $mform->addRule('parent', get_string('missingparent'), 'required', null, 'client');
+        
         $namefields = useredit_get_required_name_fields();
         foreach ($namefields as $field) {
             $mform->addElement('text', $field, get_string($field), 'maxlength="100" size="30"');
@@ -63,109 +67,129 @@ class login_signup_form extends moodleform implements renderable, templatable {
             $mform->addRule($field, get_string($stringid), 'required', null, 'client');
         }
         
-        $mform->addElement('text', 'school', get_string('school'), 'maxlength="100" size="25"');
-        $mform->setType('school', PARAM_RAW);
-        $mform->addRule('school', get_string('missingschool'), 'required', null, 'client');
-        
-        $mform->addElement('text', 'level', get_string('level'), 'maxlength="100" size="25"');
-        $mform->setType('level', PARAM_RAW);
-        $mform->addRule('level', get_string('missinglevel'), 'required', null, 'client');
-        
-        $mform->addElement('text', 'phone1', get_string('contact'), 'maxlength="100" size="25"');
-        $mform->setType('phone1', PARAM_RAW);
-        $mform->addRule('phone1', get_string('missingcontact'), 'required', null, 'client');
-        
-        $mform->addElement('text', 'student_id', get_string('student_id'), 'maxlength="100" size="25"');
-        $mform->setType('student_id', PARAM_RAW);
-        $mform->addRule('student_id', get_string('missingid'), 'required', null, 'client');
-        
+//        $mform->addElement('text', 'school', get_string('school'), 'maxlength="100" size="25"');
+//        $mform->setType('school', PARAM_RAW);
+//        $mform->addRule('school', get_string('missingschool'), 'required', null, 'client');
+//        
+//        $mform->addElement('text', 'level', get_string('level'), 'maxlength="100" size="25"');
+//        $mform->setType('level', PARAM_RAW);
+//        $mform->addRule('level', get_string('missinglevel'), 'required', null, 'client');
+//        
+//        
+//        $mform->addElement('text', 'student_id', get_string('student_id'), 'maxlength="100" size="25"');
+//        $mform->setType('student_id', PARAM_RAW);
+//        $mform->addRule('student_id', get_string('missingid'), 'required', null, 'client');
+//        
         $mform->addElement('text', 'email', get_string('email'), 'maxlength="100" size="25"');
         $mform->setType('email', core_user::get_property_type('email'));
         $mform->addRule('email', get_string('missingemail'), 'required', null, 'client');
         $mform->setForceLtr('email');
-
-        $mform->addElement('text', 'email2', get_string('emailagain'), 'maxlength="100" size="25"');
-        $mform->setType('email2', core_user::get_property_type('email'));
-        $mform->addRule('email2', get_string('missingemail'), 'required', null, 'client');
-        $mform->setForceLtr('email2');
         
-        $mform->addElement('date_selector', 'dob', get_string('dob'));
-        $mform->addRule('dob', get_string('missingdob'), 'required', null, 'client');
-        
-        $radioarray=array();
-        $radioarray[] = $mform->createElement('radio', 'gender', '', get_string('male'), 'Male');
-        $radioarray[] = $mform->createElement('radio', 'gender', '', get_string('female'), 'Female');
-        $mform->addGroup($radioarray, 'gender_group', get_string('gender'), '', false);
-        $mform->setDefault('gender', 'Male');
-        
-        
-        $mform->addElement('text', 'parent', get_string('parent'), 'maxlength="100" size="25"');
-        $mform->setType('parent', PARAM_RAW);
-        $mform->addRule('parent', get_string('missingparent'), 'required', null, 'client');
-        
-        $mform->addElement('text', 'parent_email', get_string('parent_email'), 'maxlength="100" size="25"');
-        $mform->setType('parent_email', core_user::get_property_type('email'));
-        $mform->addRule('parent_email', get_string('missingparent_email'), 'required', null, 'client');
-        $mform->setForceLtr('parent_email');
-        
-        $mform->addElement('text', 'parent_phone', get_string('parent_phone'), 'maxlength="100" size="25"');
-        $mform->setType('parent_phone', PARAM_RAW);
-        $mform->addRule('parent_phone', get_string('missingparent_phone'), 'required', null, 'client');
-        
-        
-        $mform->addElement('text', 'address', get_string('address'), 'maxlength="100" size="25"');
-        $mform->setType('address', PARAM_RAW);
-        $mform->addRule('address', get_string('missingaddress'), 'required', null, 'client');        
-        
-        $mform->addElement('text', 'address_extend', get_string('address_extend'), 'maxlength="100" size="25"');
-        $mform->setType('address_extend', PARAM_RAW);
-        
-        $mform->addElement('text', 'zip', get_string('zip'), 'maxlength="100" size="25"');
-        $mform->setType('zip', PARAM_RAW);
-        $mform->addRule('zip', get_string('missingzip'), 'required', null, 'client');
-        
-        $mform->addElement('text', 'city', get_string('city'), 'maxlength="120" size="20"');
-        $mform->setType('city', core_user::get_property_type('city'));
-        if (!empty($CFG->defaultcity)) {
-            $mform->setDefault('city', $CFG->defaultcity);
-        }
-
-        $country = get_string_manager()->get_list_of_countries();
-        $default_country[''] = get_string('selectacountry');
-        $country = array_merge($default_country, $country);
-        $mform->addElement('select', 'country', get_string('country'), $country);
-
-        if( !empty($CFG->country) ){
-            $mform->setDefault('country', $CFG->country);
-        }else{
-            $mform->setDefault('country', '');
-        }
+        $mform->addElement('text', 'phone1', get_string('contact'), 'maxlength="100" size="25"');
+        $mform->setType('phone1', PARAM_RAW);
+        $mform->addRule('phone1', get_string('missingcontact'), 'required', null, 'client');
+//
+//        $mform->addElement('text', 'email2', get_string('emailagain'), 'maxlength="100" size="25"');
+//        $mform->setType('email2', core_user::get_property_type('email'));
+//        $mform->addRule('email2', get_string('missingemail'), 'required', null, 'client');
+//        $mform->setForceLtr('email2');
+//        
+//        $mform->addElement('date_selector', 'dob', get_string('dob'));
+//        $mform->addRule('dob', get_string('missingdob'), 'required', null, 'client');
+//        
+//        $radioarray=array();
+//        $radioarray[] = $mform->createElement('radio', 'gender', '', get_string('male'), 'Male');
+//        $radioarray[] = $mform->createElement('radio', 'gender', '', get_string('female'), 'Female');
+//        $mform->addGroup($radioarray, 'gender_group', get_string('gender'), '', false);
+//        $mform->setDefault('gender', 'Male');
+//        
+//        
+//        
+//        $mform->addElement('text', 'parent_email', get_string('parent_email'), 'maxlength="100" size="25"');
+//        $mform->setType('parent_email', core_user::get_property_type('email'));
+//        $mform->addRule('parent_email', get_string('missingparent_email'), 'required', null, 'client');
+//        $mform->setForceLtr('parent_email');
+//        
+//        $mform->addElement('text', 'parent_phone', get_string('parent_phone'), 'maxlength="100" size="25"');
+//        $mform->setType('parent_phone', PARAM_RAW);
+//        $mform->addRule('parent_phone', get_string('missingparent_phone'), 'required', null, 'client');
+//        
+//        
+//        $mform->addElement('text', 'address', get_string('address'), 'maxlength="100" size="25"');
+//        $mform->setType('address', PARAM_RAW);
+//        $mform->addRule('address', get_string('missingaddress'), 'required', null, 'client');        
+//        
+//        $mform->addElement('text', 'address_extend', get_string('address_extend'), 'maxlength="100" size="25"');
+//        $mform->setType('address_extend', PARAM_RAW);
+//        
+//        $mform->addElement('text', 'zip', get_string('zip'), 'maxlength="100" size="25"');
+//        $mform->setType('zip', PARAM_RAW);
+//        $mform->addRule('zip', get_string('missingzip'), 'required', null, 'client');
+//        
+//        $mform->addElement('text', 'city', get_string('city'), 'maxlength="120" size="20"');
+//        $mform->setType('city', core_user::get_property_type('city'));
+//        if (!empty($CFG->defaultcity)) {
+//            $mform->setDefault('city', $CFG->defaultcity);
+//        }
+//
+//        $country = get_string_manager()->get_list_of_countries();
+//        $default_country[''] = get_string('selectacountry');
+//        $country = array_merge($default_country, $country);
+//        $mform->addElement('select', 'country', get_string('country'), $country);
+//
+//        if( !empty($CFG->country) ){
+//            $mform->setDefault('country', $CFG->country);
+//        }else{
+//            $mform->setDefault('country', '');
+//        }
         
 //        $radioarray=array();
 //        $radioarray[] = $mform->createElement('radio', 'package', '', get_string('basic'), 'Basic');
 //        $radioarray[] = $mform->createElement('radio', 'package', '', get_string('advance'), 'Advance');
 //        $mform->addGroup($radioarray, 'package_group', get_string('package'), '', false);
 //        $mform->setDefault('package', 'Basic');
+        
+        $levels = array();
+        $levels[] =& $mform->createElement('advcheckbox', 'level[P1]', '', get_string('P1'), 'P1');
+        $levels[] =& $mform->createElement('advcheckbox', 'level[P2]', '', get_string('P2'), 'P2');
+        $levels[] =& $mform->createElement('advcheckbox', 'level[P3]', '', get_string('P3'), 'P3');
+        $levels[] =& $mform->createElement('advcheckbox', 'level[P4]', '', get_string('P4'), 'P4');
+        $levels[] =& $mform->createElement('advcheckbox', 'level[P5]', '', get_string('P5'), 'P5');
+        $levels[] =& $mform->createElement('advcheckbox', 'level[P6]', '', get_string('P6'), 'P6');
+        $levels[] =& $mform->createElement('advcheckbox', 'level[S1]', '', get_string('S1'), 'S1');
+        $levels[] =& $mform->createElement('advcheckbox', 'level[S2]', '', get_string('S2'), 'S2');
+        $levels[] =& $mform->createElement('advcheckbox', 'level[S3]', '', get_string('S3'), 'S3');
+        $levels[] =& $mform->createElement('advcheckbox', 'level[S4]', '', get_string('S4'), 'S4');
+      
+        $mform->addGroup($levels, 'levelgroup', get_string('level'), array(' '), false);
+        $mform->setDefault('levelgroup', 'P1');
+        
+//$preprocedure=array(); 
+//    $preprocedure[] =  $mform->createElement('advcheckbox', 'preprocedure[]','', 'Demo1', array('group' => 1), array('','demo1'));
+//    $preprocedure[] =  $mform->createElement('advcheckbox', 'preprocedure[]','', 'Demo2', array('group' => 1), array('','demo2'));
+//    $preprocedure[] =  $mform->createElement('advcheckbox', 'preprocedure[]','', 'Demo3', array('group' => 1), array('','demo3'));
+//   $mform->addGroup($preprocedure, 'preproceduregroup', get_string('preprocedure', 'assignsubmission_metadata'),array('<br>'), false);
 
-        $issuancedetails = array();
-        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('website'), 'Website');
-        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('google'), 'Google');
-        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('facebook'), 'Facebook');
-        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('friend'), 'Friend');
-        $issuancedetails[] =& $mform->createElement('static', 'none_break', null, '<br/>');
-        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('others'), 1);
-        $issuancedetails[] =& $mform->createElement('text', 'findother', '');
-        
-        
-        $mform->addGroup($issuancedetails, 'findothergr', get_string('find'), array(' '), false);
-        $mform->setDefault('find', 'Website');
-        $mform->setType('findother', PARAM_RAW);
-        $mform->disabledIf('findother', 'find', 'neq', 1); 
+
+//        $issuancedetails = array();
+//        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('website'), 'Website');
+//        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('google'), 'Google');
+//        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('facebook'), 'Facebook');
+//        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('friend'), 'Friend');
+//        $issuancedetails[] =& $mform->createElement('static', 'none_break', null, '<br/>');
+//        $issuancedetails[] =& $mform->createElement('radio', 'find', '', get_string('others'), 1);
+//        $issuancedetails[] =& $mform->createElement('text', 'findother', '');
+//        
+//        
+//        $mform->addGroup($issuancedetails, 'findothergr', get_string('find'), array(' '), false);
+//        $mform->setDefault('find', 'Website');
+//        $mform->setType('findother', PARAM_RAW);
+//        $mform->disabledIf('findother', 'find', 'neq', 1); 
 
         profile_signup_fields($mform);
         
-        $mform->addElement('text', 'refer', get_string('refer'), 'maxlength="100" size="25"');
-        $mform->setType('refer', PARAM_RAW);   
+//        $mform->addElement('text', 'refer', get_string('refer'), 'maxlength="100" size="25"');
+//        $mform->setType('refer', PARAM_RAW);   
 
         if (signup_captcha_enabled()) {
             $mform->addElement('recaptcha', 'recaptcha_element', get_string('security_question', 'auth'));

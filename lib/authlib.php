@@ -1040,12 +1040,14 @@ function signup_validate_data($data, $files) {
             $errors['email'] = get_string('emailexists') . ' ' . get_string('emailexistssignuphint', 'moodle', $forgotpasswordlink);
         }
     }
-    if (empty($data['email2'])) {
-        $errors['email2'] = get_string('missingemail');
-
-    } else if (core_text::strtolower($data['email2']) != core_text::strtolower($data['email'])) {
-        $errors['email2'] = get_string('invalidemail');
-    }
+    //customization for hiding email again tab
+//    if (empty($data['email2'])) {
+//        $errors['email2'] = get_string('missingemail');
+//
+//    } else if (core_text::strtolower($data['email2']) != core_text::strtolower($data['email'])) {
+//        $errors['email2'] = get_string('invalidemail');
+//    }
+    //customization ends for hiding email again tab
     if (!isset($errors['email'])) {
         if ($err = email_is_not_allowed($data['email'])) {
             $errors['email'] = $err;
