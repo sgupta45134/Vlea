@@ -83,13 +83,15 @@ if ($mform_signup->is_cancelled()) {
     redirect(get_login_url());
 
 } else if ($user = $mform_signup->get_data()) {
-     $level = '';
-  foreach ($user->level as $levelkey => $levelvalue) {
-    if ($levelvalue == 1) {
-      $level .= $levelkey . ',';
-    }
+
+  if (empty($user->lastname)) {
+    $user->lastname = $user->parent_surname;
   }
-  $user->level = $level;
+  if (empty($user->firstname)) {
+    $user->firstname = $user->username;
+    $user->firstname_changed = 0;
+  }
+  
   if (empty($user->email2)) {
     $user->email2 = $user->email;
   }

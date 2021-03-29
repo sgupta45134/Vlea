@@ -29,7 +29,7 @@ require_login();
 $paymentid = optional_param('p', 0, PARAM_INT);
 global $USER, $DB;
 $school_name = $DB->get_field('user','school',array('id'=>$USER->id));
-$parents_email = $DB->get_field('user','school',array('id'=>$USER->id));
+$parents_email = $DB->get_field('user','parent_email',array('id'=>$USER->id));
 if(($school_name != 'NA' && $parents_email != 'NA') || is_siteadmin()){
   redirect(new moodle_url('/local/stripepayment/payment.php?p='.$paymentid));
 }
@@ -46,6 +46,14 @@ if ($mform_student_profile->is_cancelled()) {
 }
 else if ($data = $mform_student_profile->get_data()) {
   $data->id = $USER->id;
+       $level = '';
+  foreach ($data->level as $levelkey => $levelvalue) {
+    if ($levelvalue == 1) {
+      $level .= $levelkey . ',';
+    }
+  }
+  $data->level = $level;
+  $data->firstname_changed = 1;
   $paymentid = $data->paymentid;
   $update = $DB->update_record('user', $data);
   $fieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'user_credits'));

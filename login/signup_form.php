@@ -56,16 +56,20 @@ class login_signup_form extends moodleform implements renderable, templatable {
         $mform->setType('parent', PARAM_RAW);
         $mform->addRule('parent', get_string('missingparent'), 'required', null, 'client');
         
-        $namefields = useredit_get_required_name_fields();
-        foreach ($namefields as $field) {
-            $mform->addElement('text', $field, get_string($field), 'maxlength="100" size="30"');
-            $mform->setType($field, core_user::get_property_type('firstname'));
-            $stringid = 'missing' . $field;
-            if (!get_string_manager()->string_exists($stringid, 'moodle')) {
-                $stringid = 'required';
-            }
-            $mform->addRule($field, get_string($stringid), 'required', null, 'client');
-        }
+        $mform->addElement('text', 'parent_surname', get_string('parent_surname'), 'maxlength="100" size="25"');
+        $mform->setType('parent_surname', PARAM_RAW);
+        $mform->addRule('parent_surname', get_string('missingparent_surname'), 'required', null, 'client');
+        
+//        $namefields = useredit_get_required_name_fields();
+//        foreach ($namefields as $field) {
+//            $mform->addElement('text', $field, get_string($field), 'maxlength="100" size="30"');
+//            $mform->setType($field, core_user::get_property_type('firstname'));
+//            $stringid = 'missing' . $field;
+//            if (!get_string_manager()->string_exists($stringid, 'moodle')) {
+//                $stringid = 'required';
+//            }
+//            $mform->addRule($field, get_string($stringid), 'required', null, 'client');
+//        }
         
 //        $mform->addElement('text', 'school', get_string('school'), 'maxlength="100" size="25"');
 //        $mform->setType('school', PARAM_RAW);
@@ -149,20 +153,20 @@ class login_signup_form extends moodleform implements renderable, templatable {
 //        $mform->addGroup($radioarray, 'package_group', get_string('package'), '', false);
 //        $mform->setDefault('package', 'Basic');
         
-        $levels = array();
-        $levels[] =& $mform->createElement('advcheckbox', 'level[P1]', '', get_string('P1'), 'P1');
-        $levels[] =& $mform->createElement('advcheckbox', 'level[P2]', '', get_string('P2'), 'P2');
-        $levels[] =& $mform->createElement('advcheckbox', 'level[P3]', '', get_string('P3'), 'P3');
-        $levels[] =& $mform->createElement('advcheckbox', 'level[P4]', '', get_string('P4'), 'P4');
-        $levels[] =& $mform->createElement('advcheckbox', 'level[P5]', '', get_string('P5'), 'P5');
-        $levels[] =& $mform->createElement('advcheckbox', 'level[P6]', '', get_string('P6'), 'P6');
-        $levels[] =& $mform->createElement('advcheckbox', 'level[S1]', '', get_string('S1'), 'S1');
-        $levels[] =& $mform->createElement('advcheckbox', 'level[S2]', '', get_string('S2'), 'S2');
-        $levels[] =& $mform->createElement('advcheckbox', 'level[S3]', '', get_string('S3'), 'S3');
-        $levels[] =& $mform->createElement('advcheckbox', 'level[S4]', '', get_string('S4'), 'S4');
-      
-        $mform->addGroup($levels, 'levelgroup', get_string('level'), array(' '), false);
-        $mform->setDefault('levelgroup', 'P1');
+//        $levels = array();
+//        $levels[] =& $mform->createElement('advcheckbox', 'level[P1]', '', get_string('P1'), 'P1');
+//        $levels[] =& $mform->createElement('advcheckbox', 'level[P2]', '', get_string('P2'), 'P2');
+//        $levels[] =& $mform->createElement('advcheckbox', 'level[P3]', '', get_string('P3'), 'P3');
+//        $levels[] =& $mform->createElement('advcheckbox', 'level[P4]', '', get_string('P4'), 'P4');
+//        $levels[] =& $mform->createElement('advcheckbox', 'level[P5]', '', get_string('P5'), 'P5');
+//        $levels[] =& $mform->createElement('advcheckbox', 'level[P6]', '', get_string('P6'), 'P6');
+//        $levels[] =& $mform->createElement('advcheckbox', 'level[S1]', '', get_string('S1'), 'S1');
+//        $levels[] =& $mform->createElement('advcheckbox', 'level[S2]', '', get_string('S2'), 'S2');
+//        $levels[] =& $mform->createElement('advcheckbox', 'level[S3]', '', get_string('S3'), 'S3');
+//        $levels[] =& $mform->createElement('advcheckbox', 'level[S4]', '', get_string('S4'), 'S4');
+//      
+//        $mform->addGroup($levels, 'levelgroup', get_string('level'), array(' '), false);
+//        $mform->setDefault('levelgroup', 'P1');
         
 //$preprocedure=array(); 
 //    $preprocedure[] =  $mform->createElement('advcheckbox', 'preprocedure[]','', 'Demo1', array('group' => 1), array('','demo1'));

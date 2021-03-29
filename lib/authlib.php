@@ -1058,8 +1058,8 @@ function signup_validate_data($data, $files) {
     $tempuser = new stdClass();
     $tempuser->id = 1;
     $tempuser->username = $data['username'];
-    $tempuser->firstname = $data['firstname'];
-    $tempuser->lastname = $data['lastname'];
+//    $tempuser->firstname = $data['firstname'];
+//    $tempuser->lastname = $data['lastname'];
     $tempuser->email = $data['email'];
 
     $errmsg = '';
