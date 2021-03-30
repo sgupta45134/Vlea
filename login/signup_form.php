@@ -51,14 +51,14 @@ class login_signup_form extends moodleform implements renderable, templatable {
         $mform->addRule('password', get_string('missingpassword'), 'required', null, 'client');
 
         $mform->addElement('header', 'supplyinfo', get_string('supplyinfo'),'');
-        
-        $mform->addElement('text', 'parent', get_string('parent'), 'maxlength="100" size="25"');
-        $mform->setType('parent', PARAM_RAW);
-        $mform->addRule('parent', get_string('missingparent'), 'required', null, 'client');
-        
+      
         $mform->addElement('text', 'parent_surname', get_string('parent_surname'), 'maxlength="100" size="25"');
         $mform->setType('parent_surname', PARAM_RAW);
         $mform->addRule('parent_surname', get_string('missingparent_surname'), 'required', null, 'client');
+                
+        $mform->addElement('text', 'parent', get_string('parent'), 'maxlength="100" size="25"');
+        $mform->setType('parent', PARAM_RAW);
+        $mform->addRule('parent', get_string('missingparent'), 'required', null, 'client');
         
 //        $namefields = useredit_get_required_name_fields();
 //        foreach ($namefields as $field) {
