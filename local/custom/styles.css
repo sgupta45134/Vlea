@@ -1,0 +1,117 @@
+.course {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.button-wrapper {
+    margin-top: 25px;
+}
+
+.course .course-img {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    min-height: 200px;
+    max-height: 200px;
+    border: solid 15px #CBD3DA;
+}
+
+.course .course-img > img {
+    width: 100%;
+}
+
+.course .course-img .course-link-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50% , calc(-50% - 15px));
+    -ms-transform: translate(-50% , calc(-50% - 15px));
+    transform: translate(-50% , calc(-50% - 15px));
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 10;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.fa-chain:before, .fa-link:before {
+    content: "\f0c1";
+}
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.course-img:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: #FF6700;
+    opacity: 0;
+    -webkit-transition: 0.2s opacity;
+    transition: 0.2s opacity;
+}
+.course .course-title {
+    display: block;
+    height: 30px;
+}
+.course .course-details {
+    margin-top: 0px;
+    padding: 10px;
+    
+    text-align: center;
+}
+.course .course-details .course-price.course-free {
+    color: green;
+}
+.course .course-details .course-price {
+    float: right;
+}
+h3.warning-alert {
+    font-size: 15px;
+    font-weight: bold;
+    color: coral;
+}
+h3.suceess {
+    font-size: 15px;
+    font-weight: bold;
+    color: #5cb85c;
+}
+
+.paynow {
+    margin-left: 292px;
+}
+
+.heading {
+    margin-left: 83px;
+}
+.my_button {
+    margin-left: 55px;
+}

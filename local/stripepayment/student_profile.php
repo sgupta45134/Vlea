@@ -31,7 +31,7 @@ global $USER, $DB;
 $school_name = $DB->get_field('user','school',array('id'=>$USER->id));
 $parents_email = $DB->get_field('user','parent_email',array('id'=>$USER->id));
 if(($school_name != 'NA' && $parents_email != 'NA') || is_siteadmin()){
-  redirect(new moodle_url('/local/stripepayment/payment.php?p='.$paymentid));
+  redirect(new moodle_url('/local/custom/payment.php?p='.$paymentid));
 }
 require_once($CFG->dirroot . '/user/editlib.php');
 require_once('student_profile_form.php');
