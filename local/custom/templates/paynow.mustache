@@ -1,0 +1,22 @@
+
+                    <!-- row -->
+                    <div class="row" style="text-align:centre">
+
+                        <!-- single course -->
+                        {{#prizes}}
+                        <div class="col-md-3 col-sm-6 col-xs-6">
+                               <h3 class="course-title" href="#">Pay Now</h3></n>
+                                <h6 class="course-title" href="#">Please Launch your local bank app. Click on <b>PayNow</b> to scan QR Code</h6s>
+                            <div class="course">
+                                    <img src="{{prizeimage}}" alt="">
+                        </div>
+                      <button onclick="location.href='{{{ config.wwwroot }}}/local/custom/payment.php?p={{paymentid}}&notify=1'"  class="btn btn-primary">Notify Administrator</button>
+<h6 class="course-title" href="#">Please click on <b>Notify Administrator</b> button after you have made the payment</h6>
+                        {{/prizes}}
+                        <!-- /single course -->
+
+                        
+
+                    </div>
+                    <!-- /row -->
+
