@@ -594,22 +594,29 @@ $string['emailalreadysent'] = 'A password reset email has already been sent. Ple
 $string['emailactive'] = 'Email activated';
 $string['emailagain'] = 'Email (again)';
 $string['emailconfirm'] = 'Confirm your account';
-$string['emailconfirmation'] = 'Hi {$a->firstname},
+//$string['emailconfirmation'] = 'Hi {$a->firstname},
+//
+//A new account has been requested at \'{$a->sitename}\'
+//using your email address.
+//
+//To confirm your new account, please go to this web address:
+//
+//{$a->link}
+//
+//In most mail programs, this should appear as a blue link
+//which you can just click on.  If that doesn\'t work,
+//then cut and paste the address into the address
+//line at the top of your web browser window.
+//
+//If you need help, please contact the site administrator,
+//{$a->admin}';
+$string['emailconfirmation'] = 'Thank you for signing up with VLEacademy.  Please click on {$a->link} to verify your account
+  and you will be able gain access to www.vleacademy.com to 
+1) Access to our complimentary weekly bites for self learning. 
 
-A new account has been requested at \'{$a->sitename}\'
-using your email address.
+2) Register for the one - time FREE trial lesson (P1-P6 Only) . please whatsapp to 91723109 or email contact@vleacademy.com
 
-To confirm your new account, please go to this web address:
-
-{$a->link}
-
-In most mail programs, this should appear as a blue link
-which you can just click on.  If that doesn\'t work,
-then cut and paste the address into the address
-line at the top of your web browser window.
-
-If you need help, please contact the site administrator,
-{$a->admin}';
+Again, welcome to the VLEAcademy !.';
 $string['emailconfirmationresend'] = 'Resend confirmation email';
 $string['emailconfirmationsubject'] = '{$a}: account confirmation';
 $string['emailconfirmsent'] = '<p>An email should have been sent to your address at <b>{$a}</b></p>
