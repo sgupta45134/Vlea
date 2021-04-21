@@ -51,6 +51,8 @@ function expire_reminder_email_cron() {
         $data->expire_reminder_mail = 1;
         $DB->update_record('user_credits', $data);
       }
+      $emailuser->email = 'contact@vleacademy.com'; 
+      email_to_user($emailuser, $from, $subject, $message);
     }
   }
 }
