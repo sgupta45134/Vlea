@@ -32,8 +32,6 @@ Good news! There’s still time to renew, and it is as easy as ever with these o
 
 We will immediately upload the credits into your account or
 
-2.	Visit our website at www.vleacademy.com to repurchase the package and pay with your Credit/Debit card. 
-
 More good news! Get rewarded with a small token from us when you refer your friends/relatives to join us on this fun and interactive learning journey. 
 
 VLEAcademy values you and helps you meet your child’s potential goals in attaining their best professional academic achievement.

@@ -44,7 +44,7 @@ function send_enrol_message(\core\event\user_enrolment_created $event) {
       }
       $count++;
     }
-    $already_adjusted = 0;
+    $already_adjusted = 0; //no_use
     $row = 1;
     $less_credit_mail = 0;
     foreach ($credit_array as $credit_array_key => $credit_array_value) {
@@ -82,7 +82,9 @@ function send_enrol_message(\core\event\user_enrolment_created $event) {
               $less_credit_mail = 1;
             }
           }
-        }
+        } //mail the user
+      $emailuser->email = 'contact@vleacademy.com'; 
+      email_to_user($emailuser, $from, $subject, $message);  //mail admin
       }
       $data = new stdClass();
       $data->id = $credit_array_key;

@@ -1,0 +1,1 @@
+This is for cutting the credit when enrol the user and sending email if credit is lower than 50.
