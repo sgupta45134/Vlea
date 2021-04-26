@@ -50,7 +50,7 @@ if($notify == 1){
   $emailuser->alternatename = '';
   $from = \core_user::get_noreply_user();
   $subject = get_string('payment_received', 'local_custom');
-  $credits = array(1=>180, 2=>360, 3 =>500);
+  $credits = array(1=>180, 2=>320, 3 =>500);
   $a = new stdClass();
   $a->parent_name = $user->parent;
   require_once('../stripepayment/lib.php');

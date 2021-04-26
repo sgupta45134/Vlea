@@ -33,7 +33,7 @@ $string['email'] = 'Admin Email';
 $string['emaildescp'] = 'Enter the Admin Email Above to receive email of payments';
 $string['payment_received'] = 'Payment Received!';
 $string['message'] = 'Hi Admin,
-Received a payment via paynow, please revify the bank transaction
+Received a payment via paynow, please verify the bank transaction
 
 Payment Detais: 
 Parent’s name: {$a->parent_name}
