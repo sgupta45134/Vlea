@@ -90,8 +90,8 @@ class login_signup_form extends moodleform implements renderable, templatable {
         $mform->setForceLtr('email');
         
         $mform->addElement('text', 'phone1', get_string('contact'), 'maxlength="100" size="25"');
-        $mform->setType('phone1', PARAM_RAW);
-        $mform->addRule('phone1', get_string('missingcontact'), 'required', null, 'client');
+        $mform->setType('phone1', PARAM_INT);
+        $mform->addRule('phone1', 'Numeric Values Only', 'numeric', null, 'client');
 //
 //        $mform->addElement('text', 'email2', get_string('emailagain'), 'maxlength="100" size="25"');
 //        $mform->setType('email2', core_user::get_property_type('email'));
@@ -248,6 +248,9 @@ class login_signup_form extends moodleform implements renderable, templatable {
             } else {
                 $errors['recaptcha_element'] = get_string('missingrecaptchachallengefield');
             }
+        }
+        if (strlen($data['phone1']) != 8) {
+            $errors['phone1'] = get_string('number_limit');
         }
 
         $errors += signup_validate_data($data, $files);

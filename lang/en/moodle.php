@@ -2320,3 +2320,4 @@ $string['S1'] = 'S1';
 $string['S2'] = 'S2';
 $string['S3'] = 'S3';
 $string['S4'] = 'S4';
+$string['number_limit'] = "Number should be of 8 digits";
